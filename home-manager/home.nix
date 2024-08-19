@@ -41,8 +41,8 @@
       enable = true;
       interactiveShellInit = ''
         set fish_greeting # disable fish greeting
-      ''
-    }
+      '';
+    };
   };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
