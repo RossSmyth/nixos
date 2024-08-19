@@ -24,6 +24,7 @@
     home-manager.enable = true;
     helix.package = inputs.helix.packages.${pkgs.system}.default;    
     git = {
+      difftastic.enable = true;
       enable = true;
       userEmail = "18294397+RossSmyth@users.noreply.github.com";
       userName = "Ross Smyth";
