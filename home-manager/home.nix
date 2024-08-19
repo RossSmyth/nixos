@@ -21,6 +21,7 @@
   };
 
   programs = {
+    ripgrep.enable = true;
     home-manager.enable = true;
     helix.package = inputs.helix.packages.${pkgs.system}.default;    
     git = {
