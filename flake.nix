@@ -23,7 +23,7 @@
         system = "x86_64-linux";
         specialArgs = {inherit inputs;};
         modules = [
-          ./nixos/configuration.nix
+          ./common.nix
           nixos-wsl.nixosModules.default
           {
             system.stateVersion = "24.05";
