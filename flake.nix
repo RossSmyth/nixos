@@ -46,6 +46,9 @@
       desktop = machine {
         hostname = "desktop";
       };
+      work = machine {
+        hostname = "work";
+      };
     };
   };
 }
