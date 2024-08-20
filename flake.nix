@@ -16,24 +16,35 @@
     nixos-wsl,
     home-manager,
     ...
-  } @ inputs: {
+  } @ inputs: let
+    machine = {
+      hostname,
+      target ? "x86_64-linux",
+      extraModules ? [],
+    }:
+      nixpkgs.lib.nixosSystem {
+        system = target;
+        specialArgs = {inherit inputs;};
+        modules =
+          [
+            ./common.nix
+            ./${hostname}/hardware-configuration.nix
+            ./${hostname}/system.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.rsmyth = import ./home-manager/home.nix;
+              home-manager.extraSpecialArgs = {inherit inputs;};
+            }
+          ]
+          ++ extraModules;
+      };
+  in {
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
     nixosConfigurations = {
-      desktop = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = {inherit inputs;};
-        modules = [
-          ./common.nix
-          ./desktop/hardware-configuration.nix
-          ./desktop/system.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.rsmyth = import ./home-manager/home.nix;
-            home-manager.extraSpecialArgs = {inherit inputs;};
-          }
-        ];
+      desktop = machine {
+        hostname = "desktop";
       };
     };
   };
