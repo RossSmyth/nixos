@@ -29,6 +29,9 @@
       enable = true;
       userEmail = "18294397+RossSmyth@users.noreply.github.com";
       userName = "Ross Smyth";
+      aliases = {
+        amend = "commit --amend --no-edit";
+      };
       extraConfig = {
         push.default = "current";
         push.autoSetupRemote = true;
