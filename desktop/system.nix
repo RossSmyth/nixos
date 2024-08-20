@@ -13,6 +13,5 @@
       wsl.interop.includePath = false;
     }
   ];
-  networking.hostName = "desktop";
   system.stateVersion = "24.05";
 }
