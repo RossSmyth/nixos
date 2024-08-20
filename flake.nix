@@ -23,6 +23,7 @@
         system = "x86_64-linux";
         specialArgs = {inherit inputs;};
         modules = [
+          { networking.hostName = "desktop"; }
           ./common.nix
           nixos-wsl.nixosModules.default
           {

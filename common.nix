@@ -29,7 +29,6 @@
     gc.automatic = true;
   };
 
-  networking.hostName = "desktop";
   time.timeZone = "America/Detroit";
 
   programs.fish.enable = true;
