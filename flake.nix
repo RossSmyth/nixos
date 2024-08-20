@@ -23,15 +23,9 @@
         system = "x86_64-linux";
         specialArgs = {inherit inputs;};
         modules = [
-          { networking.hostName = "desktop"; }
           ./common.nix
-          nixos-wsl.nixosModules.default
-          {
-            system.stateVersion = "24.05";
-            wsl.enable = true;
-            wsl.defaultUser = "rsmyth";
-            wsl.interop.includePath = false;
-          }
+          ./desktop/hardware-configuration.nix
+          ./desktop/system.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
