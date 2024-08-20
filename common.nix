@@ -1,5 +1,3 @@
-# This is your system's configuration file.
-# Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
 {
   inputs,
   lib,
@@ -8,7 +6,7 @@
   ...
 }: {
   imports = [
-    ./nixos/hardware-configuration.nix
+    ./desktop/hardware-configuration.nix
   ];
 
   nixpkgs = {
@@ -31,7 +29,7 @@
     gc.automatic = true;
   };
 
-  networking.hostName = "nixos";
+  networking.hostName = "desktop";
   time.timeZone = "America/Detroit";
 
   programs.fish.enable = true;
