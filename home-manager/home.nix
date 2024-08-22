@@ -47,6 +47,17 @@
       interactiveShellInit = ''
         set fish_greeting # disable fish greeting
       '';
+      shellAliases = {
+        cat = "bat --paging=never";
+      };
+    };
+
+    starship = {
+      enable = true;
+      enableFishIntegration = true;
+    };
+    bat = {
+      enable = true;
     };
   };
 
