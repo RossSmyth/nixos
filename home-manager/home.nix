@@ -31,6 +31,7 @@
       userName = "Ross Smyth";
       aliases = {
         amend = "commit --amend --no-edit";
+        cm    = "commit -m";
       };
       extraConfig = {
         push.default = "current";
