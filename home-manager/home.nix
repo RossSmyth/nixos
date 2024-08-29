@@ -7,6 +7,7 @@
 }: {
   imports = [
     ./helix.nix
+    inputs.nix-index-database.hmModules.nix-index
   ];
 
   nixpkgs = {
@@ -21,6 +22,8 @@
   };
 
   programs = {
+    nix-index-database.comma.enable = true;
+    
     ripgrep.enable = true;
     fd.enable = true;
     home-manager.enable = true;
