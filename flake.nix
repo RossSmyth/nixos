@@ -3,11 +3,15 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
 
-    # Home manager
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    helix.url = "github:helix-editor/helix";
+    helix = { 
+      url = "github:helix-editor/helix";
+      inputs.nixpkgs.follows = "nixpkgs"; 
+    };
   };
 
   outputs = {
