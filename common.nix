@@ -22,7 +22,10 @@
       auto-optimise-store = true;
     };
     channel.enable = false;
-    gc.automatic = true;
+    gc = { 
+      automatic = true;
+      options = "--delete-older-than 7d";
+    };
   };
 
   time.timeZone = "America/Detroit";
