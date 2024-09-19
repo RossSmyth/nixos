@@ -59,6 +59,11 @@
     starship = {
       enable = true;
       enableFishIntegration = true;
+      settings = {
+        shlvl = {
+          disabled = false;
+        };
+      };
     };
     bat = {
       enable = true;
