@@ -43,6 +43,7 @@
         pull.ff = "only";
         init.defaultBranch = "main";
         merge.conflictstyle = "zdiff3";
+        blame.ignoreRevsFile = ".git-blame-ignore-revs";
       };
     };
 
