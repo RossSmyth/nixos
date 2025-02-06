@@ -54,7 +54,7 @@
       shellAliases = {
         cat = "bat --paging=never";
         nxswitch = "sudo nixos-rebuild switch --flake ${config.xdg.configHome}/nix";
-        nxbuild  = "sudo nixos-rebuild build --flake ${config.xdg.configHome}/nix";
+        nxbuild  = "sudo nixos-rebuild boot --flake ${config.xdg.configHome}/nix";
         nxedit  = "${config.home.sessionVariables.EDITOR} ${config.xdg.configHome}/nix";
       };
     };
