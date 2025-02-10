@@ -7,7 +7,15 @@
   programs.helix = {
     enable = true;
     defaultEditor = true;
-    package = inputs.helix.packages.${pkgs.system}.default;
+    package = let
+      craneLib = inputs.crane.mkLib pkgs;
+      nightly-crane = craneLib.overrideToolchain (p: (inputs.rust-overlay.lib.mkRustBin {} pkgs).nightly.latest.default);
+    in
+      inputs.my-helix.packages.${pkgs.system}.default.override {
+        craneLib = nightly-crane;
+        cargoExtraArgs = "--features unicode-lines";
+        rustFlags = "-Ctarget-cpu=native -Cpanic=abort";
+      };
     settings = {
       theme = "bogsher";
 

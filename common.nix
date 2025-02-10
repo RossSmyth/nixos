@@ -28,7 +28,7 @@
       ];
     };
     channel.enable = false;
-    gc = { 
+    gc = {
       automatic = true;
       options = "--delete-older-than 7d";
     };
@@ -36,7 +36,7 @@
 
   time.timeZone = "America/Detroit";
   systemd.coredump.enable = true;
-  
+
   programs.fish.enable = true;
   users.defaultUserShell = pkgs.fish;
   environment.pathsToLink = ["/share/fish"];

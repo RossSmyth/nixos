@@ -23,7 +23,7 @@
 
   programs = {
     nix-index-database.comma.enable = true;
-    
+
     ripgrep.enable = true;
     fd.enable = true;
     home-manager.enable = true;
@@ -34,7 +34,7 @@
       userName = "Ross Smyth";
       aliases = {
         amend = "commit --amend --no-edit";
-        cm    = "commit -m";
+        cm = "commit -m";
       };
       extraConfig = {
         push.default = "current";
@@ -57,8 +57,8 @@
       shellAliases = {
         cat = "bat --paging=never";
         nxswitch = "sudo nixos-rebuild switch --flake ${config.xdg.configHome}/nix";
-        nxbuild  = "sudo nixos-rebuild boot --flake ${config.xdg.configHome}/nix";
-        nxedit  = "${config.home.sessionVariables.EDITOR} ${config.xdg.configHome}/nix";
+        nxbuild = "sudo nixos-rebuild boot --flake ${config.xdg.configHome}/nix";
+        nxedit = "${config.home.sessionVariables.EDITOR} ${config.xdg.configHome}/nix";
       };
     };
 
