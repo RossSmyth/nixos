@@ -50,7 +50,9 @@
     fish = {
       enable = true;
       interactiveShellInit = ''
-        set fish_greeting # disable fish greeting
+        function fish_greeting
+          ${pkgs.fastfetch}/bin/fastfetch
+        end
       '';
       shellAliases = {
         cat = "bat --paging=never";
