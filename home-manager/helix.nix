@@ -8,13 +8,24 @@
     enable = true;
     defaultEditor = true;
     package = let
-      craneLib = inputs.crane.mkLib pkgs;
-      nightly-crane = craneLib.overrideToolchain (p: (inputs.rust-overlay.lib.mkRustBin {} pkgs).nightly.latest.default);
+      latestNightly = (inputs.rust-overlay.lib.mkRustBin {} pkgs).nightly.latest.default;
+      rustPlatform = pkgs.makeRustPlatform {
+        rustc = latestNightly;
+        cargo = latestNightly;
+        stdenv = pkgs.clangStdenv;
+      };
     in
-      inputs.my-helix.packages.${pkgs.system}.default.override {
-        craneLib = nightly-crane;
-        cargoExtraArgs = "--features unicode-lines";
-        rustFlags = "-Ctarget-cpu=native -Cpanic=abort";
+      (inputs.my-helix.packages.${pkgs.system}.default.override {
+        inherit rustPlatform;
+        stdenv = pkgs.clangStdenv;
+      })
+      .overrideAttrs {
+        cargoBuildFeatures = ["unicode-lines"];
+        RUSTFLAGS = "-Ctarget-cpu=native -Cpanic=abort";
+        postPatch = ''
+          substituteInPlace Cargo.toml \
+            --replace 'lto = "fat"' 'lto = "thin"'
+        '';
       };
     settings = {
       theme = "bogsher";

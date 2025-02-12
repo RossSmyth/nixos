@@ -18,19 +18,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    helix = {
-      url = "github:helix-editor/helix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     my-helix = {
-      url = "github:RossSmyth/helix/NixCustomization";
+      url = "github:RossSmyth/helix/PureOver";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.crane.follows = "crane";
-    };
-
-    crane = {
-      url = "github:ipetkov/crane";
     };
 
     rust-overlay = {
