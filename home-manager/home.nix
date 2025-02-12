@@ -22,7 +22,7 @@
 
   programs = {
     nix-index-database.comma.enable = true;
-
+    jujutsu.enable = true;
     ripgrep.enable = true;
     fd.enable = true;
     home-manager.enable = true;
