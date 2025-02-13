@@ -63,7 +63,7 @@
       enable = true;
       interactiveShellInit = ''
         function fish_greeting
-          ${pkgs.fastfetch}/bin/fastfetch
+          ${lib.getExe pkgs.fastfetch}
         end
       '';
       shellAliases = {
