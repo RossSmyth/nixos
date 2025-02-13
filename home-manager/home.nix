@@ -22,10 +22,23 @@
 
   programs = {
     nix-index-database.comma.enable = true;
-    jujutsu.enable = true;
     ripgrep.enable = true;
     fd.enable = true;
     home-manager.enable = true;
+
+    jujutsu = {
+      enable = true;
+      settings = {
+        user = {
+          name = "Ross Smyth";
+          email = "18294397+RossSmyth@users.noreply.github.com";
+        };
+
+        ui.paginate = "never";
+        git.subprocess = true;
+        diff.tool = ["${lib.getExe pkgs.difftastic}" "--color=always" "$left" "$right"];
+      };
+    };
     git = {
       difftastic.enable = true;
       enable = true;
