@@ -35,7 +35,7 @@
         };
 
         ui.paginate = "never";
-        ui.default-command = "log --reversed";
+        ui.default-command = ["log" "--reversed"];
         git.subprocess = true;
         diff.tool = ["${lib.getExe pkgs.difftastic}" "--color=always" "$left" "$right"];
       };
