@@ -31,10 +31,11 @@
       settings = {
         user = {
           name = "Ross Smyth";
-          email = "18294397+RossSmyth@users.noreply.github.com";
+          email = "";
         };
 
         ui.paginate = "never";
+        ui.default-command = "log --reversed";
         git.subprocess = true;
         diff.tool = ["${lib.getExe pkgs.difftastic}" "--color=always" "$left" "$right"];
       };
