@@ -18,6 +18,13 @@
   home = {
     username = "rsmyth";
     homeDirectory = "/home/rsmyth";
+    packages = [
+      # Add NOM but disable the build logs
+      # https://github.com/maralorn/nix-output-monitor/issues/59
+      (pkgs.nix-output-monitor.overrideAttrs (final: prev: {
+        patches = (prev.patches or []) ++ [./silent-nom.patch];
+      }))
+    ];
   };
 
   programs = {
