@@ -80,6 +80,7 @@
         nxbuild = "sudo nixos-rebuild boot --flake ${config.xdg.configHome}/nix";
         nxedit = "${config.home.sessionVariables.EDITOR} ${config.xdg.configHome}/nix";
         getLargest = "${lib.getExe pkgs.fd} -t file . --exec ls -s | sort -nr | head-n20";
+        dev = "nix develop --command ${lib.getExe pkgs.fish}";
       };
     };
 
