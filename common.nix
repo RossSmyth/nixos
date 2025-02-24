@@ -54,4 +54,9 @@
       extraGroups = ["wheel"];
     };
   };
+
+  fileSystems."/tmp" = {
+    device = "none";
+    fsType = "tmpfs";
+  };
 }
