@@ -3,8 +3,13 @@
   lib,
   config,
   pkgs,
+  hostname,
   ...
 }: {
+  imports = [
+    (import ./${hostname})
+  ];
+  
   nixpkgs = {
     config = {
       allowUnfree = true;
@@ -33,7 +38,8 @@
       options = "--delete-older-than 7d";
     };
   };
-
+  networking.hostName = hostname;
+  
   time.timeZone = "America/Detroit";
   systemd.coredump.enable = true;
 

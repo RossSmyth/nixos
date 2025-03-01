@@ -10,11 +10,6 @@
     inputs.nix-index-database.hmModules.nix-index
   ];
 
-  nixpkgs = {
-    overlays = [
-    ];
-  };
-
   home = {
     username = "rsmyth";
     homeDirectory = "/home/rsmyth";
@@ -101,7 +96,7 @@
         nxswitch = "sudo nixos-rebuild switch --flake ${config.xdg.configHome}/nix";
         nxbuild = "sudo nixos-rebuild boot --flake ${config.xdg.configHome}/nix";
         nxedit = "${config.home.sessionVariables.EDITOR} ${config.xdg.configHome}/nix";
-        getLargest = "${lib.getExe pkgs.fd} -t file . --exec ls -s | sort -nr | head-n20";
+        getLargest = "${lib.getExe pkgs.fd} -t file . --exec ls -s | sort -nr | head -n20";
         dev = "nix develop --command ${lib.getExe pkgs.fish}";
         scratch = ''systemd-run --property=PrivateTmp=true --description "scratch shell" --user --collect --shell --working-dir "/var/tmp"'';
       };

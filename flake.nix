@@ -48,18 +48,15 @@
     }:
       nixpkgs.lib.nixosSystem {
         system = target;
-        specialArgs = {inherit inputs;};
+        specialArgs = {inherit inputs; inherit hostname;};
         modules =
           [
-            {networking.hostName = hostname;}
-            ./common.nix
-            ./${hostname}/hardware-configuration.nix
-            ./${hostname}/system.nix
+            ./.
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.rsmyth = import ./home-manager/home.nix;
+              home-manager.users.rsmyth = import ./home-manager;
               home-manager.extraSpecialArgs = {inherit inputs;};
             }
           ]
