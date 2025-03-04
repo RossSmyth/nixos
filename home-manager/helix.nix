@@ -15,17 +15,12 @@
         stdenv = pkgs.clangStdenv;
       };
     in
-      (inputs.my-helix.packages.${pkgs.system}.default.override {
+      (inputs.helix.packages.${pkgs.system}.default.override {
         inherit rustPlatform;
-        stdenv = pkgs.clangStdenv;
       })
       .overrideAttrs {
         cargoBuildFeatures = ["unicode-lines"];
-        RUSTFLAGS = "-Ctarget-cpu=native -Cpanic=abort";
-        postPatch = ''
-          substituteInPlace Cargo.toml \
-            --replace 'lto = "fat"' 'lto = "thin"'
-        '';
+        RUSTFLAGS = "-Ctarget-cpu=native -Cpanic=abort -Clto=thin";
       };
     settings = {
       theme = "bogsher";
