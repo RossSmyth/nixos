@@ -9,7 +9,7 @@
   imports = [
     (import ./${hostname})
   ];
-  
+
   nixpkgs = {
     config = {
       allowUnfree = true;
@@ -39,7 +39,7 @@
     };
   };
   networking.hostName = hostname;
-  
+
   time.timeZone = "America/Detroit";
   systemd.coredump.enable = true;
 

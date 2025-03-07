@@ -48,7 +48,10 @@
     }:
       nixpkgs.lib.nixosSystem {
         system = target;
-        specialArgs = {inherit inputs; inherit hostname;};
+        specialArgs = {
+          inherit inputs;
+          inherit hostname;
+        };
         modules =
           [
             ./.

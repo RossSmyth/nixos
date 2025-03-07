@@ -33,13 +33,28 @@
       settings = {
         user = {
           name = "Ross Smyth";
-          email = "";
+          # Email is a per-repo thing.
         };
-
-        ui.paginate = "never";
-        ui.default-command = ["log" "--reversed"];
+        ui = {
+          default-command = ["log" "--reversed"];
+          pager = {
+            command = [(lib.getExe pkgs.less) "-FRX"];
+            env = {LESSCHARSET = "utf-8";};
+          };
+        };
         git.subprocess = true;
-        diff.tool = ["${lib.getExe pkgs.difftastic}" "--color=always" "$left" "$right"];
+        diff.tool = "difft";
+        merge-tools.difft = {
+          program = lib.getExe pkgs.difftastic;
+          diff-args = ["--color=always" "$left" "$right"];
+        };
+        merge-tools.mergiraf = {
+          program = lib.getExe pkgs.mergiraf;
+          merge-args = ["merge" "$base" "$left" "$right" "-o" "$output" "--fast"];
+          merge-conflict-exit-code = [1];
+        };
+        git.colocate = true;
+        snapshot.auto-update-stale = true;
       };
     };
     git = {
@@ -92,7 +107,7 @@
         end
       '';
       shellAliases = {
-        cat = "bat --paging=never";
+        cat = "${lib.getExe pkgs.bat} --paging=never";
         nxswitch = "sudo nixos-rebuild switch --flake ${config.xdg.configHome}/nix";
         nxbuild = "sudo nixos-rebuild boot --flake ${config.xdg.configHome}/nix";
         nxedit = "${config.home.sessionVariables.EDITOR} ${config.xdg.configHome}/nix";
