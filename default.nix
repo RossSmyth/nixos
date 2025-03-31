@@ -25,12 +25,8 @@
       nix-path = config.nix.nixPath;
       accept-flake-config = true;
       auto-optimise-store = true;
-      trusted-substituters = [
-        "https://helix.cachix.org"
-      ];
-      trusted-public-keys = [
-        "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
-      ];
+      keep-derivations = true;
+      keep-outputs = true;
     };
     channel.enable = false;
     gc = {
@@ -40,6 +36,8 @@
   };
   networking.hostName = hostname;
 
+  security.polkit.enable = true;
+  
   time.timeZone = "America/Detroit";
   systemd.coredump.enable = true;
 
