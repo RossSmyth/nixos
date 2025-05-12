@@ -1,6 +1,6 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "https://nixos.org/channels/nixos-unstable/nixexprs.tar.xz";
 
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL/main";
