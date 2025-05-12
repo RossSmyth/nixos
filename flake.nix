@@ -28,46 +28,48 @@
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    nixos-wsl,
-    home-manager,
-    ...
-  } @ inputs: let
-    machine = {
-      hostname,
-      target ? "x86_64-linux",
-      extraModules ? [],
-    }:
-      nixpkgs.lib.nixosSystem {
-        system = target;
-        specialArgs = {
-          inherit inputs;
-          inherit hostname;
-        };
-        modules =
-          [
+  outputs =
+    {
+      self,
+      nixpkgs,
+      nixos-wsl,
+      home-manager,
+      ...
+    }@inputs:
+    let
+      machine =
+        {
+          hostname,
+          target ? "x86_64-linux",
+          extraModules ? [ ],
+        }:
+        nixpkgs.lib.nixosSystem {
+          system = target;
+          specialArgs = {
+            inherit inputs;
+            inherit hostname;
+          };
+          modules = [
             ./.
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.rsmyth = import ./home-manager;
-              home-manager.extraSpecialArgs = {inherit inputs;};
+              home-manager.extraSpecialArgs = { inherit inputs; };
             }
-          ]
-          ++ extraModules;
-      };
-  in {
-    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
-    nixosConfigurations = {
-      desktop = machine {
-        hostname = "desktop";
-      };
-      work = machine {
-        hostname = "work";
+          ] ++ extraModules;
+        };
+    in
+    {
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-tree;
+      nixosConfigurations = {
+        desktop = machine {
+          hostname = "desktop";
+        };
+        work = machine {
+          hostname = "work";
+        };
       };
     };
-  };
 }

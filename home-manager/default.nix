@@ -4,7 +4,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
     ./helix.nix
     inputs.nix-index-database.hmModules.nix-index
@@ -16,9 +17,11 @@
     packages = [
       # Add NOM but disable the build logs
       # https://github.com/maralorn/nix-output-monitor/issues/59
-      (pkgs.nix-output-monitor.overrideAttrs (final: prev: {
-        patches = (prev.patches or []) ++ [./silent-nom.patch];
-      }))
+      (pkgs.nix-output-monitor.overrideAttrs (
+        final: prev: {
+          patches = (prev.patches or [ ]) ++ [ ./silent-nom.patch ];
+        }
+      ))
     ];
   };
 
@@ -36,22 +39,42 @@
           # Email is a per-repo thing.
         };
         ui = {
-          default-command = ["log" "--reversed"];
+          default-command = [
+            "log"
+            "--reversed"
+          ];
           pager = {
-            command = [(lib.getExe pkgs.less) "-FRX"];
-            env = {LESSCHARSET = "utf-8";};
+            command = [
+              (lib.getExe pkgs.less)
+              "-FRX"
+            ];
+            env = {
+              LESSCHARSET = "utf-8";
+            };
           };
         };
         git.subprocess = true;
         diff.tool = "difft";
         merge-tools.difft = {
           program = lib.getExe pkgs.difftastic;
-          diff-args = ["--color=always" "$left" "$right"];
+          diff-args = [
+            "--color=always"
+            "$left"
+            "$right"
+          ];
         };
         merge-tools.mergiraf = {
           program = lib.getExe pkgs.mergiraf;
-          merge-args = ["merge" "$base" "$left" "$right" "-o" "$output" "--fast"];
-          merge-conflict-exit-code = [1];
+          merge-args = [
+            "merge"
+            "$base"
+            "$left"
+            "$right"
+            "-o"
+            "$output"
+            "--fast"
+          ];
+          merge-conflict-exit-code = [ 1 ];
         };
         git.colocate = true;
         snapshot.auto-update-stale = true;

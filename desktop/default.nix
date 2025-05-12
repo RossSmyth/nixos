@@ -4,7 +4,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
     ./hardware-configuration.nix
     inputs.nixos-wsl.nixosModules.default
