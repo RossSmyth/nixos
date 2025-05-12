@@ -53,7 +53,6 @@
             };
           };
         };
-        git.subprocess = true;
         diff.tool = "difft";
         merge-tools.difft = {
           program = lib.getExe pkgs.difftastic;
