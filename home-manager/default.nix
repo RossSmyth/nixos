@@ -75,7 +75,10 @@
           ];
           merge-conflict-exit-code = [ 1 ];
         };
-        git.colocate = true;
+        git = {
+          colocate = true;
+          write-change-id-header = true;
+        };
         snapshot.auto-update-stale = true;
       };
     };
