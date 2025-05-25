@@ -26,6 +26,8 @@
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
 
+  services.getty.autologinUser = "rsmyth";
+  
   # Half-decent TTY font
   console.font = "${pkgs.terminus_font}/share/consolefonts/ter-u28n.pdf.gz";
 
