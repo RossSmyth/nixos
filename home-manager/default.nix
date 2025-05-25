@@ -3,13 +3,14 @@
   lib,
   config,
   pkgs,
+  extraModules ? [ ],
   ...
 }:
 {
   imports = [
     ./helix.nix
     inputs.nix-index-database.hmModules.nix-index
-  ];
+  ] ++ extraModules;
 
   home = {
     username = "rsmyth";

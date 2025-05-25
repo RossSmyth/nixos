@@ -42,6 +42,7 @@
           hostname,
           target ? "x86_64-linux",
           extraModules ? [ ],
+          hmModules ? [ ],
         }:
         nixpkgs.lib.nixosSystem {
           system = target;
@@ -56,7 +57,10 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.rsmyth = import ./home-manager;
-              home-manager.extraSpecialArgs = { inherit inputs; };
+              home-manager.extraSpecialArgs = {
+                inherit inputs hostname;
+                extraModules = hmModules;
+              };
             }
           ] ++ extraModules;
         };
@@ -72,6 +76,7 @@
         };
         aurora = machine {
           hostname = "aurora";
+          hmModules = [ ./aurora/home.nix ];
         };
       };
     };
