@@ -12,4 +12,8 @@
       terminal = "${lib.getExe pkgs.alacritty}";
     };
   };
+
+  programs = {
+    firefox.enable = true;
+  };
 }
