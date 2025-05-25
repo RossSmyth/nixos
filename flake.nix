@@ -70,6 +70,9 @@
         work = machine {
           hostname = "work";
         };
+        aurora = machine {
+          hostname = "aurora";
+        };
       };
     };
 }
