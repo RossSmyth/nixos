@@ -11,9 +11,10 @@
     checkConfig = true;
     wrapperFeatures.gtk = true;
     config = {
+      modifier = "Mod4";
       terminal = "${lib.getExe pkgs.alacritty}";
       startup = [
-        { command = "alacritty"; }
+        { command = "${lib.getExe pkgs.alacritty}"; }
       ];
     };
   };

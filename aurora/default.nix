@@ -26,7 +26,13 @@
   networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
   # Enable sound.
-  services.pulseaudio.enable = true;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
 
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
@@ -56,7 +62,17 @@
     enableNotifications = true;
     freeSwapThreshold = 90;
   };
-  
+
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${lib.getExe pkgs.greetd.tuigreet} --time --cmd ${lib.getExe pkgs.sway} ";
+        user = "greeter";
+      };
+    };
+  };
+
   system.stateVersion = "24.05"; # Did you read the comment?
 
 }
