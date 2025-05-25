@@ -51,6 +51,12 @@
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
+  services.earlyoom = {
+    enable = true;
+    enableNotifications = true;
+    freeSwapThreshold = 90;
+  };
+  
   system.stateVersion = "24.05"; # Did you read the comment?
 
 }
