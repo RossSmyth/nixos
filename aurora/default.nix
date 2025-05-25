@@ -15,8 +15,11 @@
     ./hardware-configuration.nix
   ];
 
-  security.pam.services.systemd-run0 = { setEnvironment = true; pamMount = false; };
-  
+  security.pam.services.systemd-run0 = {
+    setEnvironment = true;
+    pamMount = false;
+  };
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -31,7 +34,7 @@
   services.getty.autologinUser = "rsmyth";
 
   console.font = "Lat2-Terminus16";
-  
+
   # GPU Stuff
   hardware.graphics.enable = true;
   hardware.nvidia = {

@@ -43,7 +43,7 @@
   systemd.coredump.enable = true;
 
   system.rebuild.enableNg = true;
-  
+
   programs.fish.enable = true;
   users.defaultUserShell = pkgs.fish;
   environment.pathsToLink = [ "/share/fish" ];
