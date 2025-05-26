@@ -52,6 +52,7 @@
           };
           modules = [
             ./.
+            ./${hostname}
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
@@ -76,7 +77,11 @@
         };
         aurora = machine {
           hostname = "aurora";
-          hmModules = [ ./aurora/home.nix ];
+          hmModules = [
+            ./home-manager/alacritty.nix
+            ./home-manager/wm.nix
+            ./home-manager/gui.nix
+          ];
         };
       };
     };

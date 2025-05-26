@@ -42,13 +42,6 @@
   services.displayManager.autoLogin.user = "rsmyth";
   services.getty.autologinUser = "rsmyth";
 
-  console.font = "Lat2-Terminus16";
-  fonts.packages = with pkgs; [
-    nerd-fonts.inconsolata
-    nerd-fonts.noto
-    noto-fonts-emoji
-  ];
-
   # Battery saving attempts
   powerManagement = {
     enable = true;
@@ -106,7 +99,5 @@
   };
 
   hardware.bluetooth.enable = true;
-
-  system.stateVersion = "24.05"; # Did you read the comment?
 
 }

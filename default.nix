@@ -7,10 +7,6 @@
   ...
 }:
 {
-  imports = [
-    (import ./${hostname})
-  ];
-
   nixpkgs = {
     config = {
       allowUnfree = true;
@@ -78,4 +74,6 @@
     device = "none";
     fsType = "tmpfs";
   };
+
+  system.stateVersion = "24.05";
 }
