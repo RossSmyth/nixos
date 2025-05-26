@@ -60,7 +60,18 @@
             ./home-manager/wm.nix
             ./home-manager/gui.nix
           ];
-          nixModules = [ ./nixos/fonts.nix ];
+          nixModules = [
+            ./nixos/fonts.nix
+            ./nixos/run0.nix
+            ./nixos/sound.nix
+            ./nixos/battery.nix
+            ./nixos/nvidia.nix
+            ./nixos/bootloader.nix
+            ./nixos/security.nix
+            ./nixos/networking.nix
+            ./nixos/battery.nix
+            ./nixos/wm.nix
+          ];
         };
       };
     };
