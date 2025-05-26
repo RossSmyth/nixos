@@ -13,7 +13,7 @@ inputs.nixpkgs.lib.nixosSystem {
   };
   modules = [
     ./nixos
-    ./${hostname}
+    ./machines/${hostname}
     inputs.home-manager.nixosModules.home-manager
     {
       home-manager.useGlobalPkgs = true;
