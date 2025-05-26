@@ -23,6 +23,9 @@
     checkConfig = true;
     wrapperFeatures.gtk = true;
     config = {
+      fonts = {
+        size = 13.0;
+      };
       workspaceLayout = "tabbed";
       modifier = "Mod4";
       terminal = "${lib.getExe pkgs.alacritty}";
