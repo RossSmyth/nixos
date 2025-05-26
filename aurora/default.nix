@@ -43,6 +43,11 @@
   services.getty.autologinUser = "rsmyth";
 
   console.font = "Lat2-Terminus16";
+  fonts.packages = with pkgs; [
+    nerd-fonts.inconsolata
+    nerd-fonts.noto
+    noto-fonts-emoji
+  ];
 
   # Battery saving attempts
   powerManagement = {

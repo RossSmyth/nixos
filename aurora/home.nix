@@ -9,6 +9,13 @@
     wl-clipboard-rs
   ];
 
+  fonts.fontconfig.enable = true;
+  fonts.fontconfig.defaultFonts = {
+    serif = [ "Noto Serif" ];
+    sansSerif = [ "Noto Sans" ];
+    monospace = [ "inconsolata" ];
+  };
+
   services.mako.enable = true;
   services.gnome-keyring.enable = true;
   wayland.windowManager.sway = {
