@@ -6,7 +6,10 @@
   ];
 
   # Notification daemon
-  services.mako.enable = true;
+  services.mako = {
+    enable = true;
+    settings.default-timeout = 5;
+  };
 
   # Secrets
   services.gnome-keyring.enable = true;
