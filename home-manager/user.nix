@@ -1,8 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, user, ... }:
 {
   home = {
-    username = "rsmyth";
-    homeDirectory = "/home/rsmyth";
+    username = user;
+    homeDirectory = "/home/" + user;
     packages = [
       pkgs.nix-output-monitor
     ];

@@ -1,5 +1,5 @@
 # Nix+Nixpkgs settings
-{ config, ... }:
+{ config, user, ... }:
 {
   nixpkgs = {
     config = {
@@ -10,7 +10,7 @@
 
   nix = {
     settings = {
-      trusted-users = [ "rsmyth" ];
+      trusted-users = [ user ];
       experimental-features = "nix-command flakes";
       flake-registry = "";
       nix-path = config.nix.nixPath;

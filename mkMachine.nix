@@ -4,12 +4,12 @@ inputs:
   target ? "x86_64-linux",
   nixModules ? [ ],
   hmModules ? [ ],
+  user ? "rsmyth",
 }:
 inputs.nixpkgs.lib.nixosSystem {
   system = target;
   specialArgs = {
-    inherit inputs;
-    inherit hostname;
+    inherit inputs hostname user;
   };
   modules = [
     ./nixos
@@ -18,9 +18,9 @@ inputs.nixpkgs.lib.nixosSystem {
     {
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = true;
-      home-manager.users.rsmyth = import ./home-manager;
+      home-manager.users.${user} = import ./home-manager;
       home-manager.extraSpecialArgs = {
-        inherit inputs hostname;
+        inherit inputs hostname user;
         extraModules = hmModules;
       };
     }
