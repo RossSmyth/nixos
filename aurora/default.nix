@@ -41,6 +41,30 @@
 
   console.font = "Lat2-Terminus16";
 
+  # Battery saving attempts
+  powerManagement = {
+    enable = true;
+    powertop.enable = true;
+    cpuFreqGovernor = "powersave";
+  };
+  services = {
+    thermald.enable = true;
+    power-profiles-daemon.enable = false;
+
+    auto-cpufreq = {
+      enable = true;
+      settings = {
+        battery = {
+          governor = "powersave";
+          turbo = "never";
+        };
+        charger = {
+          turbo = "auto";
+        };
+      };
+    };
+  };
+
   # GPU Stuff
   hardware.graphics.enable = true;
   hardware.nvidia = {
