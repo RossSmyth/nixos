@@ -5,6 +5,11 @@
   ...
 }:
 {
+  home.packages = with pkgs; [
+    wl-clipboard-rs
+  ];
+
+  services.mako.enable = true;
   services.gnome-keyring.enable = true;
   wayland.windowManager.sway = {
     enable = true;
