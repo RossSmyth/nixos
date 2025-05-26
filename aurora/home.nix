@@ -19,7 +19,12 @@
     };
   };
 
+  xdg.enable = true;
   programs = {
     firefox.enable = true;
+    spotify-player.enable = true;
+
+    # TODO: Add mpv config
+    mpv.enable = true;
   };
 }
