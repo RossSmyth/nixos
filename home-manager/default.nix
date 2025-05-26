@@ -1,154 +1,25 @@
 {
   inputs,
-  lib,
-  config,
-  pkgs,
   extraModules ? [ ],
   ...
 }:
 {
   imports = [
     ./helix.nix
+    ./user.nix
+    ./jujutsu.nix
+    ./git.nix
+    ./fish.nix
+    ./starship.nix
     inputs.nix-index-database.hmModules.nix-index
   ] ++ extraModules;
 
-  home = {
-    username = "rsmyth";
-    homeDirectory = "/home/rsmyth";
-    packages = [
-      pkgs.nix-output-monitor
-    ];
-  };
-
   programs = {
-    nix-index-database.comma.enable = true;
+    home-manager.enable = true;
     ripgrep.enable = true;
     fd.enable = true;
-    home-manager.enable = true;
-
-    jujutsu = {
-      enable = true;
-      settings = {
-        user = {
-          name = "Ross Smyth";
-          # Email is a per-repo thing.
-        };
-        ui = {
-          default-command = [
-            "log"
-            "--reversed"
-          ];
-          pager = {
-            command = [
-              (lib.getExe pkgs.less)
-              "-FRX"
-            ];
-            env = {
-              LESSCHARSET = "utf-8";
-            };
-          };
-        };
-        diff.tool = "difft";
-        merge-tools.difft = {
-          program = lib.getExe pkgs.difftastic;
-          diff-args = [
-            "--color=always"
-            "$left"
-            "$right"
-          ];
-        };
-        merge-tools.mergiraf = {
-          program = lib.getExe pkgs.mergiraf;
-          merge-args = [
-            "merge"
-            "$base"
-            "$left"
-            "$right"
-            "-o"
-            "$output"
-            "--fast"
-          ];
-          merge-conflict-exit-code = [ 1 ];
-        };
-        git = {
-          colocate = true;
-          write-change-id-header = true;
-        };
-        snapshot.auto-update-stale = true;
-      };
-    };
-    git = {
-      difftastic.enable = true;
-      enable = true;
-      userEmail = "18294397+RossSmyth@users.noreply.github.com";
-      userName = "Ross Smyth";
-      aliases = {
-        amend = "commit --amend --no-edit";
-        cm = "commit -m";
-      };
-      extraConfig = {
-        push = {
-          default = "current";
-          followTags = true;
-          autoSetupRemote = true;
-        };
-        fetch = {
-          prune = true;
-          pruneTags = true;
-          all = true;
-        };
-        rebase = {
-          autoSquash = true;
-          autoStash = true;
-          updateRefs = true;
-        };
-        core.autocrlf = false;
-        pull = {
-          ff = "only";
-          rebase = true;
-        };
-        init.defaultBranch = "main";
-        merge.conflictstyle = "zdiff3";
-        blame.ignoreRevsFile = ".git-blame-ignore-revs";
-        help.autocorrect = "prompt";
-        commit.verbose = true;
-        rerere = {
-          enabled = true;
-          autoupdate = true;
-        };
-      };
-    };
-
-    fish = {
-      enable = true;
-      interactiveShellInit = ''
-        function fish_greeting
-          ${lib.getExe pkgs.fastfetch}
-        end
-      '';
-      shellAliases = {
-        cat = "${lib.getExe pkgs.bat} --paging=never";
-        nxswitch = "sudo nixos-rebuild switch --flake ${config.xdg.configHome}/nix";
-        nxbuild = "sudo nixos-rebuild boot --flake ${config.xdg.configHome}/nix";
-        nxedit = "${config.home.sessionVariables.EDITOR} ${config.xdg.configHome}/nix";
-        getLargest = "${lib.getExe pkgs.fd} -t file . --exec ls -s | sort -nr | head -n20";
-        dev = "nix develop --command ${lib.getExe pkgs.fish}";
-        scratch = ''systemd-run --property=PrivateTmp=true --description "scratch shell" --user --collect --shell --working-dir "/var/tmp"'';
-      };
-    };
-
-    starship = {
-      enable = true;
-      enableFishIntegration = true;
-      settings = {
-        shlvl = {
-          disabled = false;
-        };
-      };
-    };
-    bat = {
-      enable = true;
-    };
+    bat.enable = true;
+    nix-index-database.comma.enable = true;
   };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
