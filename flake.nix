@@ -82,6 +82,7 @@
             ./home-manager/wm.nix
             ./home-manager/gui.nix
           ];
+          extraModules = [ ./fonts.nix ];
         };
       };
     };
