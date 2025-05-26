@@ -82,12 +82,6 @@
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
-  services.earlyoom = {
-    enable = true;
-    enableNotifications = true;
-    freeSwapThreshold = 90;
-  };
-
   services.greetd = {
     enable = true;
     settings = {
