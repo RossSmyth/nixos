@@ -11,10 +11,12 @@
     checkConfig = true;
     wrapperFeatures.gtk = true;
     config = {
+      workspaceLayout = "tabbed";
       modifier = "Mod4";
       terminal = "${lib.getExe pkgs.alacritty}";
       startup = [
         { command = "${lib.getExe pkgs.alacritty}"; }
+        { command = "firefox"; }
       ];
     };
   };
