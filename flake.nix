@@ -30,59 +30,37 @@
 
   outputs =
     {
-      self,
       nixpkgs,
-      nixos-wsl,
-      home-manager,
       ...
     }@inputs:
     let
-      machine =
-        {
-          hostname,
-          target ? "x86_64-linux",
-          extraModules ? [ ],
-          hmModules ? [ ],
-        }:
-        nixpkgs.lib.nixosSystem {
-          system = target;
-          specialArgs = {
-            inherit inputs;
-            inherit hostname;
-          };
-          modules = [
-            ./.
-            ./${hostname}
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.rsmyth = import ./home-manager;
-              home-manager.extraSpecialArgs = {
-                inherit inputs hostname;
-                extraModules = hmModules;
-              };
-            }
-          ] ++ extraModules;
-        };
+      mkMachine = import ./mkMachine.nix inputs;
     in
     {
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-tree;
       nixosConfigurations = {
-        desktop = machine {
+        desktop = mkMachine {
           hostname = "desktop";
+          nixModules = [
+            ./nixos/wsl.nix
+            ./nixos/tmpfsTmp.nix
+          ];
         };
-        work = machine {
+        work = mkMachine {
           hostname = "work";
+          nixModules = [
+            ./nixos/wsl.nix
+            ./nixos/tmpfsTmp.nix
+          ];
         };
-        aurora = machine {
+        aurora = mkMachine {
           hostname = "aurora";
           hmModules = [
             ./home-manager/alacritty.nix
             ./home-manager/wm.nix
             ./home-manager/gui.nix
           ];
-          extraModules = [ ./fonts.nix ];
+          nixModules = [ ./nixos/fonts.nix ];
         };
       };
     };

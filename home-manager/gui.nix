@@ -1,6 +1,5 @@
 # Common config for (GUI) desktop computers
-{ pkgs, lib, ... }:
-{
+_: {
   xdg.enable = true;
   programs = {
     firefox.enable = true;
