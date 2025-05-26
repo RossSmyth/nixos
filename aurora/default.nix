@@ -37,6 +37,8 @@
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
 
+  # Login automatically
+  services.displayManager.autoLogin.user = "rsmyth";
   services.getty.autologinUser = "rsmyth";
 
   console.font = "Lat2-Terminus16";
