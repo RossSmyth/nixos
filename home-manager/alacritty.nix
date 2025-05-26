@@ -1,7 +1,7 @@
 { pkgs, lib, ... }:
 {
 
-  alacritty = {
+  programs.alacritty = {
     enable = true;
     settings = {
       font = {
