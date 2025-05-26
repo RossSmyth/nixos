@@ -31,7 +31,14 @@
       options = "--delete-older-than 7d";
     };
   };
-  networking.hostName = hostname;
+
+  networking = {
+    hostName = hostname;
+    nameservers = [
+      "1.1.1.1"
+      "8.8.8.8"
+    ];
+  };
 
   security.polkit.enable = true;
 
