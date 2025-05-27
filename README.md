@@ -10,22 +10,22 @@ Then each machine defines machine-specific things. There shouldn't be too much t
 
 ## Organization
 
-* ./mkMachine.nix
+* [mkMachine.nix](./mkMachine.nix)
 
 Defines the interface of defining machines
 
-* ./flake.nix
+* [flake.nix](./flake.nix)
 
 The top-level file that defines all the machines.
 
-* ./home-manager
+* [home-manager](./home-manager)
 
-[Home-Manager](https://github.com/nix-community/home-manager) mixins. I try to define as much as possible in Home-Manager as it is generally more flexible.
+[Home-Manager](https://searchix.ovh/options/home-manager/search) mix-ins. I try to define as much as possible in Home-Manager as it is generally more flexible.
 
-* ./nixos
+* [nixos](./nixos)
 
-NixOS mixins. These define the system-level mix-ins.
+[NixOS mix-ins](https://searchix.ovh/options/nixos/search). These define the system-level mix-ins.
 
-* ./machines
+* [machines](./machines)
 
-The machine-specific definitions.
+The machine-specific definitions. Primarily the hardware, partitions, and kernel configs.
