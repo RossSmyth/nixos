@@ -27,6 +27,11 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -58,7 +63,7 @@
           hostname = "aurora";
           hmModules = [
             ./home-manager/alacritty.nix
-            ./home-manager/wm.nix
+            ./home-manager/niri.nix
             ./home-manager/gui.nix
           ];
           nixModules = [
