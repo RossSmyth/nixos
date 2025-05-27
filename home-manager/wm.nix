@@ -21,9 +21,8 @@
     wrapperFeatures.gtk = true;
     config = {
       # With inconsolata the default is small
-      fonts = {
-        size = 13.0;
-      };
+      fonts.size = 13.0;
+
       workspaceLayout = "tabbed";
 
       # For some reason the default is Alt
@@ -39,4 +38,8 @@
       ];
     };
   };
+
+  # Launcher
+  programs.bemenu.enable = true;
+  wayland.windowManager.sway.config.menu = lib.getExe' pkgs.bemenu "bemenu-run";
 }
