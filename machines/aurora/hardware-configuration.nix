@@ -23,12 +23,7 @@
     "sd_mod"
   ];
   boot.initrd.kernelModules = [
-    "thunderbolt"
     "nvme"
-    "usb_storage"
-    "vmd"
-    "sd_mod"
-    "xhci_pci"
   ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
