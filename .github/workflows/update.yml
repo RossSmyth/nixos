@@ -1,0 +1,44 @@
+name: update-flake-lock
+on:
+  schedule:
+    - cron: '0 0 * * 0' # Run weekly on Sunday at 00:00
+
+permissions:
+  contents: write
+
+jobs:
+  lockfile:
+    name: Update the Nix lockfile
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@master
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Update flake.lock
+        run: nix flake update -L --show-trace
+
+      - name: Commit Changes
+        id: commit
+        continue-on-error: true
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add flake.lock
+          git commit -m "[Automated] bump lockfile"
+
+      - name: Test Changes
+        if: steps.commit.outcome == 'success'
+        run: nix flake check -L --show-trace
+
+      - name: Push changes
+        if: steps.commit.outcome == 'success'
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
