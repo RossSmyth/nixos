@@ -1,6 +1,15 @@
 # Nix+Nixpkgs settings
-{ config, user, ... }:
 {
+  config,
+  user,
+  inputs,
+  ...
+}:
+{
+  imports = [
+    inputs.lix-module.nixosModules.lixFromNixpkgs
+  ];
+
   nixpkgs = {
     config = {
       allowUnfree = true;
