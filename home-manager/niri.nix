@@ -1,9 +1,16 @@
-{ pkgs, inputs, ... }:
+{
+  pkgs,
+  inputs,
+  config,
+  lib,
+  ...
+}:
 {
   imports = [
     inputs.niri.homeModules.niri
+    ./niri-config.nix
   ];
-  
+
   # Needed for wayland
   home.packages = with pkgs; [
     wl-clipboard-rs
@@ -21,5 +28,15 @@
   programs.niri = {
     package = pkgs.niri;
     enable = true;
+  };
+
+  programs.waybar.enable = true;
+  programs.fuzzel = {
+    enable = true;
+    settings = {
+      main = {
+        terminal = lib.getExe pkgs.alacritty;
+      };
+    };
   };
 }
