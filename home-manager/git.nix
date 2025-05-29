@@ -1,4 +1,4 @@
-_: {
+{
 
   programs.git = {
     difftastic.enable = true;

@@ -1,4 +1,4 @@
-_: {
+{
   # Required for Run0 & Sway
   security.polkit.enable = true;
 

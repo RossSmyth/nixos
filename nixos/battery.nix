@@ -1,4 +1,4 @@
-_: {
+{
   # For laptops attempting to save battery life
   powerManagement = {
     enable = true;

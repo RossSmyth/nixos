@@ -1,5 +1,5 @@
 # Common config for (GUI) desktop computers
-_: {
+{
   xdg.enable = true;
   programs = {
     firefox.enable = true;
