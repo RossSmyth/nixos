@@ -18,10 +18,9 @@ inputs.nixpkgs.lib.nixosSystem {
     {
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = true;
-      home-manager.users.${user} = import ./home-manager;
+      home-manager.users.${user} = import ./home-manager hmModules;
       home-manager.extraSpecialArgs = {
         inherit inputs hostname user;
-        extraModules = hmModules;
       };
     }
   ] ++ nixModules;

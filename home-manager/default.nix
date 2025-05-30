@@ -1,6 +1,6 @@
+extraModules:
 {
   inputs,
-  extraModules ? [ ],
   ...
 }:
 {
