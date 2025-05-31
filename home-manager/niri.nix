@@ -173,7 +173,7 @@
           "https://github.com/sodiboo/niri-flake/blob/main/docs.md"
           "https://github.com/Alexays/Waybar/wiki"
         ];
-        "Mod+Shift+Slash".action.show-hotkey-overlay = true;
+        "Mod+Shift+Slash".action = show-hotkey-overlay;
       };
       hotkey-overlay.skip-at-startup = true;
     };
