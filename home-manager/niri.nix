@@ -61,7 +61,7 @@
         # apps
         "Mod+Return".action.spawn = "alacritty";
         "Mod+B".action.spawn = "firefox";
-        "Mod+L".action.spawn = "fuzzel";
+        "Mod+D".action.spawn = "fuzzel";
         # session
         "Mod+Alt+P".action.spawn = "poweroff";
         "Mod+Alt+R".action.spawn = "reboot";
@@ -89,7 +89,7 @@
         # sizing
         "Mod+F".action = maximize-column;
         "Mod+Shift+F".action = fullscreen-window;
-        "Mod+BackSpace".action = close-window;
+        "Mod+Q".action = close-window;
         "Mod+C".action = center-column;
         "Mod+Shift+W".action = switch-preset-column-width;
         "Mod+Shift+H".action = switch-preset-window-height;
