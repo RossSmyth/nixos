@@ -5,8 +5,8 @@
   hardware.nvidia = {
     modesetting.enable = true;
     powerManagement.finegrained = true;
-    enableOffloadCmd = true;
     prime.offload = {
+      enableOffloadCmd = true;
       enable = true;
     };
 
