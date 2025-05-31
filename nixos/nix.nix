@@ -3,6 +3,7 @@
   config,
   user,
   inputs,
+  pkgs,
   ...
 }:
 {
@@ -36,4 +37,9 @@
   };
 
   system.rebuild.enableNg = true;
+  # Without these I cannot build the system without doing silly stuff
+  environment.systemPackages = with pkgs; [
+    git
+    nom
+  ];
 }
