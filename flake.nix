@@ -47,6 +47,11 @@
       url = "github:sharkdp/fd";
       flake = false;
     };
+
+    bat = {
+      url = "github:sharkdp/bat";
+      flake = false;
+    };
   };
 
   outputs =

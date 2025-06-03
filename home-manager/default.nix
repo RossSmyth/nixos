@@ -13,12 +13,12 @@ extraModules:
     ./starship.nix
     ./ripgrep.nix
     ./fd.nix
+    ./bat.nix
     inputs.nix-index-database.hmModules.nix-index
   ] ++ extraModules;
 
   programs = {
     home-manager.enable = true;
-    bat.enable = true;
     nix-index-database.comma.enable = true;
   };
 

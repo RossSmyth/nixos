@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "bat": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1748883038,
+        "narHash": "sha256-yL3YT6HiU+/TxZ8v1ObKtGT/5KkrnuAQ2+IXFR/vvdU=",
+        "owner": "sharkdp",
+        "repo": "bat",
+        "rev": "e2aa4bc33cca785cab8bdadffc58a4a30b245854",
+        "type": "github"
+      },
+      "original": {
+        "owner": "sharkdp",
+        "repo": "bat",
+        "type": "github"
+      }
+    },
     "fd": {
       "flake": false,
       "locked": {
@@ -290,6 +306,7 @@
     },
     "root": {
       "inputs": {
+        "bat": "bat",
         "fd": "fd",
         "helix": "helix",
         "home-manager": "home-manager",
