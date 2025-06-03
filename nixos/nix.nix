@@ -16,6 +16,10 @@
       allowUnfree = true;
       allowUnfreePredicate = _: true;
     };
+
+    overlays = [
+      (import inputs.rust-overlay)
+    ];
   };
 
   nix = {
