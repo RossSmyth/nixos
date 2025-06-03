@@ -37,6 +37,11 @@
       url = "https://git.lix.systems/lix-project/nixos-module/archive/main.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    ripgrep = {
+      url = "github:burntsushi/ripgrep";
+      flake = false;
+    };
   };
 
   outputs =

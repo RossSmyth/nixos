@@ -256,6 +256,22 @@
         "type": "github"
       }
     },
+    "ripgrep": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1748608252,
+        "narHash": "sha256-g5ANE0Muh6NqVN7/3D4+PDFGJG4tNH55lBrKYiUHZR8=",
+        "owner": "burntsushi",
+        "repo": "ripgrep",
+        "rev": "cbc598f245f3c157a872b69102653e2e349b6d92",
+        "type": "github"
+      },
+      "original": {
+        "owner": "burntsushi",
+        "repo": "ripgrep",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "helix": "helix",
@@ -265,6 +281,7 @@
         "nix-index-database": "nix-index-database",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs",
+        "ripgrep": "ripgrep",
         "rust-overlay": "rust-overlay"
       }
     },
