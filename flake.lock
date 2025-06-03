@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "fd": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1748814890,
+        "narHash": "sha256-2DSjVTN1JNg1TjKYbMEo+RPH0HyY8ENSh9dBS3ywsiQ=",
+        "owner": "sharkdp",
+        "repo": "fd",
+        "rev": "fd5ec5fed51886e3de1449933658b1931bb23ed3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "sharkdp",
+        "repo": "fd",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -274,6 +290,7 @@
     },
     "root": {
       "inputs": {
+        "fd": "fd",
         "helix": "helix",
         "home-manager": "home-manager",
         "lix-module": "lix-module",

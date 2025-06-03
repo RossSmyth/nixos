@@ -42,6 +42,11 @@
       url = "github:burntsushi/ripgrep";
       flake = false;
     };
+
+    fd = {
+      url = "github:sharkdp/fd";
+      flake = false;
+    };
   };
 
   outputs =
