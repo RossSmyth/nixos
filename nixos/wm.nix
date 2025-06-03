@@ -13,7 +13,7 @@
     enable = true;
     settings = {
       default_session = {
-        command = "${lib.getExe pkgs.greetd.tuigreet} --time --cmd ${lib.getExe pkgs.niri} ";
+        command = "${lib.getExe pkgs.greetd.tuigreet} --time --cmd ${lib.getExe pkgs.niri-unstable}";
         user = "greeter";
       };
     };

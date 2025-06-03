@@ -19,6 +19,7 @@
 
     overlays = [
       (import inputs.rust-overlay)
+      inputs.niri.overlays.niri
     ];
   };
 

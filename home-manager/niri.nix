@@ -40,7 +40,7 @@
   services.gnome-keyring.enable = true;
 
   programs.niri = {
-    package = pkgs.niri;
+    package = pkgs.niri-unstable;
     enable = true;
 
     settings = {
