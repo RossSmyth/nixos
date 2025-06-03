@@ -52,6 +52,12 @@
       url = "github:sharkdp/bat";
       flake = false;
     };
+
+    jujutsu = {
+      url = "github:jj-vcs/jj";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.rust-overlay.follows = "rust-overlay";
+    };
   };
 
   outputs =
