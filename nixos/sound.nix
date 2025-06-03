@@ -7,4 +7,9 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
+
+  # To select bluetooth codecs
+  environment.defaultPackages = with pkgs; [
+    pulsemixer
+  ];
 }
