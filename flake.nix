@@ -89,8 +89,8 @@
           hostname = "aurora";
           hmModules = [
             ./home-manager/alacritty.nix
-            ./home-manager/niri.nix
             ./home-manager/gui.nix
+            ./home-manager/niri.nix
           ];
           nixModules = [
             ./nixos/fonts.nix
@@ -102,7 +102,7 @@
             ./nixos/security.nix
             ./nixos/networking.nix
             ./nixos/battery.nix
-            ./nixos/wm.nix
+            ./nixos/niri.nix
           ];
         };
       };
