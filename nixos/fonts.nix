@@ -17,8 +17,8 @@
     fontconfig = {
       enable = true;
       defaultFonts = {
-        serif = [ "Noto Serif" ];
-        sansSerif = [ "Noto Sans" ];
+        serif = [ "NotoSerif Nerd Font" ];
+        sansSerif = [ "NotoSans Nerd Font" ];
         monospace = [ "Inconsolata Nerd Font Mono" ];
       };
     };
