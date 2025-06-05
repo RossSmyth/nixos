@@ -5,6 +5,10 @@
   ...
 }:
 {
+  imports = [
+    inputs.niri.nixosModules.niri
+  ];
+
   # Sway does not enable libinput by default.
   services.libinput.enable = true;
 
