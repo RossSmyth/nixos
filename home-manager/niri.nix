@@ -27,6 +27,9 @@
     systemd.enable = true;
   };
 
+  # Lock screen
+  programs.swaylock.enable = true;
+
   programs.niri.settings = {
     spawn-at-startup = [
       { command = [ "mako" ]; }
@@ -41,6 +44,7 @@
       "Mod+Alt+P".action.spawn = "poweroff";
       "Mod+Alt+R".action.spawn = "reboot";
       "Mod+Alt+Q".action = quit;
+      "Mod+L".action = spawn (lib.getExe config.programs.swaylock.package) "-Ffe";
       # workspaces
       "Mod+Space".action = toggle-overview;
       "Mod+1".action.focus-workspace = 1;

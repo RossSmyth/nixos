@@ -27,6 +27,9 @@
     };
   };
 
+  # No swaylock pam module :/ https://github.com/NixOS/nixpkgs/issues/143365
+  security.pam.services.swaylock = { };
+
   nixpkgs.overlays = [
     inputs.niri.overlays.niri
   ];
