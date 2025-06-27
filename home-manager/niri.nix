@@ -78,8 +78,8 @@
       "Mod+Shift+Minus".action.set-window-height = "-10%";
       "Mod+Shift+Equal".action.set-window-height = "+10%";
       # focus
-      "Mod+Left".action = focus-column-left-or-last;
-      "Mod+Right".action = focus-column-right-or-first;
+      "Mod+Left".action = focus-column-or-monitor-left;
+      "Mod+Right".action = focus-column-or-monitor-right;
       "Mod+Down".action = focus-window-or-workspace-down;
       "Mod+Up".action = focus-window-or-workspace-up;
       "Mod+Alt+Left".action = focus-monitor-left;
