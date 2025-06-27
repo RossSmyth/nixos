@@ -30,6 +30,9 @@
   # No swaylock pam module :/ https://github.com/NixOS/nixpkgs/issues/143365
   security.pam.services.swaylock = { };
 
+  # The niri agent messes with it.
+  systemd.user.services.niri-flake-polkit.enable = false;
+  
   nixpkgs.overlays = [
     inputs.niri.overlays.niri
   ];
