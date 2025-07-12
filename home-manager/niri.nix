@@ -2,6 +2,7 @@
   lib,
   pkgs,
   config,
+  inputs,
   ...
 }:
 {
@@ -29,6 +30,11 @@
 
   # Lock screen
   programs.swaylock.enable = true;
+
+  programs.niri.settings.xwayland-satellite.enable = true;
+  programs.niri.settings.xwayland-satellite.path =
+    lib.getExe
+      inputs.niri.packages.${pkgs.stdenv.system}.xwayland-satellite-unstable;
 
   programs.niri.settings = {
     spawn-at-startup = [

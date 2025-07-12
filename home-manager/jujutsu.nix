@@ -63,21 +63,21 @@
       snapshot.auto-update-stale = true;
       templates = {
         draft_commit_description = ''
-            concat(
-              description,
-              surround(
-                "\nJJ: This commit contains the following changes:\n", "",
-                indent("JJ:     ", diff.summary()),
-              ),
-              surround(
-                "\nJJ: This commit contains the following changes:\n", "",
-                indent("JJ:     ", diff.stat(72)),
-              ),
-              "\n",
-              "JJ: ignore-rest\n",
-              diff.git(),
-            )
-          '';
+          concat(
+            description,
+            surround(
+              "\nJJ: This commit contains the following changes:\n", "",
+              indent("JJ:     ", diff.summary()),
+            ),
+            surround(
+              "\nJJ: This commit contains the following changes:\n", "",
+              indent("JJ:     ", diff.stat(72)),
+            ),
+            "\n",
+            "JJ: ignore-rest\n",
+            diff.git(),
+          )
+        '';
       };
     };
   };
