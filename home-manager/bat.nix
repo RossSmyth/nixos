@@ -1,6 +1,6 @@
 { pkgs, inputs, ... }:
 let
-  latestNightly = (inputs.rust-overlay.lib.mkRustBin { } pkgs).nightly.latest.default;
+  latestNightly = (inputs.rust-overlay.lib.mkRustBin { } pkgs).nightly.latest.minimal;
   rustPlatform = pkgs.makeRustPlatform {
     rustc = latestNightly;
     cargo = latestNightly;
