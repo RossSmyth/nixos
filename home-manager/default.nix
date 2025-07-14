@@ -14,7 +14,7 @@ extraModules:
     ./ripgrep.nix
     ./fd.nix
     ./bat.nix
-    inputs.nix-index-database.hmModules.nix-index
+    inputs.nix-index-database.homeModules.nix-index
   ] ++ extraModules;
 
   programs = {
