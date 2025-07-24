@@ -23,5 +23,6 @@ inputs.nixpkgs.lib.nixosSystem {
         inherit inputs hostname user;
       };
     }
-  ] ++ nixModules;
+  ]
+  ++ nixModules;
 }

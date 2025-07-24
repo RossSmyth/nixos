@@ -15,7 +15,8 @@ extraModules:
     ./fd.nix
     ./bat.nix
     inputs.nix-index-database.homeModules.nix-index
-  ] ++ extraModules;
+  ]
+  ++ extraModules;
 
   programs = {
     home-manager.enable = true;
