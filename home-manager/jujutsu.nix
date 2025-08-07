@@ -2,6 +2,7 @@
   pkgs,
   lib,
   inputs,
+  config,
   ...
 }:
 {
@@ -26,7 +27,7 @@
         ];
         pager = {
           command = [
-            (lib.getExe pkgs.less)
+            (lib.getExe config.programs.less.package)
             "-FRX"
           ];
           env = {
@@ -36,7 +37,7 @@
       };
       diff.tool = "difft";
       merge-tools.difft = {
-        program = lib.getExe pkgs.difftastic;
+        program = lib.getExe config.programs.git.difftastic.package;
         diff-args = [
           "--color=always"
           "$left"
@@ -44,7 +45,7 @@
         ];
       };
       merge-tools.mergiraf = {
-        program = lib.getExe pkgs.mergiraf;
+        program = lib.getExe config.programs.mergiraf.package;
         merge-args = [
           "merge"
           "$base"

@@ -19,7 +19,7 @@
   # Launcher
   programs.fuzzel = {
     enable = true;
-    settings.main.terminal = lib.getExe pkgs.alacritty;
+    settings.main.terminal = lib.getExe config.programs.alacritty.package;
   };
 
   # Status bar

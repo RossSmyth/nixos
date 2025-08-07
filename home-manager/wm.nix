@@ -1,4 +1,9 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 {
   # Needed for wayland
   home.packages = with pkgs; [
@@ -29,11 +34,11 @@
       modifier = "Mod4";
 
       # IDK
-      terminal = "${lib.getExe pkgs.alacritty}";
+      terminal = "${lib.getExe config.programs.alacritty.package}";
 
       # Maybe remove firefox?
       startup = [
-        { command = "${lib.getExe pkgs.alacritty}"; }
+        { command = "${lib.getExe config.programs.alacritty.package}"; }
         { command = "firefox"; }
       ];
     };
@@ -41,5 +46,5 @@
 
   # Launcher
   programs.bemenu.enable = true;
-  wayland.windowManager.sway.config.menu = lib.getExe' pkgs.bemenu "bemenu-run";
+  wayland.windowManager.sway.config.menu = lib.getExe' config.programs.bemenu.package "bemenu-run";
 }
