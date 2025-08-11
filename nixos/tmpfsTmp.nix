@@ -1,6 +1,3 @@
 {
-  fileSystems."/tmp" = {
-    device = "none";
-    fsType = "tmpfs";
-  };
+  boot.tmp.useTmpfs = true;
 }
