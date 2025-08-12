@@ -13,6 +13,7 @@
 
   nixpkgs = {
     config = {
+      microsoftVisualStudioLicenseAccepted = true;
       allowUnfree = true;
       allowUnfreePredicate = _: true;
     };
