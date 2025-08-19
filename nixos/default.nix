@@ -12,6 +12,7 @@
   time.timeZone = "America/Detroit";
   systemd.coredump.enable = true;
   boot.tmp.cleanOnBoot = true;
+  zramSwap.enable = true;
 
   system.stateVersion = "24.05";
 }
