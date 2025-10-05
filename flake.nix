@@ -87,12 +87,18 @@
             ./nixos/wsl.nix
             ./nixos/tmpfsTmp.nix
           ];
+          hmModules = [
+            ./home-manager/notRisc.nix
+          ];
         };
         work = mkMachine {
           hostname = "work";
           nixModules = [
             ./nixos/wsl.nix
             ./nixos/tmpfsTmp.nix
+          ];
+          hmModules = [
+            ./home-manager/notRisc.nix
           ];
         };
         riscy = mkMachine {
@@ -109,6 +115,7 @@
             ./home-manager/alacritty.nix
             ./home-manager/gui.nix
             ./home-manager/niri.nix
+            ./home-manager/notRisc.nix
           ];
           nixModules = [
             ./nixos/fonts.nix
