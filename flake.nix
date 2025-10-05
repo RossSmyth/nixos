@@ -107,6 +107,7 @@
             ./nixos/run0.nix
             ./nixos/bootloader.nix
             ./nixos/security.nix
+            ./nixos/sshd.nix
           ];
         };
         aurora = mkMachine {
