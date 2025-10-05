@@ -64,6 +64,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.rust-overlay.follows = "rust-overlay";
     };
+
+    nixos-hardware = {
+      url = "github:nixos/nixos-hardware";
+    };
   };
 
   outputs =
@@ -89,6 +93,14 @@
           nixModules = [
             ./nixos/wsl.nix
             ./nixos/tmpfsTmp.nix
+          ];
+        };
+        riscy = mkMachine {
+          hostname = "riscy";
+          nixModules = [
+            ./nixos/run0.nix
+            ./nixos/bootloader.nix
+            ./nixos/security.nix
           ];
         };
         aurora = mkMachine {
