@@ -13,7 +13,7 @@
     };
 
     helix = {
-      url = "github:helix-editor/helix";
+      url = "github:RossSmyth/helix/nixRisc";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.rust-overlay.follows = "rust-overlay";
     };
@@ -60,7 +60,7 @@
     };
 
     jujutsu = {
-      url = "github:jj-vcs/jj";
+      url = "github:RossSmyth/jj/riscExpose";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.rust-overlay.follows = "rust-overlay";
     };

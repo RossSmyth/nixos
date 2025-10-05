@@ -109,15 +109,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1759605748,
-        "narHash": "sha256-qALSaIE4fbTo0wbPjEp7RZKbtFk1cDhRZ0BYOHW0JwQ=",
-        "owner": "helix-editor",
+        "lastModified": 1759699738,
+        "narHash": "sha256-ikkjuPeQoGemM7lEObYlV06lr0HRHC8jszvA7+vUavw=",
+        "owner": "RossSmyth",
         "repo": "helix",
-        "rev": "6fffaf6a7ded9a12fb2d5715a4eb83787a5e6402",
+        "rev": "9c168e258cc6a005444151e593758d5c56cfe26a",
         "type": "github"
       },
       "original": {
-        "owner": "helix-editor",
+        "owner": "RossSmyth",
+        "ref": "nixRisc",
         "repo": "helix",
         "type": "github"
       }
@@ -153,15 +154,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1759607096,
-        "narHash": "sha256-E3vt9/pwltoi88X1KcHpGtWR3D0fWBHccG12PAAbtvA=",
-        "owner": "jj-vcs",
+        "lastModified": 1759700258,
+        "narHash": "sha256-hWJdjas72T44GTaU3uTN9zPG/8jdO5i0xLfZ3R9uglY=",
+        "owner": "RossSmyth",
         "repo": "jj",
-        "rev": "de6ca46d4605c5c00379bfa228a4ba25b6e9d283",
+        "rev": "23535738a4aa0042ffe816e977fc1746fa9031e5",
         "type": "github"
       },
       "original": {
-        "owner": "jj-vcs",
+        "owner": "RossSmyth",
+        "ref": "riscExpose",
         "repo": "jj",
         "type": "github"
       }
