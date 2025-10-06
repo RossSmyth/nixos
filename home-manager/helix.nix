@@ -1,28 +1,15 @@
 {
+  lib,
   pkgs,
   inputs,
+  fromSource,
   ...
 }:
 {
   programs.helix = {
     enable = true;
     defaultEditor = true;
-    package =
-      let
-        latestNightly = pkgs.rust-bin.nightly.latest.minimal;
-        rustPlatform = pkgs.makeRustPlatform {
-          rustc = latestNightly;
-          cargo = latestNightly;
-          stdenv = pkgs.clangStdenv;
-        };
-      in
-      (inputs.helix.packages.${pkgs.system}.default.override {
-        inherit rustPlatform;
-      }).overrideAttrs
-        {
-          cargoBuildFeatures = [ "unicode-lines" ];
-          RUSTFLAGS = "-Ctarget-cpu=native -Cpanic=abort -Clto=thin";
-        };
+    package = lib.mkIf fromSource (inputs.helix.packages.${pkgs.system}.default);
     settings = {
       theme = "bogsher";
 
