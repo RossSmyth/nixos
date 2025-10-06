@@ -7,6 +7,7 @@ inputs:
   user ? "rsmyth",
   local ? true,
   deployment ? { },
+  fromSource ? true,
 }:
 {
   ${hostname} = {
@@ -26,7 +27,12 @@ inputs:
         home-manager.useUserPackages = true;
         home-manager.users.${user} = import ./home-manager hmModules;
         home-manager.extraSpecialArgs = {
-          inherit inputs hostname user;
+          inherit
+            inputs
+            hostname
+            user
+            fromSource
+            ;
         };
       }
     ]

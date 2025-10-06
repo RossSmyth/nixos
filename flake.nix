@@ -55,32 +55,22 @@
             nixpkgs = import nixpkgs {
               system = "x86_64-linux";
             };
-            nodeSpecialArgs.desktop = {
+            specialArgs = {
               inherit inputs;
               user = "rsmyth";
-              hostname = "desktop";
             };
-            nodeSpecialArgs.work = {
-              inherit inputs;
-              user = "rsmyth";
-              hostname = "work";
-            };
-            nodeSpecialArgs.aurora = {
-              inherit inputs;
-              user = "rsmyth";
-              hostname = "aurora";
-            };
-            nodeSpecialArgs.riscy = {
-              inherit inputs;
-              user = "rsmyth";
-              hostname = "riscy";
+            nodeSpecialArgs = {
+              desktop.hostname = "desktop";
+              work.hostname = "work";
+              aurora.hostname = "aurora";
+              riscy.hostname = "riscy";
             };
           };
-
         }
         // (nixpkgs.lib.mergeAttrsList [
           (mkMachine {
             hostname = "desktop";
+            fromSource = true;
             nixModules = [
               ./nixos/wsl.nix
               ./nixos/tmpfsTmp.nix
@@ -88,6 +78,7 @@
           })
           (mkMachine {
             hostname = "work";
+            fromSource = true;
             nixModules = [
               ./nixos/wsl.nix
               ./nixos/tmpfsTmp.nix
@@ -95,6 +86,7 @@
           })
           (mkMachine {
             hostname = "riscy";
+            fromSource = false;
             nixModules = [
               ./nixos/run0.nix
               ./nixos/bootloader.nix
@@ -107,6 +99,7 @@
           })
           (mkMachine {
             hostname = "aurora";
+            fromSource = true;
             hmModules = [
               ./home-manager/alacritty.nix
               ./home-manager/gui.nix
