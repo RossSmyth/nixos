@@ -8,13 +8,6 @@
 {
   programs.jujutsu = {
     enable = true;
-    package = inputs.jujutsu.packages.${pkgs.system}.default.overrideAttrs (
-      final: prev: {
-        env.RUSTFLAGS =
-          prev.env.RUSTFLAGS + " -Ctarget-cpu=native -Cpanic=abort -Clto=thin -Cembed-bitcode=yes";
-        doCheck = false;
-      }
-    );
     settings = {
       user = {
         name = "Ross Smyth";
