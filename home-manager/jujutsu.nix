@@ -50,6 +50,13 @@
         ];
         merge-conflict-exit-code = [ 1 ];
       };
+      fix.tools.nixfmt = {
+        command = [
+          "comma"
+          "nixfmt"
+        ];
+        patterns = [ "glob:'**/*.nix'" ];
+      };
       git = {
         colocate = true;
         write-change-id-header = true;
