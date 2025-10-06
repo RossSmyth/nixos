@@ -1,5 +1,6 @@
 # Nix+Nixpkgs settings
 {
+  lib,
   config,
   user,
   inputs,
@@ -43,8 +44,13 @@
 
   system.rebuild.enableNg = true;
   # Without these I cannot build the system without doing silly stuff
-  environment.systemPackages = with pkgs; [
-    git
-    nom
-  ];
+  environment.systemPackages =
+    with pkgs;
+    [
+      git
+      nom
+    ]
+    ++ lib.optionals (!pkgs.stdenv.hostPlatform.isRiscV) [
+      inputs.colmena.packages.${pkgs.system}.colmena
+    ];
 }
