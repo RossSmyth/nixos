@@ -5,24 +5,38 @@ inputs:
   nixModules ? [ ],
   hmModules ? [ ],
   user ? "rsmyth",
+  local ? true,
 }:
-inputs.nixpkgs.lib.nixosSystem {
-  system = target;
-  specialArgs = {
-    inherit inputs hostname user;
+{
+  meta = {
+    nodeNixpkgs.${hostname} = import inputs.nixpkgs {
+      system = target;
+    };
+
+    nodeSpecialArgs.${hostname} = {
+      inherit inputs hostname user;
+    };
   };
-  modules = [
-    ./nixos
-    ./machines/${hostname}
-    inputs.home-manager.nixosModules.home-manager
-    {
-      home-manager.useGlobalPkgs = true;
-      home-manager.useUserPackages = true;
-      home-manager.users.${user} = import ./home-manager hmModules;
-      home-manager.extraSpecialArgs = {
-        inherit inputs hostname user;
-      };
-    }
-  ]
-  ++ nixModules;
+
+  ${hostname} = {
+    deployment = {
+      allowLocalDeployment = local;
+      targetHost = if local then null else hostname;
+    };
+
+    imports = [
+      ./nixos
+      ./machines/${hostname}
+      inputs.home-manager.nixosModules.home-manager
+      {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.users.${user} = import ./home-manager hmModules;
+        home-manager.extraSpecialArgs = {
+          inherit inputs hostname user;
+        };
+      }
+    ]
+    ++ nixModules;
+  };
 }
