@@ -8,23 +8,16 @@
   ...
 }:
 {
-  imports = [
-    inputs.lix-module.nixosModules.default
-  ];
-
   nixpkgs = {
     config = {
       microsoftVisualStudioLicenseAccepted = true;
       allowUnfree = true;
       allowUnfreePredicate = _: true;
     };
-
-    overlays = [
-      (import inputs.rust-overlay)
-    ];
   };
 
   nix = {
+    package = pkgs.lixPackageSets.git.lix;
     settings = {
       trusted-users = [ user ];
       experimental-features = "nix-command flakes";
@@ -42,7 +35,6 @@
     };
   };
 
-  system.rebuild.enableNg = true;
   # Without these I cannot build the system without doing silly stuff
   environment.systemPackages =
     with pkgs;
