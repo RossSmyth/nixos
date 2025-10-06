@@ -1,4 +1,9 @@
-{ pkgs, user, ... }:
+{
+  lib,
+  pkgs,
+  user,
+  ...
+}:
 {
   home = {
     username = user;
@@ -7,6 +12,9 @@
       pkgs.fq
       pkgs.jq
       pkgs.hexyl
+    ]
+    ++ lib.optionals (!pkgs.stdenv.hostPlatform.isRiscV) [
+      pkgs.nix-output-monitor
     ];
   };
 }
