@@ -14,12 +14,12 @@ extraModules:
     ./fish.nix
     ./starship.nix
     ./ripgrep.nix
-    ./fd.nix
     ./bat.nix
   ]
   ++ extraModules;
 
   programs = {
+    fd.enable = true;
     home-manager.enable = true;
   };
 
