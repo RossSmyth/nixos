@@ -14,12 +14,12 @@ extraModules:
     ./fish.nix
     ./starship.nix
     ./ripgrep.nix
-    ./bat.nix
     inputs.nix-index-database.homeModules.nix-index
   ]
   ++ extraModules;
 
   programs = {
+    bat.enable = true;
     fd.enable = true;
     home-manager.enable = true;
     nix-index-database.comma.enable = !pkgs.stdenv.hostPlatform.isRiscV;
