@@ -6,20 +6,19 @@ inputs:
   hmModules ? [ ],
   user ? "rsmyth",
   local ? true,
+  deployment ? { },
 }:
 {
   meta = {
-    nodeNixpkgs.${hostname} = import inputs.nixpkgs {
-      system = target;
-    };
-
     nodeSpecialArgs.${hostname} = {
       inherit inputs hostname user;
     };
   };
 
   ${hostname} = {
-    deployment = {
+    nixpkgs.system = target;
+
+    deployment = deployment // {
       allowLocalDeployment = local;
       targetHost = if local then null else hostname;
     };

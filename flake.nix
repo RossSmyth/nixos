@@ -139,6 +139,9 @@
               ./nixos/security.nix
               ./nixos/sshd.nix
             ];
+            deployment = {
+              buildOnTarget = true;
+            };
           })
           (mkMachine {
             hostname = "aurora";
