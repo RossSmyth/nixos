@@ -9,12 +9,6 @@ inputs:
   deployment ? { },
 }:
 {
-  meta = {
-    nodeSpecialArgs.${hostname} = {
-      inherit inputs hostname user;
-    };
-  };
-
   ${hostname} = {
     nixpkgs.system = target;
 
