@@ -12,11 +12,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    helix = {
-      url = "github:RossSmyth/helix/nixRisc";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.rust-overlay.follows = "rust-overlay";
-    };
+    helix.url = "github:RossSmyth/helix/nixRisc";
 
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
