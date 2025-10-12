@@ -36,13 +36,8 @@
   };
 
   # Without these I cannot build the system without doing silly stuff
-  environment.systemPackages =
-    with pkgs;
-    [
-      git
-      nom
-    ]
-    ++ lib.optionals (!pkgs.stdenv.hostPlatform.isRiscV) [
-      inputs.colmena.packages.${pkgs.system}.colmena
-    ];
+  environment.systemPackages = with pkgs; [
+    git
+    nom
+  ];
 }
