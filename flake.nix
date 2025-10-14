@@ -79,7 +79,7 @@
         aurora = mkMachine {
           hostname = "aurora";
           hmModules = [
-            ./home-manager/alacritty.nix
+            ./home-manager/ghostty.nix
             ./home-manager/gui.nix
             ./home-manager/niri.nix
           ];

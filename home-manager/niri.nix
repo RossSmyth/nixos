@@ -19,7 +19,7 @@
   # Launcher
   programs.fuzzel = {
     enable = true;
-    settings.main.terminal = lib.getExe config.programs.alacritty.package;
+    settings.main.terminal = lib.getExe config.programs.ghostty.package;
   };
 
   # Status bar
@@ -39,11 +39,11 @@
   programs.niri.settings = {
     spawn-at-startup = [
       { command = [ "mako" ]; }
-      { command = [ "alacritty" ]; }
+      { command = [ "ghostty" ]; }
     ];
     binds = with config.lib.niri.actions; {
       # apps
-      "Mod+Return".action.spawn = "alacritty";
+      "Mod+Return".action.spawn = "ghostty";
       "Mod+B".action.spawn = "firefox";
       "Mod+D".action.spawn = "fuzzel";
       # session
