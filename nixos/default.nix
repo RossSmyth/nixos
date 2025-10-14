@@ -14,5 +14,11 @@
   boot.tmp.cleanOnBoot = true;
   zramSwap.enable = true;
 
+  systemd.oomd = {
+    enable = true;
+    enableRootSlice = true;
+    enableUserSlices = true;
+  };
+
   system.stateVersion = "24.05";
 }
