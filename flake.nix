@@ -32,11 +32,6 @@
     };
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
-
-    ripgrep = {
-      url = "github:burntsushi/ripgrep";
-      flake = false;
-    };
   };
 
   outputs =

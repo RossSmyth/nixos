@@ -13,7 +13,6 @@ extraModules:
     ./git.nix
     ./fish.nix
     ./starship.nix
-    ./ripgrep.nix
     inputs.nix-index-database.homeModules.nix-index
   ]
   ++ extraModules;
@@ -21,6 +20,7 @@ extraModules:
   programs = {
     bat.enable = true;
     fd.enable = true;
+    ripgrep.enable = true;
     home-manager.enable = true;
     nix-index-database.comma.enable = !pkgs.stdenv.hostPlatform.isRiscV;
     nix-index.enable = !pkgs.stdenv.hostPlatform.isRiscV;
