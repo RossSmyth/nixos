@@ -1,15 +1,11 @@
 {
+  programs.difftastic.git.enable = true;
 
   programs.git = {
-    difftastic.enable = true;
     enable = true;
-    userEmail = "18294397+RossSmyth@users.noreply.github.com";
-    userName = "Ross Smyth";
-    aliases = {
-      amend = "commit --amend --no-edit";
-      cm = "commit -m";
-    };
-    extraConfig = {
+
+    settings = {
+      user.name = "Ross Smyth";
       push = {
         default = "current";
         followTags = true;

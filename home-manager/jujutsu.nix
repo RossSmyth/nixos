@@ -30,7 +30,7 @@
       };
       diff.tool = "difft";
       merge-tools.difft = {
-        program = lib.getExe config.programs.git.difftastic.package;
+        program = lib.getExe config.programs.difftastic.package;
         diff-args = [
           "--color=always"
           "$left"
