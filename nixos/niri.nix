@@ -19,11 +19,9 @@
   # Automatically launch sway.
   services.greetd = {
     enable = true;
-    settings = {
-      default_session = {
-        command = "${lib.getExe pkgs.tuigreet} --time --cmd ${lib.getExe pkgs.niri-unstable}";
-        user = "greeter";
-      };
+    settings.default_session = {
+      command = "${lib.getExe pkgs.tuigreet} --time --cmd ${lib.getExe' config.programs.niri.package "niri-session"}";
+      user = "greeter";
     };
   };
 
