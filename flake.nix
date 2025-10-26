@@ -77,6 +77,7 @@
             ./home-manager/ghostty.nix
             ./home-manager/gui.nix
             ./home-manager/niri.nix
+            ./home-manager/waybar.nix
           ];
           nixModules = [
             ./nixos/fonts.nix

@@ -1,0 +1,172 @@
+/* -- Global rules -- */
+* {
+  border: none;
+  font-size: 13px;
+  min-height: 10px;
+}
+
+window#waybar {
+  background: rgba(0, 0, 0, 0);
+  opacity: 1;
+}
+
+window#waybar.hidden {
+  opacity: 0;
+}
+
+/* - Genera rules for visible modules -- */
+#workspaces,
+#custom-power,
+#keyboard-state,
+#battery,
+#clock,
+#cpu,
+#memory,
+#temperature,
+#mpris,
+#idle_inhibitor,
+#pulseaudio,
+#bluetooth,
+#network {
+  background-color: #2980b9;
+  margin-top: 4px;
+  margin-bottom: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 3px;
+  padding-top: 3px;
+  transition: none;
+  border: 1px solid #d3c6aa;
+  opacity: 1;
+}
+
+/* Separation to the left */
+#cpu,
+#keyboard-state,
+#idle_inhibitor {
+  margin-left: 3px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+/* Separation to the rigth */
+#network,
+#clock,
+#temperature {
+  margin-right: 3px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+/* -- Specific styles -- */
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+  margin-right: 0;
+}
+
+#workspaces button {
+  padding: 0 0;
+  border-left: 1px solid #6c7086;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+  margin-left: 0;
+}
+
+#workspaces button:hover {
+  background-color: rgba(49, 50, 68, 1);
+}
+
+#workspaces button.active {
+  background-color: #ffffff;
+}
+
+#workspaces button.urgent {
+  background-color: #eb4d4b;
+}
+
+/* Modules left */
+
+#clock {
+  font-weight: bold;
+}
+
+/* Modules center */
+
+/* Modules right */
+
+#idle_inhibitor.activated {
+  background: #e67e80;
+  color: #293136;
+  padding-right: 16px;
+  padding-left: 10px;
+  border-right: none;
+}
+
+#idle_inhibitor.deactivated {
+  padding-right: 16px;
+  padding-left: 10px;
+  border-right: none;
+}
+
+#pulseaudio {
+  border-right: none;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+#bluetooth {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding-left: 6px;
+  padding-right: 12px;
+}
+
+#power-profiles-daemon {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  padding-right: 16px;
+  padding-left: 10px;
+}
+
+#power-profiles-daemon.performance {
+  color: #e67e80;
+  border: 2px solid #e67e80;
+  border-right: none;
+}
+
+#power-profiles-daemon.balanced {
+  color: #7fbbb3;
+  border: 2px solid #7fbbb3;
+  border-right: none;
+}
+
+#power-profiles-daemon.power-saver {
+  color: #a7c080;
+  border: 2px solid #a7c080;
+  border-right: none;
+}
+
+#battery:hover,
+#cpu:hover,
+#memory:hover,
+#temperature:hover,
+#idle_inhibitor:hover,
+#pulseaudio:hover,
+#bluetooth:hover,
+#network:hover,
+#power-profiles-daemon:hover,
+#mpris:hover {
+  color: #293136;
+  background: #d3c6aa;
+}
+
+/* === Optional animation === */
+@keyframes blink {
+  to {
+    background-color: #d3c6aa;
+    color: #293136;
+  }
+}

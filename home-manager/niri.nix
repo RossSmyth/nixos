@@ -22,12 +22,6 @@
     settings.main.terminal = lib.getExe config.programs.ghostty.package;
   };
 
-  # Status bar
-  programs.waybar = {
-    enable = true;
-    systemd.enable = true;
-  };
-
   # Lock screen
   programs.swaylock.enable = true;
 
