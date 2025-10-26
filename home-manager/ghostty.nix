@@ -1,7 +1,10 @@
 {
   programs.ghostty = {
     enable = true;
+    enableFishIntegration = true;
     settings = {
+      linux-cgroup = "always";
+      linux-cgroup-hard-fail = true;
       font-size = 13;
       font-family = "Inconsolata Nerd Font Mono";
       font-family-bold = "Inconsolata Nerd Font Mono";
