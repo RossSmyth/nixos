@@ -20,7 +20,7 @@
   services.greetd = {
     enable = true;
     settings.default_session = {
-      command = "${lib.getExe pkgs.tuigreet} --time --cmd ${lib.getExe' config.programs.niri.package "niri-session"}";
+      command = "${lib.getExe pkgs.tuigreet} --theme 'border=blue;text=white;prompt=green;container=black' --time --cmd ${lib.getExe' config.programs.niri.package "niri-session"}";
       user = "greeter";
     };
   };
