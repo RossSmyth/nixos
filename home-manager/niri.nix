@@ -33,6 +33,19 @@
   programs.niri.settings = {
     spawn-at-startup = [
       { command = [ "mako" ]; }
+      {
+        command = [
+          (lib.getExe pkgs.swaybg)
+          "-c"
+          "#FFFFFF"
+          "-o"
+          "*"
+          "-m"
+          "fit"
+          "-i"
+          "${./bg.jpg}"
+        ];
+      }
       { command = [ "ghostty" ]; }
     ];
     binds = with config.lib.niri.actions; {
