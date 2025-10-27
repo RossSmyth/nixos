@@ -23,7 +23,14 @@
   };
 
   # Lock screen
-  programs.swaylock.enable = true;
+  programs.swaylock = {
+    enable = true;
+    settings = {
+      color = "#FFFFFF";
+      image = "${./bg.jpg}";
+      scaling = "fit";
+    };
+  };
 
   programs.niri.settings.xwayland-satellite.enable = true;
   programs.niri.settings.xwayland-satellite.path =
