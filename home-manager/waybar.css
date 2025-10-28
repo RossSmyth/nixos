@@ -44,6 +44,7 @@ window#waybar.hidden {
 
 /* Separation to the left */
 #cpu,
+#battery,
 #keyboard-state,
 #idle_inhibitor {
   margin-left: 3px;

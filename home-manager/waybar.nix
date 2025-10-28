@@ -30,7 +30,6 @@
         "cpu"
         "memory"
         "temperature"
-        "keyboard-state"
         "battery"
         "clock"
         "tray"
@@ -50,15 +49,6 @@
           stopped = "⏹";
         };
         ignored-players = [ "firefox" ];
-      };
-      keyboard-state = {
-        numlock = true;
-        capslock = true;
-        format = "{name} {icon}";
-        format-icons = {
-          locked = "";
-          unlocked = "";
-        };
       };
       idle_inhibitor = {
         format = "{icon}";
