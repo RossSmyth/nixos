@@ -5,6 +5,9 @@
   ...
 }:
 {
+  # MPRIS daemon
+  services.playerctld.enable = true;
+
   # Status bar
   programs.waybar = {
     enable = true;
@@ -16,6 +19,9 @@
       spacing = 2;
       modules-left = [
         "niri/workspaces"
+      ];
+      modules-center = [
+        "mpris"
       ];
       modules-right = [
         "idle_inhibitor"
@@ -30,6 +36,21 @@
         "tray"
         "custom/power"
       ];
+      mpris = {
+        format = "{status_icon} | {dynamic}";
+        dynamic-order = [
+          "position"
+          "title"
+          "artist"
+          "album"
+        ];
+        status-icons = {
+          paused = "⏸";
+          playing = "▶";
+          stopped = "⏹";
+        };
+        ignored-players = [ "firefox" ];
+      };
       keyboard-state = {
         numlock = true;
         capslock = true;
