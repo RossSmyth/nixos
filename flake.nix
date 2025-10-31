@@ -63,6 +63,7 @@
             ./nixos/security.nix
             ./nixos/networking.nix
             ./nixos/niri.nix
+            ./nixos/steam.nix
           ];
         };
         work = mkMachine {
