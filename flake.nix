@@ -48,9 +48,21 @@
       nixosConfigurations = {
         desktop = mkMachine {
           hostname = "desktop";
+          hmModules = [
+            ./home-manager/ghostty.nix
+            ./home-manager/gui.nix
+            ./home-manager/niri.nix
+            ./home-manager/waybar.nix
+          ];
           nixModules = [
-            ./nixos/wsl.nix
-            ./nixos/tmpfsTmp.nix
+            ./nixos/fonts.nix
+            ./nixos/run0.nix
+            ./nixos/sound.nix
+            ./nixos/nvidia.nix
+            ./nixos/bootloader.nix
+            ./nixos/security.nix
+            ./nixos/networking.nix
+            ./nixos/niri.nix
           ];
         };
         work = mkMachine {

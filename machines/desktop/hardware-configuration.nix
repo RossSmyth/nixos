@@ -8,72 +8,43 @@
   modulesPath,
   ...
 }:
-{
-  imports = [ ];
 
-  boot.initrd.availableKernelModules = [ "virtio_pci" ];
+{
+  imports = [
+    (modulesPath + "/installer/scan/not-detected.nix")
+  ];
+
+  boot.initrd.availableKernelModules = [
+    "nvme"
+    "xhci_pci"
+    "ahci"
+    "usb_storage"
+    "usbhid"
+    "sd_mod"
+  ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ ];
+  boot.kernelModules = [
+    "kvm-amd"
+    "nvme"
+  ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/mnt/wsl" = {
-    device = "none";
-    fsType = "tmpfs";
-  };
-
-  fileSystems."/usr/lib/wsl/drivers" = {
-    device = "drivers";
-    fsType = "9p";
-  };
-
-  fileSystems."/lib/modules" = {
-    device = "none";
-    fsType = "tmpfs";
-  };
-
-  fileSystems."/lib/modules/5.15.153.1-microsoft-standard-WSL2" = {
-    device = "none";
-    fsType = "overlay";
-  };
-
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/86acf048-6451-403f-a65e-3431df198592";
+    device = "/dev/disk/by-uuid/02c9a6ac-a6f5-4080-970c-cadbbb030a77";
     fsType = "ext4";
   };
 
-  fileSystems."/mnt/wslg" = {
-    device = "none";
-    fsType = "tmpfs";
-  };
-
-  fileSystems."/usr/lib/wsl/lib" = {
-    device = "none";
-    fsType = "overlay";
-  };
-
-  fileSystems."/tmp/.X11-unix" = {
-    device = "/mnt/wslg/.X11-unix";
-    fsType = "none";
-    options = [ "bind" ];
-  };
-
-  fileSystems."/mnt/c" = {
-    device = "C:\134";
-    fsType = "9p";
-  };
-
-  fileSystems."/mnt/wslg/doc" = {
-    device = "none";
-    fsType = "overlay";
-  };
-
-  fileSystems."/mnt/g" = {
-    device = "G:\134";
-    fsType = "9p";
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/8C60-9AB4";
+    fsType = "vfat";
+    options = [
+      "fmask=0077"
+      "dmask=0077"
+    ];
   };
 
   swapDevices = [
-    { device = "/dev/disk/by-uuid/d418d0af-e93e-4411-af9a-5ebbd2dab9c7"; }
+    { device = "/dev/disk/by-uuid/b007f41e-2cab-445d-9bfd-9b54beb645cd"; }
   ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
@@ -81,7 +52,9 @@
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.eth0.useDHCP = lib.mkDefault true;
+  # networking.interfaces.enp37s0.useDHCP = lib.mkDefault true;
+  # networking.interfaces.wlp36s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

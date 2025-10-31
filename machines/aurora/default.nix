@@ -3,8 +3,17 @@
     ./hardware-configuration.nix
   ];
 
-  hardware.nvidia.prime = {
-    intelBusId = "00:02.0";
-    nvidiaBusId = "01:00.0";
+  hardware.nvidia = {
+    modesetting.enable = true;
+    powerManagement.finegrained = true;
+    prime.offload = {
+      enableOffloadCmd = true;
+      enable = true;
+    };
+
+    prime = {
+      intelBusId = "00:02.0";
+      nvidiaBusId = "01:00.0";
+    };
   };
 }
