@@ -38,6 +38,10 @@
       inputs.niri.packages.${pkgs.stdenv.system}.xwayland-satellite-unstable;
 
   programs.niri.settings = {
+    input.mouse = {
+      accel-speed = 0;
+      accel-profile = "flat";
+    };
     spawn-at-startup = [
       { command = [ "mako" ]; }
       {
