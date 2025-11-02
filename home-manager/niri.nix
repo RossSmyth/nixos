@@ -158,6 +158,18 @@
         "@DEFAULT_AUDIO_SINK@"
         "toggle"
       ];
+      "XF86AudioPlay".action.spawn = [
+        "playerctl"
+        "play-pause"
+      ];
+      "XF86AudioNext".action.spawn = [
+        "playerctl"
+        "next"
+      ];
+      "XF86AudioPrev".action.spawn = [
+        "playerctl"
+        "previous"
+      ];
       "XF86MonBrightnessDown".action.spawn = [
         "brightnessctl"
         "s"
