@@ -68,7 +68,10 @@
       "Mod+Alt+P".action.spawn = "poweroff";
       "Mod+Alt+R".action.spawn = "reboot";
       "Mod+Alt+Q".action = quit;
-      "Mod+L".action = spawn (lib.getExe config.programs.swaylock.package) "-Ffe";
+      "Mod+Shift+Space".action.spawn = [
+        "swaylock"
+        "-Ffe"
+      ];
       # workspaces
       "Mod+Space".action = toggle-overview;
       "Mod+1".action.focus-workspace = 1;
@@ -95,47 +98,36 @@
       "Mod+Q".action = close-window;
       "Mod+C".action = center-column;
       "Mod+Shift+W".action = switch-preset-column-width;
-      "Mod+Shift+H".action = switch-preset-window-height;
-      "Mod+Ctrl+H".action = reset-window-height;
       "Mod+Minus".action.set-column-width = "-10%";
       "Mod+Equal".action.set-column-width = "+10%";
-      "Mod+Shift+Minus".action.set-window-height = "-10%";
-      "Mod+Shift+Equal".action.set-window-height = "+10%";
-      # focus
-      "Mod+Left".action = focus-column-or-monitor-left;
-      "Mod+Right".action = focus-column-or-monitor-right;
-      "Mod+Down".action = focus-window-or-workspace-down;
-      "Mod+Up".action = focus-window-or-workspace-up;
-      "Mod+Alt+Left".action = focus-monitor-left;
-      "Mod+Alt+Down".action = focus-monitor-down;
-      "Mod+Alt+Up".action = focus-monitor-up;
-      "Mod+Alt+Right".action = focus-monitor-right;
+      # move and focus
+      # Try to move by-column, and focus by window. Then make
+      # it work with monitor and workspaces mostly seamlessly.
+      #
+      # I don't currently have any monitors up or down so that's
+      # not really accounted for.
+      ## Left
       "Mod+WheelScrollUp".action = focus-column-left-or-last;
+      "Mod+H".action = focus-column-or-monitor-left;
+      "Mod+Shift+H".action = move-column-left;
+      "Mod+Alt+H".action = move-column-to-monitor-left;
+      ## Right
       "Mod+WheelScrollDown".action = focus-column-right-or-first;
-      "Mod+Shift+WheelScrollUp".action = focus-window-or-workspace-up;
-      "Mod+Shift+WheelScrollDown".action = focus-window-or-workspace-down;
-      "Mod+U".action = focus-workspace-down;
-      "Mod+I".action = focus-workspace-up;
-      # move
-      "Mod+Ctrl+Left".action = move-column-left;
-      "Mod+Ctrl+Down".action = move-window-down-or-to-workspace-down;
-      "Mod+Ctrl+Up".action = move-window-up-or-to-workspace-up;
-      "Mod+Ctrl+Right".action = move-column-right;
-      "Mod+Ctrl+Alt+Left".action = move-column-to-monitor-left;
-      "Mod+Ctrl+Alt+Down".action = move-column-to-monitor-down;
-      "Mod+Ctrl+Alt+Up".action = move-column-to-monitor-up;
-      "Mod+Ctrl+Alt+Right".action = move-column-to-monitor-right;
-      "Mod+Shift+U".action = move-column-to-workspace-down;
-      "Mod+Shift+I".action = move-column-to-workspace-up;
+      "Mod+L".action = focus-column-or-monitor-right;
+      "Mod+Shift+L".action = move-column-right;
+      "Mod+Alt+L".action = move-column-to-monitor-right;
+      ## Up
+      "Mod+K".action = focus-window-or-workspace-up;
+      "Mod+Shift+K".action = move-column-to-workspace-up;
+      ## Down
+      "Mod+J".action = focus-window-or-workspace-down;
+      "Mod+Shift+J".action = move-column-to-workspace-down;
       # float
       "Mod+V".action = toggle-window-floating;
       "Mod+Shift+V".action = switch-focus-between-floating-and-tiling;
-      # tabs
-      "Mod+W".action = toggle-column-tabbed-display;
-      "Mod+BracketLeft".action = consume-or-expel-window-left;
-      "Mod+BracketRight".action = consume-or-expel-window-right;
-      "Mod+Comma".action = consume-window-into-column;
-      "Mod+Period".action = expel-window-from-column;
+      # Window consume/expel to columns
+      "Mod+Ctrl+H".action = consume-or-expel-window-left;
+      "Mod+Ctrl+L".action = consume-or-expel-window-right;
       # screenshots
       "Print".action.screenshot = { };
       "Shift+Print".action.screenshot-screen = { };
@@ -179,14 +171,6 @@
         "brightnessctl"
         "s"
         "+5%"
-      ];
-      # docs
-      "Mod+H".action.spawn = [
-        "firefox"
-        "https://github.com/YaLTeR/niri/wiki/Getting-Started"
-        "https://github.com/sodiboo/niri-flake"
-        "https://github.com/sodiboo/niri-flake/blob/main/docs.md"
-        "https://github.com/Alexays/Waybar/wiki"
       ];
       "Mod+Shift+Slash".action = show-hotkey-overlay;
     };
