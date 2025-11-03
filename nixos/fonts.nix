@@ -10,7 +10,7 @@
     packages = with pkgs; [
       nerd-fonts.inconsolata
       nerd-fonts.noto
-      noto-fonts-emoji
+      noto-fonts-color-emoji
     ];
 
     # Font defaults

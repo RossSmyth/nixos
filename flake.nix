@@ -69,6 +69,7 @@
         work = mkMachine {
           hostname = "work";
           nixModules = [
+            ./nixos/fonts.nix
             ./nixos/wsl.nix
             ./nixos/tmpfsTmp.nix
           ];
