@@ -9,7 +9,7 @@
   programs.helix = {
     enable = true;
     defaultEditor = true;
-    package = lib.mkIf fromSource (inputs.helix.packages.${pkgs.system}.default);
+    package = lib.mkIf fromSource (inputs.helix.packages.${pkgs.stdenv.hostPlatform.system}.default);
     settings = {
       theme = "bogsher";
 

@@ -35,7 +35,7 @@
   programs.niri.settings.xwayland-satellite.enable = true;
   programs.niri.settings.xwayland-satellite.path =
     lib.getExe
-      inputs.niri.packages.${pkgs.stdenv.system}.xwayland-satellite-unstable;
+      inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.xwayland-satellite-unstable;
 
   programs.niri.settings = {
     input.mouse = {
