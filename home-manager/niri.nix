@@ -17,9 +17,17 @@
   };
 
   # Launcher
-  programs.fuzzel = {
+  programs.rofi = {
     enable = true;
-    settings.main.terminal = lib.getExe config.programs.ghostty.package;
+    terminal = lib.getExe config.programs.ghostty.package;
+    modes = [
+      "run"
+      "drun"
+      "combi"
+    ];
+    extraConfig = {
+      combi-modes = "run,drun";
+    };
   };
 
   # Lock screen
@@ -63,7 +71,11 @@
       # apps
       "Mod+Return".action.spawn = "ghostty";
       "Mod+B".action.spawn = "firefox";
-      "Mod+D".action.spawn = "fuzzel";
+      "Mod+D".action.spawn = [
+        "rofi"
+        "-show"
+        "combi"
+      ];
       # session
       "Mod+Alt+P".action.spawn = "poweroff";
       "Mod+Alt+R".action.spawn = "reboot";
