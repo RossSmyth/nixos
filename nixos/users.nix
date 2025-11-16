@@ -10,7 +10,6 @@
       "wheel"
       "input"
       "networkmanager"
-      "audio"
       "docker"
     ];
   };
