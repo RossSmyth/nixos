@@ -27,6 +27,10 @@
 
   # Allow applications to use file pickers and stuff
   xdg.portal.wlr.enable = true;
+  environment.pathsToLink = [
+    "/share/xdg-desktop-portal"
+    "/share/applications"
+  ];
 
   # No swaylock pam module :/ https://github.com/NixOS/nixpkgs/issues/143365
   security.pam.services.swaylock = { };
