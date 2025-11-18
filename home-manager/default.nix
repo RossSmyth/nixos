@@ -26,6 +26,12 @@ extraModules:
     nix-index.enable = !pkgs.stdenv.hostPlatform.isRiscV;
   };
 
+  # automount drives
+  services.udiskie = {
+    enable = true;
+    tray = "never";
+  };
+
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "24.05";
 }

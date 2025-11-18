@@ -21,5 +21,7 @@
 
   system.etc.overlay.enable = true;
 
+  services.udisks2.enable = true;
+
   system.stateVersion = "24.05";
 }
