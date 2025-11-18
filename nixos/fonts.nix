@@ -3,7 +3,10 @@
   # NixOS Font config
 
   # IDK this is good enough
-  console.font = "Lat2-Terminus16";
+  console = {
+    font = "Lat2-Terminus16";
+    earlySetup = true;
+  };
 
   # System-wide fonts
   fonts = {
