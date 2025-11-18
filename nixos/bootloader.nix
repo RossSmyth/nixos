@@ -12,6 +12,9 @@
   };
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Use systemd in initrd
+  boot.initrd.systemd.enable = true;
+
   # Login automatically on the TTY on start
   services.getty = {
     autologinUser = user;
