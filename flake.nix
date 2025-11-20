@@ -64,6 +64,7 @@
             ./nixos/networking.nix
             ./nixos/niri.nix
             ./nixos/steam.nix
+            ./nixos/chromecast.nix
           ];
         };
         work = mkMachine {
@@ -104,6 +105,7 @@
             ./nixos/networking.nix
             ./nixos/battery.nix
             ./nixos/niri.nix
+            ./nixos/chromecast.nix
           ];
         };
       };
