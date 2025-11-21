@@ -1,5 +1,8 @@
 { user, ... }:
 {
+  # Configure users with a Rust program, not an ad-hoc perl script
+  services.userborn.enable = true;
+
   users.mutableUsers = false;
 
   users.users.${user} = {
