@@ -11,6 +11,6 @@
 
   # To select bluetooth codecs
   environment.defaultPackages = with pkgs; [
-    wiremixer
+    wiremix
   ];
 }
