@@ -32,5 +32,9 @@
   # So I can have disks mounted when plugged in
   services.udisks2.enable = true;
 
+  # do stage2 init with nixos-init, a rust executable,
+  # instead of a funny perl script
+  system.nixos-init.enable = true;
+
   system.stateVersion = "24.05";
 }
