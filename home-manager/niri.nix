@@ -8,6 +8,7 @@
 {
   home.packages = with pkgs; [
     wl-clipboard-rs
+    hackneyed
   ];
 
   # Notification daemon
@@ -46,6 +47,9 @@
       inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.xwayland-satellite-unstable;
 
   programs.niri.settings = {
+    cursor = {
+      theme = "Hackneyed";
+    };
     input.mouse = {
       accel-speed = 0;
       accel-profile = "flat";
