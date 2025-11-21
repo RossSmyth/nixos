@@ -14,13 +14,22 @@
   boot.tmp.cleanOnBoot = true;
   zramSwap.enable = true;
 
+  # Useful userspace oom killer
   systemd.oomd = {
     enableRootSlice = true;
     enableUserSlices = true;
   };
 
+  # No perl messing with my /etc
   system.etc.overlay.enable = true;
 
+  # Disable things I will never use
+  documentation = {
+    info.enable = false;
+    nixos.enable = false;
+  };
+
+  # So I can have disks mounted when plugged in
   services.udisks2.enable = true;
 
   system.stateVersion = "24.05";
