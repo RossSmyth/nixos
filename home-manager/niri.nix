@@ -47,9 +47,8 @@
       inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.xwayland-satellite-unstable;
 
   programs.niri.settings = {
-    cursor = {
-      theme = "Hackneyed";
-    };
+    cursor.theme = "Hackneyed";
+    gestures.hot-corners.enable = false;
     input.mouse = {
       accel-speed = 0;
       accel-profile = "flat";
