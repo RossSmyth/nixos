@@ -103,7 +103,6 @@
             ./nixos/bootloader.nix
             ./nixos/security.nix
             ./nixos/networking.nix
-            ./nixos/battery.nix
             ./nixos/niri.nix
             ./nixos/chromecast.nix
           ];
