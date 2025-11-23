@@ -48,6 +48,26 @@
 
   programs.niri.settings = {
     cursor.theme = "Hackneyed";
+    outputs = {
+      # Left desktop monitor
+      "LG Electronics LG HDR WFHD 0x0003593A" = {
+        mode = {
+          height = 1080;
+          width = 2560;
+          refresh = 74.991;
+        };
+        variable-refresh-rate = true;
+      };
+      # Right desktop monitor
+      "LG Electronics LG ULTRAWIDE 0x0007E9D3" = {
+        mode = {
+          height = 1080;
+          width = 2560;
+          refresh = 74.991;
+        };
+        variable-refresh-rate = true;
+      };
+    };
     gestures.hot-corners.enable = false;
     input.mouse = {
       accel-speed = 0;
