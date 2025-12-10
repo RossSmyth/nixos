@@ -26,11 +26,23 @@
   };
 
   # Allow applications to use file pickers and stuff
-  xdg.portal.wlr.enable = true;
-  environment.pathsToLink = [
-    "/share/xdg-desktop-portal"
-    "/share/applications"
-  ];
+  xdg.portal = {
+    enable = true;
+    xdgOpenUsePortal = true;
+    config = {
+      common.default = [ "gkt" ];
+      niri = {
+        default = [ "gtk" "gnome" ];
+        "org.freedesktop.impl.portal.ScreenCast" = "gnome";
+        "org.freedesktop.impl.portal.Screenshort" = "gnome";
+        "org.freedesktop.impl.portal.FileChooser" = "gtk";
+      };
+    };
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-gnome
+    ];
+  };
 
   # No swaylock pam module :/ https://github.com/NixOS/nixpkgs/issues/143365
   security.pam.services.swaylock = { };
@@ -42,7 +54,12 @@
   nixpkgs.overlays = [
     inputs.niri.overlays.niri
   ];
-  environment.variables.NIXOS_OZONE_WL = "1";
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+    XDG_CURRENT_DESKTOP = "niri";
+    XDG_SESSION_TYPE = "wayland";
+    XDG_SESSION_DESKTOP = "niri";
+  };
   programs.niri = {
     package = pkgs.niri-unstable;
     enable = true;
