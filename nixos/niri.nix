@@ -37,6 +37,7 @@
 
   # The niri agent messes with it.
   systemd.user.services.niri-flake-polkit.enable = false;
+  security.soteria.enable = true;
 
   nixpkgs.overlays = [
     inputs.niri.overlays.niri
