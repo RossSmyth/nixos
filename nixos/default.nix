@@ -29,5 +29,15 @@
   # So I can have disks mounted when plugged in
   services.udisks2.enable = true;
 
+  # Stop suspending all my stuff every few seconds :(
+  services.tlp = {
+    enable = true;
+    settings = {
+      USB_AUTOSUSPEND = 0;
+      SOUND_POWER_SAVE_ON_AC = 0;
+      SOUND_POWER_SAVE_ON_BAT = 0;
+    };
+  };
+
   system.stateVersion = "24.05";
 }
