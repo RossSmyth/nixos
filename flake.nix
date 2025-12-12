@@ -99,7 +99,6 @@
             ./nixos/fonts.nix
             ./nixos/run0.nix
             ./nixos/sound.nix
-            ./nixos/battery.nix
             ./nixos/nvidia.nix
             ./nixos/bootloader.nix
             ./nixos/security.nix
