@@ -96,6 +96,7 @@
             ./home-manager/waybar.nix
           ];
           nixModules = [
+            ./nixos/battery.nix
             ./nixos/fonts.nix
             ./nixos/run0.nix
             ./nixos/sound.nix
