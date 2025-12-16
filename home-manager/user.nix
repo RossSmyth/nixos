@@ -10,7 +10,7 @@
     homeDirectory = "/home/" + user;
     packages = [
       pkgs.fq
-      pkgs.jq
+      pkgs.jaq
       pkgs.hexyl
     ]
     ++ lib.optionals (!pkgs.stdenv.hostPlatform.isRiscV) [
