@@ -6,6 +6,7 @@
 }:
 {
   home = {
+    preferXdgDirectories = true;
     username = user;
     homeDirectory = "/home/" + user;
     packages = [
