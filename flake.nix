@@ -95,6 +95,7 @@
             ./home-manager/gui.nix
             ./home-manager/niri.nix
             ./home-manager/waybar.nix
+            ./home-manager/minecraft.nix
           ];
           nixModules = [
             ./nixos/battery.nix
