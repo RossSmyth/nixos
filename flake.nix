@@ -54,6 +54,7 @@
             ./home-manager/niri.nix
             ./home-manager/waybar.nix
             ./home-manager/mpv.nix
+            ./home-manager/minecraft.nix
           ];
           nixModules = [
             ./nixos/fonts.nix
