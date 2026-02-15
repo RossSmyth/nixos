@@ -20,6 +20,9 @@
     enableUserSlices = true;
   };
 
+  # Use dbus-broker cause it's a bit better
+  services.dbus.implementation = "broker";
+
   # Disable things I will never use
   documentation = {
     info.enable = false;
