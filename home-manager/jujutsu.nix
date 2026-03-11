@@ -9,6 +9,9 @@
   programs.jujutsu = {
     enable = true;
     settings = {
+      revset-aliases = {
+        "merge_base(x, y)" = "fork_point(x | y)";
+      };
       user = {
         name = "Ross Smyth";
         # Email is a per-repo thing.
