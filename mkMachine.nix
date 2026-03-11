@@ -1,4 +1,7 @@
 inputs:
+let
+  evalConfig = import (inputs.nixpkgs + "/nixos/lib/eval-config.nix");
+in
 {
   hostname,
   target ? "x86_64-linux",
@@ -8,8 +11,8 @@ inputs:
   user ? "rsmyth",
   fromSource ? true,
 }:
-inputs.nixpkgs.lib.nixosSystem {
-  system = target;
+evalConfig {
+  system = null;
   specialArgs = {
     inherit inputs hostname user;
   };

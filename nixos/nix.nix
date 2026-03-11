@@ -39,5 +39,7 @@
   environment.systemPackages = with pkgs; [
     git
     nom
+    npins
+    colmena
   ];
 }
