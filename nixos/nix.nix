@@ -18,7 +18,7 @@
 
   nix = {
     package = pkgs.lixPackageSets.git.lix;
-    registry.nixpkgs.flake = inputs.nixpkgs;
+    nixPath = [ "nixpkgs=/etc/nixos/nixpkgs" ];
     settings = {
       trusted-users = [ user ];
       experimental-features = "nix-command flakes";
@@ -33,6 +33,11 @@
       automatic = true;
       options = "--delete-older-than 7d";
     };
+  };
+
+  # Pin nixpkgs to a symlink in /etc
+  environment.etc = {
+    "nixos/nixpkgs".source = builtins.storePath pkgs.path;
   };
 
   # Without these I cannot build the system without doing silly stuff
