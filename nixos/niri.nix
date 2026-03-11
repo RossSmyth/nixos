@@ -5,9 +5,18 @@
   lib,
   ...
 }:
+let
+  flake-compat = import inputs.flake-compat;
+  niri =
+    (flake-compat {
+      src = inputs.niri;
+      copySourceTreeToStore = false;
+      useBuiltinsFetchTree = true;
+    }).outputs;
+in
 {
   imports = [
-    inputs.niri.nixosModules.niri
+    niri.nixosModules.niri
   ];
 
   # Sway does not enable libinput by default.
@@ -32,7 +41,10 @@
     config = {
       common.default = [ "gkt" ];
       niri = {
-        default = [ "gtk" "gnome" ];
+        default = [
+          "gtk"
+          "gnome"
+        ];
         "org.freedesktop.impl.portal.ScreenCast" = "gnome";
         "org.freedesktop.impl.portal.Screenshort" = "gnome";
         "org.freedesktop.impl.portal.FileChooser" = "gtk";
@@ -52,7 +64,7 @@
   security.soteria.enable = true;
 
   nixpkgs.overlays = [
-    inputs.niri.overlays.niri
+    niri.overlays.niri
   ];
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";

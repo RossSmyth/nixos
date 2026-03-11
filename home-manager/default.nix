@@ -13,7 +13,7 @@ extraModules:
     ./git.nix
     ./fish.nix
     ./starship.nix
-    inputs.nix-index-database.homeModules.nix-index
+    (inputs.nix-index-database + "/home-manager-module.nix")
   ]
   ++ extraModules;
 

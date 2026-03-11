@@ -23,7 +23,7 @@ evalConfig {
       nixpkgs.buildPlatform = build;
       nixpkgs.hostPlatform = target;
     }
-    inputs.home-manager.nixosModules.home-manager
+    (inputs.home-manager + "/nixos")
     {
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = true;

@@ -5,6 +5,15 @@
   inputs,
   ...
 }:
+let
+  flake-compat = import inputs.flake-compat;
+  niri =
+    (flake-compat {
+      src = inputs.niri;
+      copySourceTreeToStore = false;
+      useBuiltinsFetchTree = true;
+    }).outputs;
+in
 {
   home.packages = with pkgs; [
     wl-clipboard-rs
@@ -44,7 +53,7 @@
   programs.niri.settings.xwayland-satellite.enable = true;
   programs.niri.settings.xwayland-satellite.path =
     lib.getExe
-      inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.xwayland-satellite-unstable;
+      niri.packages.${pkgs.stdenv.hostPlatform.system}.xwayland-satellite-unstable;
 
   programs.niri.settings = {
     cursor.theme = "Hackneyed";
