@@ -14,6 +14,7 @@
       theme = "bogsher";
 
       editor = {
+        rainbow-brackets = true;
         true-color = true;
         line-number = "relative";
         mouse = false;
