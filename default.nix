@@ -6,7 +6,7 @@ in
   desktop = mkMachine {
     hostname = "desktop";
     hmModules = [
-      ./home-manager/ghostty.nix
+      ./home-manager/terminal.nix
       ./home-manager/gui.nix
       ./home-manager/niri.nix
       ./home-manager/waybar.nix
@@ -48,7 +48,7 @@ in
   aurora = mkMachine {
     hostname = "aurora";
     hmModules = [
-      ./home-manager/ghostty.nix
+      ./home-manager/terminal.nix
       ./home-manager/gui.nix
       ./home-manager/niri.nix
       ./home-manager/waybar.nix
