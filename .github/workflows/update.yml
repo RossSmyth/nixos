@@ -21,7 +21,8 @@ jobs:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Update flake.lock
-        run: nix flake update -L --show-trace
+        run: |
+          nix run nixpkgs#npins -- update
 
       - name: Commit Changes
         id: commit
@@ -29,12 +30,13 @@ jobs:
         run: |
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add flake.lock
+          git add npins
           git commit -m "[Automated] bump lockfile"
 
       - name: Test Changes
         if: steps.commit.outcome == 'success'
-        run: nix flake check -L --show-trace
+        run: |
+          nix eval -f. --apply 'builtins.mapAttrs (_: c: c.config.system.build.toplevel)' -L --show-trace
 
       - name: Push changes
         if: steps.commit.outcome == 'success'
