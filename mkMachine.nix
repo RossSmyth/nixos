@@ -5,7 +5,7 @@ in
 {
   hostname,
   target ? "x86_64-linux",
-  build ? "x86_64-linux",
+  build ? builtins.currentSystem or "x86_64-linux",
   nixModules ? [ ],
   hmModules ? [ ],
   user ? "rsmyth",
