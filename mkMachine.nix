@@ -9,7 +9,6 @@ in
   nixModules ? [ ],
   hmModules ? [ ],
   user ? "rsmyth",
-  fromSource ? true,
 }:
 evalConfig {
   system = null;
@@ -33,7 +32,6 @@ evalConfig {
           inputs
           hostname
           user
-          fromSource
           ;
       };
     }

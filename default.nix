@@ -1,5 +1,5 @@
 let
-  inputs = import ./npins;
+  inputs = import ./npins { };
   mkMachine = import ./mkMachine.nix inputs;
 in
 {

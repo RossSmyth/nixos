@@ -2,14 +2,13 @@
   lib,
   pkgs,
   inputs,
-  fromSource,
   ...
 }:
 {
   programs.helix = {
     enable = true;
     defaultEditor = true;
-    package = lib.mkIf fromSource (pkgs.callPackage inputs.helix { });
+    package = pkgs.callPackage "${inputs.helix}" { gitRev = inputs.helix.revision; };
     settings = {
       theme = "bogsher";
 
