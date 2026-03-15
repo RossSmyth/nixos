@@ -29,10 +29,7 @@
       keep-outputs = true;
     };
     channel.enable = false;
-    gc = {
-      automatic = true;
-      options = "--delete-older-than 7d";
-    };
+    gc.automatic = true;
   };
 
   # Pin nixpkgs to a symlink in /etc
