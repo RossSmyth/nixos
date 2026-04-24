@@ -27,6 +27,7 @@
       auto-optimise-store = true;
       keep-derivations = true;
       keep-outputs = true;
+      http3 = true;
     };
     channel.enable = false;
     gc.automatic = true;
