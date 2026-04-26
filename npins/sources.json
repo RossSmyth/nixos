@@ -23,9 +23,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "0805bc8534bafaa9109f1839f4e771afb32c3391",
-      "url": "https://github.com/helix-editor/helix/archive/0805bc8534bafaa9109f1839f4e771afb32c3391.tar.gz",
-      "hash": "sha256-utPazkXA5Ef1KELKUDA+tMWkgeLlPhjmA6ma8NAWAe4="
+      "revision": "3beb268068d23294a26b47eab43b0a13a2a3a951",
+      "url": "https://github.com/helix-editor/helix/archive/3beb268068d23294a26b47eab43b0a13a2a3a951.tar.gz",
+      "hash": "sha256-vu2S5gnSTS4aDz25mr4yCrKh9sspPVlgD5KQQVHA4AM="
     },
     "home-manager": {
       "type": "Git",
@@ -36,9 +36,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "565e5349208fe7d0831ef959103c9bafbeac0681",
-      "url": "https://github.com/nix-community/home-manager/archive/565e5349208fe7d0831ef959103c9bafbeac0681.tar.gz",
-      "hash": "sha256-7zSUFWsU0+jlD7WB3YAxQ84Z/iJurA5hKPm8EfEyGJk="
+      "revision": "6f59831b23d03bbf4fbd13ad167ae25da294cc14",
+      "url": "https://github.com/nix-community/home-manager/archive/6f59831b23d03bbf4fbd13ad167ae25da294cc14.tar.gz",
+      "hash": "sha256-Th3a5OZyEy4kCoyLfefnt+2dwRIrFQqYgMsayF9qzFw="
     },
     "niri": {
       "type": "Git",
@@ -49,9 +49,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "f8cc32a3aba29fdacd06d80b0986028cfd413a22",
-      "url": "https://github.com/sodiboo/niri-flake/archive/f8cc32a3aba29fdacd06d80b0986028cfd413a22.tar.gz",
-      "hash": "sha256-oHVMjAMBukYnGeEE0EtCQsx8cNRv8WadHD8ZV3oZFSM="
+      "revision": "e43ef13f23c2c7ae5b10e842745cb345faff4f40",
+      "url": "https://github.com/sodiboo/niri-flake/archive/e43ef13f23c2c7ae5b10e842745cb345faff4f40.tar.gz",
+      "hash": "sha256-AgOIR3O+hLkTe/spgYjp0knc37iy/A5DqGRY+8DP3LE="
     },
     "nix-index-database": {
       "type": "Git",
@@ -62,9 +62,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "bedba5989b04614fc598af9633033b95a937933f",
-      "url": "https://github.com/nix-community/nix-index-database/archive/bedba5989b04614fc598af9633033b95a937933f.tar.gz",
-      "hash": "sha256-7jt9Vpm48Yy5yAWigYpde+HxtYEpEuyzIQJF4VYehhk="
+      "revision": "c43246d4e9e506178b69baed075d797ec2d873e2",
+      "url": "https://github.com/nix-community/nix-index-database/archive/c43246d4e9e506178b69baed075d797ec2d873e2.tar.gz",
+      "hash": "sha256-oHVcvP2Ahhj1KUsEzp+2BQF55/r5VSa3QxdPdwE1p00="
     },
     "nixos-hardware": {
       "type": "Git",
@@ -75,9 +75,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "c775c2772ba56e906cbeb4e0b2db19079ef11ff7",
-      "url": "https://github.com/nixos/nixos-hardware/archive/c775c2772ba56e906cbeb4e0b2db19079ef11ff7.tar.gz",
-      "hash": "sha256-2ZBhDNZZwYkRmefK5XLOusCJHnoeKkoN95hoSGgMxWM="
+      "revision": "2096f3f411ce46e88a79ae4eafcfc9df8ed41c61",
+      "url": "https://github.com/nixos/nixos-hardware/archive/2096f3f411ce46e88a79ae4eafcfc9df8ed41c61.tar.gz",
+      "hash": "sha256-ZOQyNqSvJ8UdrrqU1p7vaFcdL53idK+LOM8oRWEWh6o="
     },
     "nixos-wsl": {
       "type": "Git",
@@ -88,15 +88,15 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "9a8c2a85f1ffdcecfb0f9c52c5a73c49ceb43911",
-      "url": "https://github.com/nix-community/nixos-wsl/archive/9a8c2a85f1ffdcecfb0f9c52c5a73c49ceb43911.tar.gz",
-      "hash": "sha256-LQjlc0VEn55WAT4BiI8sIsokb/2FNlcbBD+Xr3MTE24="
+      "revision": "4e6cad241baa0115a7aae8c55b04c166da4997c9",
+      "url": "https://github.com/nix-community/nixos-wsl/archive/4e6cad241baa0115a7aae8c55b04c166da4997c9.tar.gz",
+      "hash": "sha256-0ku3gW8bZ9TTpEU2fQw86oU6ZLT2vF6pacF+cLaf7VY="
     },
     "nixpkgs": {
       "type": "Channel",
       "name": "nixos-unstable",
-      "url": "https://releases.nixos.org/nixos/unstable/nixos-26.05pre980183.4bd9165a9165/nixexprs.tar.xz",
-      "hash": "sha256-Gk2T0tDDDAs319hp/ak+bAIUG5bPMvnNEjPV8CS86Fg="
+      "url": "https://releases.nixos.org/nixos/unstable/nixos-26.05pre985613.0726a0ecb6d4/nixexprs.tar.xz",
+      "hash": "sha256-wMN1gM00sUQ2KC9CNr/XEOGdfOrl67PabIRv9AYayTo="
     }
   },
   "version": 7
