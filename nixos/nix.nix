@@ -14,6 +14,13 @@
       allowUnfree = true;
       allowUnfreePredicate = _: true;
     };
+    overlays = [
+      (_: prev: {
+        comma = prev.comma.override {
+          nix = config.nix.package;
+        };
+      })
+    ];
   };
 
   nix = {
