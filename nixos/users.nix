@@ -14,6 +14,7 @@
       "input"
       "networkmanager"
       "docker"
+      "dialout"
     ];
   };
 }

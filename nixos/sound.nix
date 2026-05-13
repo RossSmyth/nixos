@@ -31,6 +31,12 @@
     ];
   };
 
+  # Audiomoth device connection
+  services.udev.extraRules = ''
+    SUBSYSTEM=="usb", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="0002", MODE="0666"
+    SUBSYSTEM=="tty", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="0003", MODE="0666"
+  '';
+
   # To select bluetooth codecs
   environment.defaultPackages = with pkgs; [
     wiremix
