@@ -82,6 +82,7 @@ in
       ./nixos/sshd.nix
       ./nixos/torrent.nix
       ./nixos/networking.nix
+      ./nixos/jellyfin.nix
     ];
   };
 }
