@@ -79,6 +79,7 @@ in
       ./nixos/nvidia.nix
       ./nixos/bootloader.nix
       ./nixos/security.nix
+      ./nixos/sshd.nix
       ./nixos/networking.nix
     ];
   };
