@@ -80,6 +80,7 @@ in
       ./nixos/bootloader.nix
       ./nixos/security.nix
       ./nixos/sshd.nix
+      ./nixos/torrent.nix
       ./nixos/networking.nix
     ];
   };
