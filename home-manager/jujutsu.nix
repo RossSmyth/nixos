@@ -92,7 +92,7 @@
             .replace(regex:'[^[[:alnum:]].]', '-')
             .replace(regex:'-{2,}', '-')
             .replace(regex:'\.{2,}', '.')
-            .replace(regex:'(^-+|-+$)', '''')
+            .replace(regex:'(^-+|-+$)', ''')
             .lower()
       '';
       templates.git_push_bookmark = ''slugify(description) ++ "/" ++ change_id.short()'';
