@@ -12,7 +12,7 @@
   services.jellyfin = {
     hardwareAcceleration = {
       enable = true;
-      type = "nvenv";
+      type = "nvenc";
       device = "/dev/dri/renderD128";
     };
 
