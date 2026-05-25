@@ -67,4 +67,19 @@ in
       ./nixos/chromecast.nix
     ];
   };
+  trent = mkMachine {
+    hostname = "trent";
+    hmModules = [
+      ./home-manager/mpv.nix
+    ];
+    nixModules = [
+      ./nixos/fonts.nix
+      ./nixos/run0.nix
+      ./nixos/sound.nix
+      ./nixos/nvidia.nix
+      ./nixos/bootloader.nix
+      ./nixos/security.nix
+      ./nixos/networking.nix
+    ];
+  };
 }
