@@ -1,4 +1,5 @@
-{pkgs, ... }: {
+{ pkgs, ... }:
+{
   services.jellyfin = {
     enable = true;
     openFirewall = true;
@@ -14,16 +15,32 @@
       ];
       hash = "sha256-bzMqxWTqrJ1skZmRTXyEMCKStXpljbqe5r0Ve2cnBfM=";
     };
-    
-    globalConfig = ''
-        tls {
-          dns cloudflare {env.CF_API_TOKEN}
-        }  
-      '';
+
+    virtualHosts."192.168.1.11".extraConfig = ''
+      reverse_proxy :8096
+      tls internal
+    '';
+
     virtualHosts."jellyfin.rsmyth.net".extraConfig = ''
+      tls {
+        dns cloudflare {env.CF_API_TOKEN}
+        resolvers 1.1.1.1
+      }  
       reverse_proxy :8096
     '';
   };
+
+  networking.firewall = {
+    allowedTCPPorts = [
+      80
+      443
+    ];
+  };
+
+  # For local tls
+  systemd.services.caddy.path = [
+    pkgs.nss.tools
+  ];
 
   # temporary, to use a secret manager
   systemd.services.caddy.serviceConfig.EnvironmentFile = [
