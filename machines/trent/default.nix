@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, config, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -11,6 +11,7 @@
   # 1060 mobile
   # Hardware specific
   hardware.nvidia.open = lib.mkForce false;
+  hardware.nvidia.package = lib.mkForce config.boot.kernelPackages.nvidiaPackages.legacy_580;
   services.jellyfin = {
     hardwareAcceleration = {
       enable = true;
