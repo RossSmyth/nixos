@@ -73,6 +73,7 @@ in
       ./home-manager/mpv.nix
     ];
     nixModules = [
+      ./nixos/agenix.nix
       ./nixos/fonts.nix
       ./nixos/run0.nix
       ./nixos/sound.nix
