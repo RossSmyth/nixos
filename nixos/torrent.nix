@@ -11,10 +11,13 @@
 
     settings = {
       # Find a way to automate sorting TV and movies
-      download-dir = "/media";
-      rpc-bind-address = "0.0.0.0";
-      rpc-whitelist = "127.0.0.1,192.168.*.*";
+      rpc_bind_address = "0.0.0.0";
+      rpc_whitelist = "127.0.0.1,192.168.*.*";
       rpc_host_whitelist = "trent.local";
+      speed_limit_up_enable = true;
+      speed_limit_down_enabled = true;
+      speed_limit_down = "1000";
+      ratio_limit_enable = true;
     };
   };
 }
