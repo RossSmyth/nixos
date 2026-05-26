@@ -58,8 +58,7 @@
     pkgs.nss.tools
   ];
 
-  # temporary, to use a secret manager
   systemd.services.caddy.serviceConfig.EnvironmentFile = [
-    "/etc/secrets/caddy.env"
+    config.age.secrets.caddy.path
   ];
 }
