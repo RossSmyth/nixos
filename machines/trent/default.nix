@@ -16,7 +16,7 @@
     hardwareAcceleration = {
       enable = true;
       type = "nvenc";
-      device = "/dev/dri/renderD128";
+      device = "/dev/dri/renderD129";
     };
 
     transcoding = {
