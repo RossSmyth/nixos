@@ -1,5 +1,6 @@
 {
   user,
+  hostname,
   ...
 }:
 {
@@ -10,6 +11,15 @@
       PermitRootLogin = "no";
       AllowUsers = [ user ];
     };
+
+    # Keys for agenix
+    hostKeys = [
+      {
+        type = "ed25519";
+        comment = "${user}@${hostname}";
+        path = "/etc/ssh/ssh_host_ed25519_key";
+      }
+    ];
   };
 
   users.users.${user}.openssh.authorizedKeys.keys = [
