@@ -1,3 +1,4 @@
+{ lib, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -9,6 +10,7 @@
   # https://developer.nvidia.com/video-encode-decode-support-matrix
   # 1060 mobile
   # Hardware specific
+  hardware.nvidia.open = lib.mkForce false;
   services.jellyfin = {
     hardwareAcceleration = {
       enable = true;

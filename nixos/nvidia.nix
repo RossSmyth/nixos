@@ -1,10 +1,10 @@
-{ config, ... }:
+{ lib, config, ... }:
 {
   # GPU Stuff
   hardware.graphics.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia = {
-    open = true;
+    open = lib.mkDefault true;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 }
