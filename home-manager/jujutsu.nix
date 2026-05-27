@@ -89,11 +89,12 @@
         truncate_end(
           65,
           str.first_line()
-            .replace(regex:'[^[[:alnum:]].]', '-')
-            .replace(regex:'-{2,}', '-')
-            .replace(regex:'\.{2,}', '.')
-            .replace(regex:'(^-+|-+$)', ''')
+            .replace(regex:"[^[[:alnum:]].]", "-")
+            .replace(regex:"-{2,}", "-")
+            .replace(regex:"\.{2,}", ".")
+            .replace(regex:"(^-+|-+$)", "")
             .lower()
+        )
       '';
       templates.git_push_bookmark = ''slugify(description) ++ "/" ++ change_id.short()'';
     };
