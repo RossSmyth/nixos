@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   # So Transmission can place files in jf's media folder
   users.users.${config.services.transmission.user}.extraGroups = [
