@@ -5,6 +5,8 @@
     config.services.jellyfin.group
   ];
 
+  systemd.services.transmission.serviceConfig.ReadWritePaths = ["/media"];
+  
   services.transmission = {
     enable = true;
     package = pkgs.transmission_4;
