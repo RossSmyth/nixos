@@ -9,7 +9,7 @@ echo "audioNorm: analyzing audio file..."
 ffmpeg -hide_banner -nostats -i "$input" -filter:a loudnorm=print_format=json -f null null 2>&1 | awk '/{/,/}/' > "$passlog"
 echo "audioNorm: analysis done."
 
-readarray -t audioStats < <(cat "$passlog" | jq -r '.input_i, .input_lra, .input_tp, .target_offset')
+readarray -t audioStats < <(cat "$passlog" | jq -r '.input_i, .input_lra, .input_tp, .input_thresh, .target_offset')
 readonly audioStats
 
 readonly input_i="${audioStats[0]}"
