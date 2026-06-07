@@ -24,7 +24,6 @@ in
       ./nixos/networking.nix
       ./nixos/niri.nix
       ./nixos/steam.nix
-      ./nixos/chromecast.nix
     ];
   };
   work = mkMachine {
@@ -65,7 +64,6 @@ in
       ./nixos/security.nix
       ./nixos/networking.nix
       ./nixos/niri.nix
-      ./nixos/chromecast.nix
     ];
   };
   trent = mkMachine {
