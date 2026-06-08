@@ -83,6 +83,7 @@ in
       ./nixos/torrent.nix
       ./nixos/networking.nix
       ./nixos/jellyfin.nix
+      ./nixos/cuda.nix
     ];
   };
 }
