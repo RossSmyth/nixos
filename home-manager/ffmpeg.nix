@@ -1,6 +1,6 @@
 { lib, pkgs, ... }:
 let
-  twoPass = pkgs.writers.writeBash "two-pass" {
+  twoPass = pkgs.writers.writeBashBin "two-pass" {
     makeWrapperArgs = [
       "--prefix"
       "PATH"
@@ -9,7 +9,7 @@ let
     ];
   } ./ffmpeg/2pass.sh;
 
-  audioNorm = pkgs.writers.writeBash "audio-norm" {
+  audioNorm = pkgs.writers.writeBashBin "audio-norm" {
     makeWrapperArgs = [
       "--prefix"
       "PATH"
@@ -21,7 +21,7 @@ let
     ];
   } ./ffmpeg/audioNorm.sh;
 
-  toMp3 = pkgs.writers.writeBash "to-mp3" {
+  toMp3 = pkgs.writers.writeBashBin "to-mp3" {
     makeWrapperArgs = [
       "--prefix"
       "PATH"
