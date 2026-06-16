@@ -54,6 +54,8 @@ in
       ./home-manager/niri.nix
       ./home-manager/waybar.nix
       ./home-manager/minecraft.nix
+      ./home-manager/nushell.nix
+      ./home-manager/shell.nix
     ];
     nixModules = [
       ./nixos/battery.nix
@@ -66,6 +68,7 @@ in
       ./nixos/networking.nix
       ./nixos/niri.nix
       ./nixos/chromecast.nix
+      ./nixos/nushell.nix
     ];
   };
   trent = mkMachine {
