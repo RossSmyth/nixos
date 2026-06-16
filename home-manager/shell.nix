@@ -5,6 +5,14 @@
   ...
 }:
 {
+  programs.atuin = {
+    enable = true;
+    settings = {
+      filter_mode = "directory";
+      filter_mode_shell_up_key_binding = "session";
+      enter_accept = false;
+    };
+  };
   home.shellAliases = {
     jq = "${lib.getExe pkgs.jaq}";
     cat = "${lib.getExe config.programs.bat.package} --paging=never";

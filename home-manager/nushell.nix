@@ -6,6 +6,7 @@
 }:
 {
   home.shell.enableNushellIntegration = true;
+  programs.atuin.enableNushellIntegration = true;
   programs.nushell = {
     enable = true;
     configFile.text = ''

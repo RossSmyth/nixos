@@ -4,6 +4,7 @@
   ...
 }:
 {
+  programs.atuin.enableFishIntegration = true;
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
