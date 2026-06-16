@@ -10,7 +10,7 @@
     enable = true;
     interactiveShellInit = ''
       function fish_greeting
-        ${lib.getExe config.programs.fastfetch.package}
+        ${lib.getExe config.programs.fastfetch.package.minimal}
       end
     '';
   };
