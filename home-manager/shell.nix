@@ -8,8 +8,8 @@
   programs.atuin = {
     enable = true;
     settings = {
-      filter_mode = "directory";
-      filter_mode_shell_up_key_binding = "session";
+      filter_mode = "global";
+      filter_mode_shell_up_key_binding = "directory";
       enter_accept = false;
     };
   };
