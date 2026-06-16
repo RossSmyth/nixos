@@ -11,6 +11,7 @@ extraModules:
     ./user.nix
     ./jujutsu.nix
     ./git.nix
+    ./shell.nix
     ./fish.nix
     ./starship.nix
     (inputs.nix-index-database + "/home-manager-module.nix")
