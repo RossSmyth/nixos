@@ -9,6 +9,7 @@
   programs.atuin.enableNushellIntegration = true;
   programs.nushell = {
     enable = true;
+    environmentVariables = config.home.sessionVariables;
     configFile.text = ''
       ${lib.getExe config.programs.fastfetch.package.minimal}
       $env.config.show_banner = false
