@@ -11,7 +11,6 @@ in
       ./home-manager/niri.nix
       ./home-manager/waybar.nix
       ./home-manager/mpv.nix
-      ./home-manager/minecraft.nix
       ./home-manager/ffmpeg.nix
     ];
     nixModules = [
@@ -53,7 +52,6 @@ in
       ./home-manager/gui.nix
       ./home-manager/niri.nix
       ./home-manager/waybar.nix
-      ./home-manager/minecraft.nix
       ./home-manager/nushell.nix
     ];
     nixModules = [
