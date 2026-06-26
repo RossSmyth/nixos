@@ -1,4 +1,9 @@
-{ lib, inputs, ... }:
+{
+  lib,
+  inputs,
+  config,
+  ...
+}:
 {
   nix.settings = {
     substituters = [
@@ -10,7 +15,21 @@
       "flox-cache-public-1:7F4OyH7ZCnFhcze3fJdfyXYLQw/aV7GEed86nQ7IsOs="
     ];
   };
-  nixpkgs.config.cudaSupport = true;
 
-  nixpkgs.pkgs = lib.mkForce inputs.cuda-nixpkgs;
+  nixpkgs.pkgs = lib.mkForce (
+    import inputs.cuda-nixpkgs {
+      config = {
+        cudaSupport = true;
+        allowUnfree = true;
+        allowUnfreePredicate = _: true;
+      };
+      overlays = [
+        (_: prev: {
+          comma = prev.comma.override {
+            nix = config.nix.package;
+          };
+        })
+      ];
+    }
+  );
 }
