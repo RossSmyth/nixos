@@ -87,6 +87,7 @@ in
       ./nixos/jellyfin.nix
       ./nixos/cuda.nix
       ./nixos/cats.nix
+      ./nixos/silly.nix
     ];
   };
 }
