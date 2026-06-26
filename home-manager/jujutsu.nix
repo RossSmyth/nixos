@@ -57,6 +57,7 @@
         command = [
           "comma"
           "nixfmt"
+          "-"
         ];
         patterns = [ "glob:'**/*.nix'" ];
       };
