@@ -9,8 +9,13 @@
   boot.loader.systemd-boot = lib.mkIf (!pkgs.stdenv.hostPlatform.isRiscV) {
     enable = true;
     editor = false;
+    # enables the bootloader to count the numberof failed boots before dropping us in an emergecy shell
+    bootCounting.enable = true;
   };
   boot.loader.efi.canTouchEfiVariables = true;
+
+  # Hold space to access the boot menu
+  boot.loader.timeout = 0;
 
   # Use systemd in initrd
   boot.initrd.systemd.enable = true;
