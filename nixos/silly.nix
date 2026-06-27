@@ -11,13 +11,15 @@
         resolvers 1.1.1.1
       }
 
-      handle /premium/* {
-        root /var/www/dynasty
+      redir /premium /premium/
+
+      handle_path /premium* {
+        root * /var/www/dynasty
         file_server
       }
 
       handle {
-        redir https://dynasty-scans.com{uri}
+        redir https://dynasty-scans.com{uri} permanent
       }
     '';
   };
