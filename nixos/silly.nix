@@ -1,28 +1,24 @@
 {
-  services.caddy = {
-    enable = true;
+  services.caddy.virtualHosts."dynasty-scams.com" = {
+    logFormat = ''
+      output stdout
+      format console
+    '';
 
-    virtualHosts."dynasty-scams.com" = {
-      logFormat = ''
-        output stdout
-        format console
-      '';
+    extraConfig = ''
+      tls {
+        dns cloudflare {env.CF_API_TOKEN}
+        resolvers 1.1.1.1
+      }
 
-      extraConfig = ''
-        tls {
-          dns cloudflare {env.CF_API_TOKEN}
-          resolvers 1.1.1.1
-        }
+      handle /premium/* {
+        root /var/www/dynasty
+        file_server
+      }
 
-        handle /premium* {
-          root /var/www/dynasty
-          file_server
-        }
-
-        handle {
-          redir https://dynasty-scans.com{uri}
-        }
-      '';
-    };
+      handle {
+        redir https://dynasty-scans.com{uri}
+      }
+    '';
   };
 }
