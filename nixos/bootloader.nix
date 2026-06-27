@@ -20,6 +20,8 @@
   # Use systemd in initrd
   boot.initrd.systemd.enable = true;
 
+  boot.plymouth.enable = true;
+
   # No perl messing with my /etc
   system.etc.overlay.enable = true;
 
