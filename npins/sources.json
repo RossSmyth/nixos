@@ -22,9 +22,9 @@
       },
       "branch": "unstable",
       "submodules": false,
-      "revision": "e73de5be04e0eff4190a1432b946d469c794e7b4",
-      "url": "https://github.com/flox/nixpkgs/archive/e73de5be04e0eff4190a1432b946d469c794e7b4.tar.gz",
-      "hash": "sha256-pGvFkM8N0xEkIIXDe5YYfbEAvHrk4IxBrjB/x8OomhE="
+      "revision": "65179426c83bb3f6bc14898b42ea1c6f01d374b0",
+      "url": "https://github.com/flox/nixpkgs/archive/65179426c83bb3f6bc14898b42ea1c6f01d374b0.tar.gz",
+      "hash": "sha256-xnJJk+ct+D2+wdRxj1wk36w5zV9RVESwRqcklPdt3fM="
     },
     "flake-compat": {
       "type": "Git",
@@ -49,9 +49,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "6b7c7c6e0784d7c34295c24064deb36418c0b4b5",
-      "url": "https://github.com/helix-editor/helix/archive/6b7c7c6e0784d7c34295c24064deb36418c0b4b5.tar.gz",
-      "hash": "sha256-pr0uoMp72SkUkh6VQtQd+OVTqxAaat+3FN+o5yMJvQE="
+      "revision": "ec90947f0127b8d550da86c1cb42dbcc622b8e0a",
+      "url": "https://github.com/helix-editor/helix/archive/ec90947f0127b8d550da86c1cb42dbcc622b8e0a.tar.gz",
+      "hash": "sha256-E6rbS2USv3VUk5d82Oyy6qbDQkHmFbLe764TEfS9+Ks="
     },
     "home-manager": {
       "type": "Git",
@@ -62,9 +62,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "8d8a6cc50ddc60748791a14ee1163c865ec57635",
-      "url": "https://github.com/nix-community/home-manager/archive/8d8a6cc50ddc60748791a14ee1163c865ec57635.tar.gz",
-      "hash": "sha256-CvOaUvJ+mXlxU3m2cPWKcOAhtKETsPUYhq+Xa5ewBp4="
+      "revision": "b885baad531fa3d3beae2ba9a0712d22974d8016",
+      "url": "https://github.com/nix-community/home-manager/archive/b885baad531fa3d3beae2ba9a0712d22974d8016.tar.gz",
+      "hash": "sha256-qMoZazubXlXUD9k/syJ/aiWC4X4g73mwVmZ7Z4+rdpM="
     },
     "niri": {
       "type": "Git",
@@ -75,9 +75,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "9e26dfe0fb8d61475b6f9e8d63477fe92509f1db",
-      "url": "https://github.com/sodiboo/niri-flake/archive/9e26dfe0fb8d61475b6f9e8d63477fe92509f1db.tar.gz",
-      "hash": "sha256-kgINba6Ilpj3rdTi2BeKlQBs6ZxTdu3Gb49U5gDUVhg="
+      "revision": "62b5feade147800f4e49503ae6fb643892689d65",
+      "url": "https://github.com/sodiboo/niri-flake/archive/62b5feade147800f4e49503ae6fb643892689d65.tar.gz",
+      "hash": "sha256-A4XJC5qR19bBJ3KO3oE1cK4e98bPrO5QYcSNPVZuUas="
     },
     "nix-index-database": {
       "type": "Git",
@@ -88,9 +88,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "3017088b49efd404f78e3b104f553b97e4af786b",
-      "url": "https://github.com/nix-community/nix-index-database/archive/3017088b49efd404f78e3b104f553b97e4af786b.tar.gz",
-      "hash": "sha256-h4WpMr455AfRub0FXBaon6Vcpe0waUyJ4GivIW6oyd4="
+      "revision": "f8ed6cdcb1fd28a6ab7b61f4467a4f67fe2d9074",
+      "url": "https://github.com/nix-community/nix-index-database/archive/f8ed6cdcb1fd28a6ab7b61f4467a4f67fe2d9074.tar.gz",
+      "hash": "sha256-gaOvvY/lL1eWoSmSRO17pWry8R49AuPMrF4nzu47K5o="
     },
     "nixos-hardware": {
       "type": "Git",
@@ -122,8 +122,8 @@
       "type": "Channel",
       "name": "nixos-unstable",
       "artifact": "nixexprs.tar.xz",
-      "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1022855.e73de5be04e0/nixexprs.tar.xz",
-      "hash": "sha256-inDx/w70OSJoJPqtKh0BrzAsbZZhpya7YgS43jHnhwg="
+      "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1026231.65179426c83b/nixexprs.tar.xz",
+      "hash": "sha256-l57y2CK9dTSChgb6Edg7kkXu5DA4rucVbNFoQHUBjmw="
     }
   },
   "version": 8
