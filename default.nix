@@ -24,6 +24,7 @@ in
       ./nixos/niri.nix
       ./nixos/steam.nix
       ./nixos/chromecast.nix
+      ./nixos/g920.nix
     ];
   };
   work = mkMachine {
