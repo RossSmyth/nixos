@@ -1,10 +1,7 @@
 { pkgs, config, ... }:
 {
-  services.jellyfin = {
-    # machine specific hardware options
-    enable = true;
-    openFirewall = true;
-  };
+  # Machine-specific hardware options can be set as well.
+  services.jellyfin.enable = true;
 
   # Do a full stop for backups rather than using the built-in backup
   # 1. Don't need to use an API token even though it's on the same machine
