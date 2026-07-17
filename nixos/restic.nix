@@ -22,19 +22,19 @@ in
               Script to run before backup.
             '';
           };
+          postBackupScript = lib.mkOption {
+            type = types.nullOr types.str;
+            default = null;
+            description = ''
+              Script to run after backup.
+            '';
+          };
 
           tags = lib.mkOption {
             type = types.listOf types.str;
             default = [ ];
             description = ''
               Tags for this backup
-            '';
-          };
-
-          name = lib.mkOption {
-            types = types.str;
-            description = ''
-              Name for this backup
             '';
           };
 
@@ -59,7 +59,8 @@ in
 
   config.services.restic.backups = lib.mapAttrs (backup: {
     initialize = true;
-    backupCleanupCommand = backup.preBackupScript;
+    backupPrepareCommand = backup.preBackupScript;
+    backupCleanupCommand = backup.postBackupScript;
     # Will be made with agenix, but needs to look something like:
     environmentFile = ''
       AWS_ACCESS_KEY_ID=
