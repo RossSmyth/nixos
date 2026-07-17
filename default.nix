@@ -68,9 +68,6 @@ in
   };
   trent = mkMachine {
     hostname = "trent";
-    hmModules = [
-      ./home-manager/mpv.nix
-    ];
     nixModules = [
       ./nixos/agenix.nix
       ./nixos/fonts.nix
@@ -86,6 +83,7 @@ in
       ./nixos/cuda.nix
       ./nixos/cats.nix
       ./nixos/silly.nix
+      ./nixos/caddy.nix
     ];
   };
 }
