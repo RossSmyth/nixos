@@ -12,11 +12,8 @@ in
     accelerationDevices = null;
 
     settings = {
-      # Create the db dump exactly at midnight
-      backup.database = {
-        cronExpression = "0 0 * * *";
-        keepLastAmount = 7;
-      };
+      # Do our own as compressed dumps are not ideal with restic.
+      backup.database.enabled = false;
 
       ffmpeg = {
         acceptedVideoCodecs = [
@@ -49,6 +46,13 @@ in
     pathsInclude = [
       cfg.mediaLocation
     ];
+    pathsExcldue = [
+      (cfg.mediaLocation + "/thumbs")
+      (cfg.mediaLocation + "/encoded-video")
+    ];
+    preBackupScript = ''
+      pg_dumpall --clean --if-exists --username=${cfg.database.user} --database=${cfg.database.name} --port=${cfg.database.port} --host=${cfg.database.host} > ${cfg.mediaLocation/backups/immich-database.sql}
+    '';
   };
 
   # Expose to the world
