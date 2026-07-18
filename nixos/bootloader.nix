@@ -13,6 +13,7 @@
     bootCounting.enable = true;
   };
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.initrd.systemd.emergencyAccess = true;
 
   # Hold space to access the boot menu
   boot.loader.timeout = 0;

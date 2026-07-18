@@ -87,4 +87,17 @@ in
       ./nixos/caddy.nix
     ];
   };
+  jammy = mkMachine {
+    hostname = "jammy";
+    nixModules = [
+      ./nixos/agenix.nix
+      ./nixos/fonts.nix
+      ./nixos/run0.nix
+      ./nixos/sound.nix
+      ./nixos/bootloader.nix
+      ./nixos/networking.nix
+      ./nixos/security.nix
+      ./nixos/sshd.nix
+    ];
+  };
 }
