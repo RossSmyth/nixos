@@ -98,6 +98,7 @@ in
       ./nixos/networking.nix
       ./nixos/security.nix
       ./nixos/sshd.nix
+      ./nixos/zfs.nix
     ];
   };
 }
