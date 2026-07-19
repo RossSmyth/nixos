@@ -9,9 +9,9 @@
     ];
 
     hosts = {
-      "192.168.1.12" = "jammy.local";
-      "192.168.1.11" = "trent.local";
-      "192.168.1.10" = "desktop.local";
+      "192.168.1.12" = [ "jammy.local" ];
+      "192.168.1.11" = [ "trent.local" ];
+      "192.168.1.10" = [ "desktop.local" ];
     };
   };
 
