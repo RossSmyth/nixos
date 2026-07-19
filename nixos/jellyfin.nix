@@ -10,15 +10,14 @@
   # 1. Don't need to use an API token even though it's on the same machine
   # 2. Deduplication accross backups
   rsmyth.backups.services.jellyfin = {
-    tags = [ "jellyfin" ];
     pathsInclude = [
       "/var/lib/jellyfin"
     ];
     preBackupScript = ''
-      systemctl stop jellyfin
+      systemctl stop jellyfin.service
     '';
     postBackupScript = ''
-      systemctl start jellyfin
+      systemctl start jellyfin.service
     '';
   };
 

@@ -44,7 +44,6 @@ in
   };
 
   rsmyth.backups.services.immich = {
-    tags = [ "immich" ];
     # Immich create db dumps on a schedule, every day at midnight.
     pathsInclude = [
       cfg.mediaLocation

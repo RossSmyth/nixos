@@ -32,7 +32,6 @@ in
   # systemd.services.navidrome.serviceConfig.EnvironmentFile = ...;
 
   rsmyth.backups.services.navidrome = {
-    tags = [ "navidrome" ];
     pathsInclude = [
       (config.services.navidrome.WorkingDirectory + "/backups")
     ];

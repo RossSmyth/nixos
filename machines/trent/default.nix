@@ -4,6 +4,8 @@
     ./hardware-configuration.nix
   ];
 
+  rsmyth.backups.enable = true;
+
   # It is a laptop server
   services.logind.settings.Login.HandleLidSwitch = "ignore";
 

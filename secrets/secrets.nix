@@ -13,5 +13,6 @@ in
   "wasabi.age".publicKeys = [
     desktop
     jammy
+    trent
   ];
 }

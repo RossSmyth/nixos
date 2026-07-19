@@ -35,8 +35,11 @@ in
           tags = lib.mkOption {
             type = types.listOf types.str;
             default = [ ];
+            defaultText = lib.literalExpression ''
+              tags = [] ++ attrName
+            '';
             description = ''
-              Tags for this backup
+              Tags for this backup. Adds the attribute name as a tag unconditionally.
             '';
           };
 
@@ -60,20 +63,23 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    services.restic.backups = lib.mapAttrs (backup: {
+    services.restic.backups = lib.mapAttrs (name: backup: {
       initialize = true;
       backupPrepareCommand = backup.preBackupScript;
       backupCleanupCommand = backup.postBackupScript;
+      runCheck = true;
+
       # Will be made with agenix, but needs to look something like:
       environmentFile = config.age.secrets.wasabi.path;
-      runCheck = true;
+
       paths = backup.pathsInclude;
       extraBackupArgs = [
         "--host=${hostname}"
         "--cleanup-cache"
       ]
-      ++ (lib.map (p: "--exclude=${p}") cfg.pathsExclude)
-      ++ (lib.map (t: "--tag=${t}") cfg.tags);
+      ++ (lib.map (p: "--exclude=${p}") backup.pathsExclude)
+      ++ (lib.map (t: "--tag=${t}") (backup.tags ++ [ name ]));
+
       # Rolling pruning of backups
       pruneOpts = [
         # Keep last 7 days of backups
@@ -86,6 +92,7 @@ in
         "--keep-monthly"
         "unlimited"
       ];
+
       repository = "s3:https://s3.us-east-1.wasabisys.com/rsmyth-restic";
       timerConfig = {
         OnCalendar = "daily";
