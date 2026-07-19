@@ -65,10 +65,7 @@ in
       backupPrepareCommand = backup.preBackupScript;
       backupCleanupCommand = backup.postBackupScript;
       # Will be made with agenix, but needs to look something like:
-      environmentFile = ''
-        AWS_ACCESS_KEY_ID=
-        AWS_SECRET_ACCESS_KEY=
-      '';
+      environmentFile = config.age.secrets.wasabi.path;
       runCheck = true;
       paths = backup.pathsInclude;
       extraBackupArgs = [
@@ -89,7 +86,7 @@ in
         "--keep-monthly"
         "unlimited"
       ];
-      repository = "s3:https://s3.us-east-1.wasabisys.com/restic";
+      repository = "s3:https://s3.us-east-1.wasabisys.com/rsmyth-restic";
       timerConfig = {
         OnCalendar = "daily";
         RandomizedOffsetSec = "3h";
