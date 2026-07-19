@@ -3,7 +3,8 @@
   # Expose to the world
   services.caddy = {
     enable = true;
-
+    openFirewall = true;
+    
     package = pkgs.caddy.withPlugins {
       # Need this for some reason.
       plugins = [
