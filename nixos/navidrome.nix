@@ -3,6 +3,10 @@ let
   cfg = config.services.navidrome;
 in
 {
+  imports = [
+    ./restic.nix
+  ];
+
   services.navidrome = {
     enable = true;
 
@@ -27,7 +31,7 @@ in
   #
   # systemd.services.navidrome.serviceConfig.EnvironmentFile = ...;
 
-  rsmyth.backups.navidrome = {
+  rsmyth.backups.services.navidrome = {
     tags = [ "navidrome" ];
     pathsInclude = [
       (config.services.navidrome.WorkingDirectory + "/backups")

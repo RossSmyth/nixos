@@ -3,6 +3,9 @@ let
   cfg = config.services.immich;
 in
 {
+  imports = [
+    ./restic.nix
+  ];
   # Reduce redis logs
   services.redis.servers.immich.logLevel = "warning";
   services.immich = {
@@ -40,7 +43,7 @@ in
     };
   };
 
-  rsmyth.backups.immich = {
+  rsmyth.backups.services.immich = {
     tags = [ "immich" ];
     # Immich create db dumps on a schedule, every day at midnight.
     pathsInclude = [

@@ -1,12 +1,15 @@
 { pkgs, config, ... }:
 {
+  imports = [
+    ./restic.nix
+  ];
   # Machine-specific hardware options can be set as well.
   services.jellyfin.enable = true;
 
   # Do a full stop for backups rather than using the built-in backup
   # 1. Don't need to use an API token even though it's on the same machine
   # 2. Deduplication accross backups
-  rsmyth.backups.jellyfin = {
+  rsmyth.backups.services.jellyfin = {
     tags = [ "jellyfin" ];
     pathsInclude = [
       "/var/lib/jellyfin"
