@@ -28,4 +28,14 @@
   systemd.services.caddy.serviceConfig.EnvironmentFile = [
     config.age.secrets.caddy.path
   ];
+
+  # This needs to be here or machines will get upset
+  # aka, only the machines that can decrypt can have
+  # this in their config
+  age.secrets.caddy = {
+    file = ../secrets/caddy.age;
+    mode = "400";
+    group = config.services.caddy.group;
+    owner = config.services.caddy.user;
+  };
 }

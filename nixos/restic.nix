@@ -93,5 +93,16 @@ in
         Persistent = true;
       };
     }) cfg.services;
+
+    # This needs to be scoped only to the machines that need it.
+    age.secrets.wasabi = {
+      file = ../secrets/wasabi.age;
+      mode = "400";
+      # Restic just run as root rn because it has to read
+      # a bunch of service's files.
+      group = "root";
+      owner = "root";
+    };
+
   };
 }
