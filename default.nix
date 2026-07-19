@@ -65,6 +65,7 @@ in
       ./nixos/networking.nix
       ./nixos/niri.nix
       ./nixos/chromecast.nix
+      ./nixos/containers.nix
     ];
   };
   trent = mkMachine {
