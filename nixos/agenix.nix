@@ -18,7 +18,7 @@
     owner = config.services.caddy.user;
   };
 
-  age.secrets.caddy = {
+  age.secrets.wasabi = {
     file = ../secrets/wasabi.age;
     mode = "400";
     # Restic just run as root rn because it has to read
