@@ -1,0 +1,28 @@
+{
+  config,
+  ...
+}:
+let
+  libRoot = "/media/lib";
+  cfg = config.services.lidarr;
+in
+{
+  users.users.${cfg.user}.extraGroups = [
+    config.services.deluge.group
+  ];
+
+  systemd.tmpfiles.settings."10-lidarr"."${libRoot}/music".d = {
+    mode = "0744";
+    inherit (cfg) user group;
+  };
+
+  services.lidarr = {
+    enable = true;
+    settings = {
+      app.instancename = "rsmyth music managment";
+      server.urlbase = "lidarr.rsmyth.net";
+    };
+  };
+
+  # TODO: Backups & Caddy
+}
