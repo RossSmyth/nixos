@@ -15,13 +15,18 @@ in
       AlbumPlayCountMode = "normalized";
       DefaultShareExpiration = "24h";
       SessionTimeout = "10h";
-      ShareURL = "music.rsmyth.net";
+      ShareURL = "https://music.rsmyth.net";
       UIWelcomeMessage = ":3c";
-      # Setting, but we will manually create the backups to prevent thundering herds
-      Backup = {
-        Path = config.services.navidrome.WorkingDirectory + "/backups";
-        count = 7;
-      };
+      MusicFolder = "/media/lib/music";
+
+      # NOTE: This is within the `pivot_root` of the server, as Navidrome is the one that creates
+      # the socket. So in reality this is "${systemd.services.navidrome.RootDirectory}/server.socket"
+      # Which should be "/run/navidrome/server.socket"
+      Address = "unix:/server.socket";
+      UnixSocketPerm = "0660";
+
+      # We will manage our own backups with downtime.
+      Backup.Count = 0;
     };
   };
 
@@ -33,20 +38,31 @@ in
 
   rsmyth.backups.services.navidrome = {
     pathsInclude = [
-      (config.services.navidrome.WorkingDirectory + "/backups")
+      cfg.WorkingDirectory
     ];
-    # TODO: Add a managing wrapping to nixpkgs
-    preBackupScript = "";
+    pathsExclude = [
+      cfg.CacheFolder
+    ];
+    preBackupScript = ''
+      systemctl stop navidrome.service
+    '';
+    postBackupScript = ''
+      systemctl start navidrome.service
+    '';
   };
 
   # Expose to the world
+  # Need to be in the same group for UDS perms
+  users.users.caddy.extraGroups = [
+    cfg.group
+  ];
   services.caddy.virtualHosts."music.rsmyth.net" = {
     extraConfig = ''
       tls {
         dns cloudflare {env.CF_API_TOKEN}
         resolvers 1.1.1.1
       }
-      reverse_proxy :${cfg.settings.Port}
+      reverse_proxy ${config.systemd.navidrome.RootDirectory}/server.socket
     '';
   };
 }
