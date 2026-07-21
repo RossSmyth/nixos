@@ -1,30 +1,39 @@
-{ pkgs, config, ... }:
 {
-  # So Transmission can place files in jf's media folder
-  users.users.${config.services.transmission.user}.extraGroups = [
-    config.services.jellyfin.group
-  ];
+  hostname,
+  pkgs,
+  config,
+  lib,
+  ...
+}:
+let
+  cfg = config.services.deluge;
+  # The dl root, files shouldn't actually go here
+  dlRoot = cfg.config.download_location;
+in
+{
+  systemd.tmpfiles.settings."10-deluged".${dlRoot}.d.mode = lib.mkForce "0744";
+  systemd.tmpfiles.settings."10-deluged" =
+    lib.genAttrs [ "${dlRoot}/movies" "${dlRoot}/music" "${dlRoot}/tv" ]
+      (_: {
+        d = {
+          mode = "0744";
+          inherit (cfg) user group;
+        };
+      });
 
-  systemd.services.transmission.serviceConfig.ReadWritePaths = ["/media"];
-  
-  services.transmission = {
+  services.deluge = {
     enable = true;
-    package = pkgs.transmission_4;
-    openRPCPort = true;
-    openPeerPorts = true;
+    declarative = true;
 
-    # Downloads to a jellyfin-controlled dir
-    downloadDirPermissions = null;
+    group = "downloads";
 
-    settings = {
-      # Find a way to automate sorting TV and movies
-      rpc_bind_address = "0.0.0.0";
-      rpc_whitelist = "127.0.0.1,192.168.*.*";
-      rpc_host_whitelist = "trent.local";
-      speed_limit_up_enable = true;
-      speed_limit_down_enabled = true;
-      speed_limit_down = "1000";
-      ratio_limit_enable = true;
+    config = {
+      download_location = "/media/torrents";
+      max_download_speed = "1000";
+      stop_seed_at_ratio = true;
+      stop_seed_ratio = 2;
     };
   };
+
+  # TODO: Backups & Caddy
 }
