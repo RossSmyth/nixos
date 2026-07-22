@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   ...
 }:
 let
@@ -7,7 +8,7 @@ let
   cfg = config.services.lidarr;
 in
 {
-  users.users.${cfg.user}.extraGroups = [
+  users.users.${cfg.user}.extraGroups = lib.mkIf config.services.deluge.enable [
     config.services.deluge.group
   ];
 

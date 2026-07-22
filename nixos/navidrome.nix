@@ -1,10 +1,17 @@
-{ config, ... }:
+{ config, lib, ... }:
 let
   cfg = config.services.navidrome;
 in
 {
   imports = [
     ./restic.nix
+    ./agenix.nix
+  ];
+
+  # Expose to the world
+  # Need to be in the same group for UDS perms
+  users.users.navidrome.extraGroups = lib.mkIf config.services.lidarr.enable [
+    config.services.lidarr.group
   ];
 
   services.navidrome = {
@@ -51,11 +58,6 @@ in
     '';
   };
 
-  # Expose to the world
-  # Need to be in the same group for UDS perms
-  users.users.caddy.extraGroups = [
-    cfg.group
-  ];
   services.caddy.virtualHosts."music.rsmyth.net" = {
     extraConfig = ''
       tls {

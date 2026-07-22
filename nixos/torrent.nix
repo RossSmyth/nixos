@@ -11,12 +11,12 @@ let
   dlRoot = cfg.config.download_location;
 in
 {
-  systemd.tmpfiles.settings."10-deluged".${dlRoot}.d.mode = lib.mkForce "0744";
+  systemd.tmpfiles.settings."10-deluged".${dlRoot}.d.mode = lib.mkForce "0755";
   systemd.tmpfiles.settings."10-deluged" =
     lib.genAttrs [ "${dlRoot}/movies" "${dlRoot}/music" "${dlRoot}/tv" ]
       (_: {
         d = {
-          mode = "0744";
+          mode = "0755";
           inherit (cfg) user group;
         };
       });
@@ -24,8 +24,6 @@ in
   services.deluge = {
     enable = true;
     declarative = true;
-
-    group = "downloads";
 
     config = {
       download_location = "/media/torrents";

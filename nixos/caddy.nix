@@ -1,10 +1,15 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 {
   # Expose to the world
   services.caddy = {
     enable = true;
     openFirewall = true;
-    
+
     package = pkgs.caddy.withPlugins {
       # Need this for some reason.
       plugins = [
@@ -28,6 +33,10 @@
   # oooooooo secretssss
   systemd.services.caddy.serviceConfig.EnvironmentFile = [
     config.age.secrets.caddy.path
+  ];
+
+  users.users.caddy.extraGroups = lib.mkIf config.services.navidrome.enable [
+    config.services.navidrome.group
   ];
 
   # This needs to be here or machines will get upset
