@@ -37,15 +37,23 @@ in
     };
   };
 
+  # ND_PASSWORDENCRYPTIONKEY
+  age.secrets.navidrome = {
+    file = ../secrets/navidrome.age;
+    mode = "400";
+    inherit (cfg) group;
+    owner = cfg.user;
+  };
+
   # https://www.navidrome.org/docs/usage/configuration/options/#opt-passwordencryptionkey
-  # TODO: Set this with some passphrase & agenix
-  # ND_PASSWORDENCRYPTIONKEY="aaaaaaaaaaaaaa"
-  #
-  # systemd.services.navidrome.serviceConfig.EnvironmentFile = ...;
+  systemd.services.navidrome.serviceConfig.EnvironmentFile = [
+    config.age.secrets.navidrome.path
+  ];
 
   rsmyth.backups.services.navidrome = {
+    # Include the music dir? For now, no.
     pathsInclude = [
-      cfg.WorkingDirectory
+      "/var/lib/navidrome"
     ];
     pathsExclude = [
       cfg.CacheFolder

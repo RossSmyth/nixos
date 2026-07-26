@@ -16,4 +16,9 @@ in
     jammy
     trent
   ];
+
+  "navidrome.age".publicKeys = [
+    desktop
+    jammy
+  ];
 }
