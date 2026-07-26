@@ -49,6 +49,7 @@ in
   systemd.services.navidrome.serviceConfig.EnvironmentFile = [
     config.age.secrets.navidrome.path
   ];
+  systemd.services.navidrome.serviceConfig.WorkingDirectory = lib.mkForce "/";
 
   rsmyth.backups.services.navidrome = {
     # Include the music dir? For now, no.
@@ -72,7 +73,7 @@ in
         dns cloudflare {env.CF_API_TOKEN}
         resolvers 1.1.1.1
       }
-      reverse_proxy ${config.systemd.services.navidrome.serviceConfig.RootDirectory}/server.socket
+      reverse_proxy unix//${config.systemd.services.navidrome.serviceConfig.RootDirectory}/server.socket
     '';
   };
 }

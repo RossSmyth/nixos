@@ -5,7 +5,7 @@
   ...
 }:
 let
-  libRoot = "/media/lib";
+  libRoot = "/media/lib/music";
   cfg = config.services.lidarr;
 in
 {
@@ -21,9 +21,13 @@ in
     config.services.rtorrent.group
   ];
 
-  systemd.tmpfiles.settings."10-lidarr"."${libRoot}/music".d = {
-    mode = "0744";
-    inherit (cfg) user group;
+  # This needs to go somewhere else
+  systemd.tmpfiles.settings."10-lidarr" = {
+    "/media/lib".d = {
+      mode = "0755";
+      user = "root";
+      group = "root";
+    };
   };
 
   services.lidarr = {
