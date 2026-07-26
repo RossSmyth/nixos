@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  modulesPath,
   ...
 }:
 let
@@ -8,6 +9,14 @@ let
   cfg = config.services.lidarr;
 in
 {
+  imports = [
+    ./test/lidarr.nix
+  ];
+
+  disabledModules = [
+    (modulesPath + "/services/misc/servarr/lidarr.nix")
+  ];
+
   users.users.${cfg.user}.extraGroups = lib.mkIf config.services.rtorrent.enable [
     config.services.rtorrent.group
   ];
