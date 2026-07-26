@@ -8,6 +8,7 @@ in
   "caddy.age".publicKeys = [
     desktop
     trent
+    jammy
   ];
 
   "wasabi.age".publicKeys = [
