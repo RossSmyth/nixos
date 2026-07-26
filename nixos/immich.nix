@@ -48,7 +48,7 @@ in
     pathsInclude = [
       cfg.mediaLocation
     ];
-    pathsExcldue = [
+    pathsExclude = [
       (cfg.mediaLocation + "/thumbs")
       (cfg.mediaLocation + "/encoded-video")
     ];
