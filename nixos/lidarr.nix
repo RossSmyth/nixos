@@ -32,6 +32,10 @@ in
       app.instancename = "rsmyth music managment";
       server.urlbase = "lidarr.rsmyth.net";
     };
+
+    libraryPaths = [
+      libRoot
+    ];
   };
 
   services.caddy.virtualHosts."lidarr.rsmyth.net" = {
