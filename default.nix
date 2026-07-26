@@ -102,6 +102,7 @@ in
       ./nixos/caddy.nix
       ./nixos/cats.nix
       ./nixos/silly.nix
+      ./nixos/immich.nix
     ];
   };
 }
