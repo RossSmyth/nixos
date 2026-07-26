@@ -25,6 +25,8 @@ in
       ShareURL = "https://music.rsmyth.net";
       UIWelcomeMessage = ":3c";
       MusicFolder = "/media/lib/music";
+      DataFolder = "/var/lib/navidrome";
+      CacheFolder = "/var/lib/navidrome/cache";
 
       # NOTE: This is within the `pivot_root` of the server, as Navidrome is the one that creates
       # the socket. So in reality this is "${systemd.services.navidrome.RootDirectory}/server.socket"
