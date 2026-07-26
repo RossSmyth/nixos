@@ -45,14 +45,13 @@ in
       # Domain for sharing
       server = {
         loginPageMessage = ":3c";
-        externalDomain = "https://immich.rsmyth.net";
+        externalDomain = "https://photos.rsmyth.net";
         publicUsers = false;
       };
     };
   };
 
   rsmyth.backups.services.immich = {
-    # Immich create db dumps on a schedule, every day at midnight.
     pathsInclude = [
       cfg.mediaLocation
     ];
@@ -71,7 +70,7 @@ in
   };
 
   # Expose to the world
-  services.caddy.virtualHosts."immich.rsmyth.net" = {
+  services.caddy.virtualHosts."photos.rsmyth.net" = {
     extraConfig = ''
       tls {
         dns cloudflare {env.CF_API_TOKEN}
