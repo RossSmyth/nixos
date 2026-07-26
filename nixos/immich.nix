@@ -53,7 +53,8 @@ in
       (cfg.mediaLocation + "/encoded-video")
     ];
     preBackupScript = ''
-      pg_dumpall --clean --if-exists --username=${cfg.database.user} --database=${cfg.database.name} --port=${cfg.database.port} --host=${cfg.database.host} > ${cfg.mediaLocation/backups/immich-database.sql}
+      mkdir -p "${cfg.mediaLocation}/backups"
+      pg_dumpall --clean --if-exists --username=${cfg.database.user} --database=${cfg.database.name} --port=${cfg.database.port} --host=${cfg.database.host} > "${cfg.mediaLocation}/backups/immich-database.sql"
     '';
   };
 
