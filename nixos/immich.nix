@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, lib, ... }:
 let
   cfg = config.services.immich;
 in
@@ -6,10 +6,18 @@ in
   imports = [
     ./restic.nix
   ];
+
+  systemd.tmpfiles.settings."10-immich"."${cfg.mediaLocation}".d = {
+    mode = "0700";
+    inherit (cfg) user group;
+  };
+
   # Reduce redis logs
   services.redis.servers.immich.logLevel = "warning";
   services.immich = {
     enable = true;
+
+    mediaLocation = "/media/images";
 
     # Allow access to all devices, what's the worst that could happen
     accelerationDevices = null;
@@ -54,7 +62,11 @@ in
     ];
     preBackupScript = ''
       mkdir -p "${cfg.mediaLocation}/backups"
-      pg_dumpall --clean --if-exists --username=${cfg.database.user} --database=${cfg.database.name} --port=${toString cfg.database.port} --host=${cfg.database.host} > "${cfg.mediaLocation}/backups/immich-database.sql"
+      run0 -u ${cfg.user} ${lib.getExe' config.services.postgresql.package "pg_dump"} --clean --if-exists \
+        --username=${cfg.database.user} \
+        --dbname=${cfg.database.name} \
+        --port=${toString cfg.database.port} \
+        --host=${cfg.database.host} > "${cfg.mediaLocation}/backups/immich-database.sql"
     '';
   };
 
@@ -65,7 +77,7 @@ in
         dns cloudflare {env.CF_API_TOKEN}
         resolvers 1.1.1.1
       }
-      reverse_proxy :${toString cfg.port}
+      reverse_proxy localhost:${toString cfg.port}
     '';
   };
 }
