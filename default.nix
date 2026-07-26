@@ -103,6 +103,8 @@ in
       ./nixos/cats.nix
       ./nixos/silly.nix
       ./nixos/immich.nix
+      ./nixos/lidarr.nix
+      ./nixos/navidrome.nix
     ];
   };
 }
