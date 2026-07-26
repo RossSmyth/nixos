@@ -101,6 +101,7 @@ in
       ./nixos/zfs.nix
       ./nixos/caddy.nix
       ./nixos/cats.nix
+      ./nixos/silly.nix
     ];
   };
 }
