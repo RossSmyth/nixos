@@ -8,21 +8,19 @@
   ...
 }:
 {
-  nixpkgs.pkgs = lib.mkDefault (
-    import inputs.nixpkgs {
-      config = {
-        allowUnfree = true;
-        allowUnfreePredicate = _: true;
-      };
-      overlays = [
-        (_: prev: {
-          comma = prev.comma.override {
-            nix = config.nix.package;
-          };
-        })
-      ];
-    }
-  );
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      allowUnfreePredicate = _: true;
+    };
+    overlays = [
+      (_: prev: {
+        comma = prev.comma.override {
+          nix = config.nix.package;
+        };
+      })
+    ];
+  };
 
   nix = {
     package = pkgs.lixPackageSets.git.lix;
