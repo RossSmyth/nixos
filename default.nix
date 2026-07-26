@@ -99,10 +99,8 @@ in
       ./nixos/security.nix
       ./nixos/sshd.nix
       ./nixos/zfs.nix
-      ./nixos/navidrome.nix
-      ./nixos/lidarr.nix
-      ./nixos/torrent.nix
       ./nixos/caddy.nix
+      ./nixos/cats.nix
     ];
   };
 }

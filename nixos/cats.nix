@@ -1,4 +1,10 @@
 {
+  rsmyth.backups.services.cats = {
+    pathsInclude = [
+      "/var/www/cats"
+    ];
+  };
+
   services.caddy.virtualHosts."cats.rsmyth.net" = {
     logFormat = ''
       output stdout
