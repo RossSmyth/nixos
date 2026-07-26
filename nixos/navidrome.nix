@@ -56,7 +56,7 @@ in
       "/var/lib/navidrome"
     ];
     pathsExclude = [
-      cfg.CacheFolder
+      "/var/lib/navidrome/cache"
     ];
     preBackupScript = ''
       systemctl stop navidrome.service
@@ -72,7 +72,7 @@ in
         dns cloudflare {env.CF_API_TOKEN}
         resolvers 1.1.1.1
       }
-      reverse_proxy ${config.systemd.navidrome.RootDirectory}/server.socket
+      reverse_proxy ${config.systemd.services.navidrome.serviceConfig.RootDirectory}/server.socket
     '';
   };
 }
