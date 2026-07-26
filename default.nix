@@ -103,6 +103,7 @@ in
       ./nixos/navidrome.nix
       ./nixos/lidarr.nix
       ./nixos/torrent.nix
+      ./nixos/caddy.nix
     ];
   };
 }
