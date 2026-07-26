@@ -8,8 +8,8 @@ let
   cfg = config.services.lidarr;
 in
 {
-  users.users.${cfg.user}.extraGroups = lib.mkIf config.services.deluge.enable [
-    config.services.deluge.group
+  users.users.${cfg.user}.extraGroups = lib.mkIf config.services.rtorrent.enable [
+    config.services.rtorrent.group
   ];
 
   systemd.tmpfiles.settings."10-lidarr"."${libRoot}/music".d = {

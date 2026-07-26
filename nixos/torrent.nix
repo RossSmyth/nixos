@@ -5,33 +5,28 @@
   lib,
   ...
 }:
-let
-  cfg = config.services.deluge;
-  # The dl root, files shouldn't actually go here
-  dlRoot = cfg.config.download_location;
-in
 {
-  systemd.tmpfiles.settings."10-deluged".${dlRoot}.d.mode = lib.mkForce "0755";
-  systemd.tmpfiles.settings."10-deluged" =
-    lib.genAttrs [ "${dlRoot}/movies" "${dlRoot}/music" "${dlRoot}/tv" ]
-      (_: {
-        d = {
-          mode = "0755";
-          inherit (cfg) user group;
-        };
-      });
-
-  services.deluge = {
+  services.rtorrent = {
     enable = true;
-    declarative = true;
-
-    config = {
-      download_location = "/media/torrents";
-      max_download_speed = "1000";
-      stop_seed_at_ratio = true;
-      stop_seed_ratio = 2;
-    };
+    downloadDir = "/media/torrents";
+    configText = [
+      "throttle.min_peers.normal.set = 40"
+      "throttle.max_peers.normal.set = 52"
+      "throttle.min_peers.seed.set = 10"
+      "throttle.max_peers.seed.set = 52"
+      "throttle.max_uploads.set = 8"
+      "throttle.global_down.max_rate.set = 200"
+      "throttle.global_up.max_rate.set = 28"
+      "pieces.hash.on_completion.set = yes"
+      "dht.mode.set = auto"
+      "protocol.pex.set = yes"
+      "ratio.enable="
+      "ratio.min.set = 100" # 100%
+      "ratio.max.set = 300"
+      "ratio.upload.set = 250M"
+      # When ratio is met, close
+      "system.method.set = group.seeding.ratio.command, d.close="
+      "system.umask.set = 0002"
+    ];
   };
-
-  # TODO: Backups & Caddy
 }
