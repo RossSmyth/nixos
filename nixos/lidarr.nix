@@ -51,4 +51,17 @@ in
       reverse_proxy :${toString cfg.settings.server.port}
     '';
   };
+
+  rsmyth.backups.services.lidarr = {
+    # Include the music dir? For now, no.
+    pathsInclude = [
+      "/var/lib/lidarr"
+    ];
+    preBackupScript = ''
+      systemctl stop lidarr.service
+    '';
+    postBackupScript = ''
+      systemctl start lidarr.service
+    '';
+  };
 }
