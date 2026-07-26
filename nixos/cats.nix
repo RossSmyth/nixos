@@ -1,4 +1,8 @@
 {
+  imports = [
+    ./restic.nix
+  ];
+
   rsmyth.backups.services.cats = {
     pathsInclude = [
       "/var/www/cats"

@@ -4,4 +4,6 @@
     ./hardware-configuration.nix
   ];
   networking.hostId = "8425e349";
+
+  rsmyth.backups.enable = true;
 }
