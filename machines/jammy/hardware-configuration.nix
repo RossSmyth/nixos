@@ -45,6 +45,11 @@
     fsType = "zfs";
   };
 
+  fileSystems."/media" = {
+    device = "mpool/media";
+    fsType = "zfs";
+  };
+
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/B0DD-811F";
     fsType = "vfat";
