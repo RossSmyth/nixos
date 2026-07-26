@@ -54,7 +54,7 @@ in
     ];
     preBackupScript = ''
       mkdir -p "${cfg.mediaLocation}/backups"
-      pg_dumpall --clean --if-exists --username=${cfg.database.user} --database=${cfg.database.name} --port=${cfg.database.port} --host=${cfg.database.host} > "${cfg.mediaLocation}/backups/immich-database.sql"
+      pg_dumpall --clean --if-exists --username=${cfg.database.user} --database=${cfg.database.name} --port=${toString cfg.database.port} --host=${cfg.database.host} > "${cfg.mediaLocation}/backups/immich-database.sql"
     '';
   };
 
@@ -65,7 +65,7 @@ in
         dns cloudflare {env.CF_API_TOKEN}
         resolvers 1.1.1.1
       }
-      reverse_proxy :${cfg.port}
+      reverse_proxy :${toString cfg.port}
     '';
   };
 }
