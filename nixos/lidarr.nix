@@ -2,6 +2,7 @@
   config,
   lib,
   modulesPath,
+  hostname,
   ...
 }:
 let
@@ -48,6 +49,14 @@ in
         dns cloudflare {env.CF_API_TOKEN}
         resolvers 1.1.1.1
       }
+      reverse_proxy :${toString cfg.settings.server.port}
+    '';
+  };
+
+  # For local routing
+  services.caddy.virtualHosts."lidarr.${hostname}.home" = {
+    extraConfig = ''
+      tls internal
       reverse_proxy :${toString cfg.settings.server.port}
     '';
   };
