@@ -35,22 +35,12 @@ in
     enable = true;
     settings = {
       app.instancename = "rsmyth music managment";
-      server.urlbase = "lidarr.rsmyth.net";
+      server.urlbase = "lidarr.${hostname}.home";
     };
 
     libraryPaths = [
       libRoot
     ];
-  };
-
-  services.caddy.virtualHosts."lidarr.rsmyth.net" = {
-    extraConfig = ''
-      tls {
-        dns cloudflare {env.CF_API_TOKEN}
-        resolvers 1.1.1.1
-      }
-      reverse_proxy :${toString cfg.settings.server.port}
-    '';
   };
 
   # For local routing
