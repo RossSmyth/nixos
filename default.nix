@@ -106,6 +106,7 @@ in
       ./nixos/immich.nix
       ./nixos/lidarr.nix
       ./nixos/navidrome.nix
+      ./nixos/adguard.nix
     ];
   };
 }
