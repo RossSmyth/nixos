@@ -9,6 +9,21 @@
           answer = "192.168.1.12";
           enabled = true;
         }
+        {
+          domain = "jammy.home";
+          answer = "192.168.1.12";
+          enabled = true;
+        }
+        {
+          domain = "trent.home";
+          answer = "192.168.1.11";
+          enabled = true;
+        }
+        {
+          domain = "desktop.home";
+          answer = "192.168.1.10";
+          enabled = true;
+        }
       ];
       dns = {
         bootstrap_prefer_ipv6 = true;
