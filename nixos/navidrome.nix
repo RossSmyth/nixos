@@ -23,7 +23,7 @@ in
     enable = true;
 
     settings = {
-      Agents = "listenbrainz";
+      Agents = "listenbrainz,lastfm,deezer";
       AlbumPlayCountMode = "normalized";
       DefaultShareExpiration = "24h";
       SessionTimeout = "10h";
