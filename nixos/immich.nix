@@ -74,13 +74,7 @@ in
   };
 
   # Expose to the world
-  services.caddy.virtualHosts."photos.rsmyth.net" = {
-    extraConfig = ''
-      tls {
-        dns cloudflare {env.CF_API_TOKEN}
-        resolvers 1.1.1.1
-      }
-      reverse_proxy localhost:${toString cfg.port}
-    '';
-  };
+  services.caddy.virtualHosts."photos.rsmyth.net".extraConfig = ''
+    reverse_proxy localhost:${toString cfg.port}
+  '';
 }

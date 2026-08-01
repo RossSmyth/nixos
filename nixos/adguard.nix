@@ -83,12 +83,10 @@ in
     };
   };
 
-  services.caddy.virtualHosts."dns.rsmyth.net" = {
-    extraConfig = ''
-      	@public not remote_ip private_ranges
-       	abort @public
+  services.caddy.virtualHosts."dns.rsmyth.net".extraConfig = ''
+    	@public not remote_ip private_ranges
+     	abort @public
 
-        reverse_proxy :${toString cfg.port}
-    '';
-  };
+      reverse_proxy :${toString cfg.port}
+  '';
 }

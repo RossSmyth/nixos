@@ -73,13 +73,7 @@ in
     '';
   };
 
-  services.caddy.virtualHosts."music.rsmyth.net" = {
-    extraConfig = ''
-      tls {
-        dns cloudflare {env.CF_API_TOKEN}
-        resolvers 1.1.1.1
-      }
-      reverse_proxy unix//${config.systemd.services.navidrome.serviceConfig.RootDirectory}/server.socket
-    '';
-  };
+  services.caddy.virtualHosts."music.rsmyth.net".extraConfig = ''
+    reverse_proxy unix//${config.systemd.services.navidrome.serviceConfig.RootDirectory}/server.socket
+  '';
 }

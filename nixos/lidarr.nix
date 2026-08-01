@@ -43,14 +43,12 @@ in
   };
 
   # For local routing
-  services.caddy.virtualHosts."lidarr.rsmyth.net" = {
-    extraConfig = ''
-      	@public not remote_ip private_ranges
-       	abort @public
+  services.caddy.virtualHosts."lidarr.rsmyth.net".extraConfig = ''
+    	@public not remote_ip private_ranges
+     	abort @public
 
-        reverse_proxy :${toString cfg.settings.server.port}
-    '';
-  };
+      reverse_proxy :${toString cfg.settings.server.port}
+  '';
 
   rsmyth.backups.services.lidarr = {
     # Include the music dir? For now, no.

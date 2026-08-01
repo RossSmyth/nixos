@@ -22,22 +22,7 @@
   };
 
   # Expose to the world
-  services.caddy = {
-    # For accessing internally on my LAN
-    virtualHosts."192.168.1.11".extraConfig = ''
-      tls internal
-      reverse_proxy :8096
-    '';
-
-    # For external users
-    virtualHosts."jellyfin.rsmyth.net" = {
-      extraConfig = ''
-        tls {
-          dns cloudflare {env.CF_API_TOKEN}
-          resolvers 1.1.1.1
-        }
-        reverse_proxy :8096
-      '';
-    };
-  };
+  services.caddy.virtualHosts."jellyfin.rsmyth.net".extraConfig = ''
+    reverse_proxy :8096
+  '';
 }
