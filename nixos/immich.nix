@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  hostname,
   ...
 }:
 let
@@ -81,12 +80,6 @@ in
         dns cloudflare {env.CF_API_TOKEN}
         resolvers 1.1.1.1
       }
-      reverse_proxy localhost:${toString cfg.port}
-    '';
-  };
-  services.caddy.virtualHosts."photos.${hostname}.home" = {
-    extraConfig = ''
-      tls internal
       reverse_proxy localhost:${toString cfg.port}
     '';
   };

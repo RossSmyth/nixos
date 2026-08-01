@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  hostname,
   ...
 }:
 let
@@ -80,12 +79,6 @@ in
         dns cloudflare {env.CF_API_TOKEN}
         resolvers 1.1.1.1
       }
-      reverse_proxy unix//${config.systemd.services.navidrome.serviceConfig.RootDirectory}/server.socket
-    '';
-  };
-  services.caddy.virtualHosts."music.${hostname}.home" = {
-    extraConfig = ''
-      tls internal
       reverse_proxy unix//${config.systemd.services.navidrome.serviceConfig.RootDirectory}/server.socket
     '';
   };

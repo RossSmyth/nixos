@@ -2,7 +2,6 @@
   config,
   lib,
   modulesPath,
-  hostname,
   ...
 }:
 let
@@ -35,7 +34,7 @@ in
     enable = true;
     settings = {
       app.instancename = "rsmyth music managment";
-      server.urlbase = "lidarr.${hostname}.home";
+      server.urlbase = "lidarr.rsmyth.net";
     };
 
     libraryPaths = [
@@ -44,10 +43,12 @@ in
   };
 
   # For local routing
-  services.caddy.virtualHosts."lidarr.${hostname}.home" = {
+  services.caddy.virtualHosts."lidarr.rsmyth.net" = {
     extraConfig = ''
-      tls internal
-      reverse_proxy :${toString cfg.settings.server.port}
+      	@public not remote_ip private_ranges
+       	abort @public
+
+        reverse_proxy :${toString cfg.settings.server.port}
     '';
   };
 

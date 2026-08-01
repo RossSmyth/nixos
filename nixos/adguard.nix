@@ -1,4 +1,4 @@
-{ config, hostname, ... }:
+{ config, ... }:
 let
   cfg = config.services.adguardhome;
 in
@@ -83,10 +83,12 @@ in
     };
   };
 
-  services.caddy.virtualHosts."dns.${hostname}.home" = {
+  services.caddy.virtualHosts."dns.rsmyth.net" = {
     extraConfig = ''
-      tls internal
-      reverse_proxy :${toString cfg.port}
+      	@public not remote_ip private_ranges
+       	abort @public
+
+        reverse_proxy :${toString cfg.port}
     '';
   };
 }
