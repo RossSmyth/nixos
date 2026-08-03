@@ -6,5 +6,18 @@ shift
 
 nixpkgs="$(npins get-path nixpkgs)"
 
-sudo nixos-rebuild "$cmd" -I nixpkgs="$nixpkgs" --log-format internal-json --show-trace --attr "$(hostname)" "$@" |& nom --json
+elevCmd=""
+case "$cmd" in
+  switch|boot|test)
+    if command -v run0 &> /dev/null; then
+      elevCmd="run0"
+    else
+      elevCmd="sudo"
+    fi
+    ;;
+  *)
+    ;;
+esac
+
+"$elevCmd" nixos-rebuild "$cmd" -I nixpkgs="$nixpkgs" --log-format internal-json --show-trace --attr "$(hostname)" "$@" |& nom --json
 popd || exit
