@@ -12,6 +12,7 @@ case "$cmd" in
     if command -v run0 &> /dev/null; then
       elevCmd="run0"
     else
+      echo "Using sudo, not run0"
       elevCmd="sudo"
     fi
     ;;
