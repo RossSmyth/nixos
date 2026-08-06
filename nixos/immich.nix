@@ -40,7 +40,7 @@ in
         preset = "slow";
         # What to transcode to
         targetAudioCodec = "opus";
-        targetVideoCodac = "av1";
+        targetVideoCodec = "av1";
       };
 
       # Encode the preview in webp
