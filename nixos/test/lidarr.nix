@@ -141,7 +141,7 @@ in
         ];
 
         CapabilityBoundingSet = "";
-        RestrictAddresFamilies = [
+        RestrictAddressFamilies = [
           "AF_UNIX"
           "AF_INET"
           "AF_INET6"
@@ -181,7 +181,7 @@ in
         RestrictNamespaces = true;
 
         # Networking
-        SocketBindDeny = "deny";
+        SocketBindDeny = "any";
         SocketBindAllow = "tcp:${toString cfg.settings.server.port}"; # Only allow binding the specified port
         SystemCallErrorNumber = "EPERM";
       };
