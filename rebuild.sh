@@ -9,11 +9,11 @@ nixpkgs="$(npins get-path nixpkgs)"
 elevCmd=""
 case "$cmd" in
   switch|boot|test)
-    if command -v run0 &> /dev/null; then
-      elevCmd="run0"
-    else
-      echo "Using sudo, not run0"
+    if command -v sudo &> /dev/null; then
+      echo "Warning: Using sudo, not run0"
       elevCmd="sudo"
+    else
+      elevCmd="run0"
     fi
     ;;
   *)
