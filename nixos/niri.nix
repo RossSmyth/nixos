@@ -73,7 +73,7 @@ in
     XDG_SESSION_DESKTOP = "niri";
   };
   programs.niri = {
-    package = pkgs.niri-unstable;
+    package = pkgs.niri;
     enable = true;
   };
 }
