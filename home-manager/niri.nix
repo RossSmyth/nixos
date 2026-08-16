@@ -31,13 +31,8 @@ in
     enable = true;
     terminal = lib.getExe config.programs.ghostty.package;
     modes = [
-      "run"
       "drun"
-      "combi"
     ];
-    extraConfig = {
-      combi-modes = "run,drun";
-    };
   };
 
   # Lock screen
