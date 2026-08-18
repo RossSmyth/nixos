@@ -5,6 +5,12 @@
     # I never use kexec and do not plan on it.
     protectKernelImage = true;
 
+    # TODO: Experiment with this
+    # Disable loading kernel modules.
+    # This works by essentially just waiting until userspace is fully loaded,
+    # then disabling loading them. So any more needed must be declared.
+    # lockKernelModules = true;
+
     polkit.enable = true;
 
     # Another SUID bites the dust
