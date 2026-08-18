@@ -1,10 +1,16 @@
 {
   # Required for Run0 & Sway
-  security.polkit.enable = true;
+  security = {
+    # Essentially disable kexec.
+    # I never use kexec and do not plan on it.
+    protectKernelImage = true;
 
-  # Another SUID bites the dust
-  security.wrappers.pkexec.enable = false;
-  
+    polkit.enable = true;
+
+    # Another SUID bites the dust
+    wrappers.pkexec.enable = false;
+  };
+
   # Only use the good stuff
   programs.ssh.ciphers = [
     "chacha20-poly1305@openssh.com"
