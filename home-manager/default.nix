@@ -14,6 +14,7 @@ extraModules:
     ./shell.nix
     ./fish.nix
     ./starship.nix
+    ./btop.nix
     (inputs.nix-index-database + "/home-manager-module.nix")
   ]
   ++ extraModules;
