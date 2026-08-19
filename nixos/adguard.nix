@@ -63,7 +63,7 @@ in
         serve_http3 = true;
         use_http3_upstreams = true;
         upstream_dns = [
-          "tls://dns10.quad9.net"
+          "quic://dns10.quad9.net"
           "https://dns10.quad9.net/dns-query"
         ];
         bootstrap_prefer_ipv6 = true;
@@ -76,6 +76,8 @@ in
           "1.1.1.1"
         ];
         fallback_dns = [
+          "https://cloudflare-dns.com"
+          "https://dns.google/dns-query"
           "one.one.one.one"
           "dns.google"
         ];
