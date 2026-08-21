@@ -9,6 +9,13 @@
     # limit set. So this means it has spent a longer time
     # than that going up to the limit. So 5 seconds at the
     # limit should be long enough.
+    #
+    # And note that PSI is calculated on a 10 second
+    # rolling window. So if PSI does somehow immediatly get
+    # pinned to limit + 1%, it will still take 15 seconds.
+    #
+    # May lower this to zero or 1? Will need to live with it
+    # for a while.
     settings.OOM.DefaultMemoryPressureDurationSec = 5;
   };
 
