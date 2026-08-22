@@ -103,7 +103,7 @@ in
         "Mod+D".action.spawn = [
           "rofi"
           "-show"
-          "combi"
+          "drun"
         ];
         # session
         "Mod+Alt+P".action.spawn = "poweroff";
