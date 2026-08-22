@@ -105,6 +105,9 @@ in
           "-show"
           "drun"
         ];
+        "Mod+E".action.spawn = [
+          (lib.getExe pkgs.rofimoji)
+        ];
         # session
         "Mod+Alt+P".action.spawn = "poweroff";
         "Mod+Alt+R".action.spawn = "reboot";
