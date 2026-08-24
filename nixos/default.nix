@@ -7,6 +7,7 @@
     ./users.nix
     ./coreutils.nix
     ./oomd.nix
+    ./keyboard.nix
   ];
 
   i18n.defaultLocale = "en_US.UTF-8";
