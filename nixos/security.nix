@@ -15,6 +15,10 @@
 
     # Another SUID bites the dust
     wrappers.pkexec.enable = false;
+
+    # For this to be false, greetd must be used.
+    # This is true everywhere except WSL. 
+    # shadow.enable = false
   };
 
   # Only use the good stuff
