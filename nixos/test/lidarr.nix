@@ -64,7 +64,7 @@ in
           These paths specified will be created and owned by the lidarr service {option}`user` and {option}`group`.
           These paths must still be selected manually at initial start-up for library usage.
 
-          If addtional paths are required for the service that are not owned by the lidarr user,
+          If additional paths are required for the service that are not owned by the lidarr user,
           add them to {option}`config.systemd.services.lidarr.serviceConfig.BindReadOnlyPaths`
           or {option}`config.systemd.services.lidarr.serviceConfig.BindPaths`.
 
@@ -91,17 +91,12 @@ in
         mode = "0700";
       };
     }
-    // lib.listToAttrs (
-      map (p: {
-        name = "${p}";
-        value = {
-          d = {
-            inherit (cfg) user group;
-            mode = cfg.libraryPermissions;
-          };
-        };
-      }) cfg.libraryPaths
-    );
+    // lib.genAttrs cfg.libraryPath (_: {
+      d = {
+        inherit (cfg) user group;
+        mode = cfg.libraryPermissions;
+      };
+    });
 
     systemd.services.lidarr = {
       description = "Lidarr";
@@ -131,9 +126,7 @@ in
         # Paths for TLS and DNS
         BindReadOnlyPaths = [
           builtins.storeDir
-          "${config.security.pki.caBundle}:/etc/ssl/certs/ca-certificates.crt"
           "/etc"
-          "-/etc/resolv.conf"
         ]
         ++ lib.optionals config.services.resolved.enable [
           "/run/systemd/resolve/stub-resolv.conf"
@@ -142,7 +135,6 @@ in
 
         CapabilityBoundingSet = "";
         RestrictAddressFamilies = [
-          "AF_UNIX"
           "AF_INET"
           "AF_INET6"
         ];
