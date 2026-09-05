@@ -1,4 +1,4 @@
-{
+{ hostname, ... }: {
   imports = [
     ./nix.nix
     ./shell.nix
@@ -15,6 +15,7 @@
   systemd.coredump.enable = true;
   boot.tmp.cleanOnBoot = true;
   zramSwap.enable = true;
+  networking.hostName = hostname;
 
   # Use dbus-broker cause it's a bit better
   services.dbus.implementation = "broker";

@@ -20,7 +20,7 @@ in
       ./nixos/nvidia.nix
       ./nixos/bootloader.nix
       ./nixos/security.nix
-      ./nixos/networking.nix
+      ./nixos/wired.nix
       ./nixos/niri.nix
       ./nixos/steam.nix
       ./nixos/chromecast.nix
