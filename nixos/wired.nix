@@ -23,5 +23,8 @@
   # This broke local nameres I have setup.
   #
   # Disable so local resolution doesn't break
-  services.resolved.settings.Resolve.FallbackDNS = [ ];
+  services.resolved.settings.Resolve = {
+    FallbackDNS = [ ];
+    MulticastDNS = true;
+  };
 }
