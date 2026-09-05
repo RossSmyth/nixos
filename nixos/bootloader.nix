@@ -22,7 +22,11 @@
   boot.initrd.systemd.enable = true;
 
   # No perl messing with my /etc
-  system.etc.overlay.enable = true;
+  system.etc.overlay = {
+    enable = true;
+    # Let's give it a try.
+    mutable = false;
+  };
 
   # do stage2 init with nixos-init, a rust executable,
   # instead of a funny perl script
