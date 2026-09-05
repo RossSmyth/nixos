@@ -1,10 +1,4 @@
-{ hostname, pkgs, ... }:
-{
-  networking = {
-    networkmanager.enable = true;
-    hostName = hostname;
-  };
-
+{ pkgs, ... }: {
   hardware.bluetooth.enable = true;
   environment.defaultPackages = with pkgs; [
     bluetui
