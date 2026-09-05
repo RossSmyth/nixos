@@ -23,7 +23,6 @@ in
       ./nixos/wired.nix
       ./nixos/niri.nix
       ./nixos/steam.nix
-      ./nixos/chromecast.nix
       ./nixos/g920.nix
     ];
   };
@@ -65,7 +64,6 @@ in
       ./nixos/security.nix
       ./nixos/networking.nix
       ./nixos/niri.nix
-      ./nixos/chromecast.nix
     ];
   };
   trent = mkMachine {
