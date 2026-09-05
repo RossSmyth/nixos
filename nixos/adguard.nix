@@ -78,8 +78,8 @@ in
         fallback_dns = [
           "https://cloudflare-dns.com"
           "https://dns.google/dns-query"
-          "one.one.one.one"
-          "dns.google"
+          "https://cloudflare-dns.com"
+          "https://dns.google/dns-query"
         ];
       };
     };
