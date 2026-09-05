@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set +Eeuo pipefail
 
 pushd "$(dirname "$0")" || exit
 cmd="${1:-"dry-build"}"
@@ -17,6 +18,7 @@ case "$cmd" in
     fi
     ;;
   *)
+    elevCmd="command"
     ;;
 esac
 
