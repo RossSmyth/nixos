@@ -27,7 +27,10 @@
     nixPath = [ "nixpkgs=/etc/nixos/nixpkgs" ];
     settings = {
       trusted-users = [ user ];
-      experimental-features = "nix-command flakes";
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
       nix-path = config.nix.nixPath;
       accept-flake-config = true;
       auto-optimise-store = true;
