@@ -15,6 +15,11 @@
         DHCP = "ipv4";
         IPv6AcceptRA = true;
       };
+      # My router IPv6 DNS setup is dumb,
+      # so I cannot reliably make it work
+      # and it breaks my local nameres.
+      ipv6AcceptRAConfig.UseDNS = false;
+      dhcpV6Config.UseDNS = false;
     };
   };
 
