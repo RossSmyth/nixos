@@ -91,7 +91,7 @@ in
         mode = "0700";
       };
     }
-    // lib.genAttrs cfg.libraryPath (_: {
+    // lib.genAttrs cfg.libraryPaths (_: {
       d = {
         inherit (cfg) user group;
         mode = cfg.libraryPermissions;
