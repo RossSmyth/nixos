@@ -1,7 +1,4 @@
 { config, lib, ... }:
-let
-  isWsl = config.wsl.enable or false;
-in
 {
   imports = [
     ./networking.nix
@@ -14,7 +11,7 @@ in
     enable = true;
     networks."10-wan" = {
       # UHHHHHHHHH
-      matchConfig.Type = "ether" + lib.optionalString isWsl " wlan";
+      matchConfig.Type = "ether";
       networkConfig = {
         DHCP = "ipv4";
         IPv6AcceptRA = true;
@@ -34,8 +31,5 @@ in
   # Disable so local resolution doesn't break
   services.resolved.settings.Resolve = {
     MulticastDNS = true;
-  }
-  // lib.optionalAttrs (!isWsl) {
-    FallbackDNS = [ ];
   };
 }
