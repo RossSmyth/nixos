@@ -32,6 +32,8 @@ in
       ./nixos/fonts.nix
       ./nixos/wsl.nix
       ./nixos/tmpfsTmp.nix
+      # ?
+      ./nixos/wired.nix
     ];
   };
   riscy = mkMachine {
