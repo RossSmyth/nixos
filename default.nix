@@ -106,6 +106,7 @@ in
       ./nixos/lidarr.nix
       ./nixos/navidrome.nix
       ./nixos/adguard.nix
+      ./nixos/wired.nix
     ];
   };
 }
