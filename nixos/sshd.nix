@@ -13,11 +13,12 @@
     };
 
     # Keys for agenix
+    # Migration: cp key from etc to /var/lib/ssh before activation
     hostKeys = [
       {
         type = "ed25519";
         comment = "${user}@${hostname}";
-        path = "/etc/ssh/ssh_host_ed25519_key";
+        path = "/var/lib/ssh/ssh_host_ed25519_key";
       }
     ];
   };
