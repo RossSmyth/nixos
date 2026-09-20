@@ -9,6 +9,21 @@ in
     allowedUDPPorts = [ 53 ];
   };
 
+  # Do not use systemd-resolved stub listener, use adguard
+  services.resolved.settings.Resolve = {
+    DNSStubListener = false;
+    DNS = config.services.adguardhome.host;
+    # If adguard is not up, or down for some reason, fallback
+    # to quad9
+    FallbackDNS = [
+      "2620:fe::10#dns10.quad9.net"
+      "9.9.9.10#dns10.quad9.net"
+    ];
+  };
+
+  # Do not use DHCP-provided DNS, use resolved->adguard
+  systemd.network.networks."10-wan".dhcpV4Config.UseDNS = false;
+
   services.adguardhome = {
     enable = true;
     mutableSettings = false;
