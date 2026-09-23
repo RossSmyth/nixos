@@ -73,17 +73,10 @@ in
       ./nixos/fonts.nix
       ./nixos/run0.nix
       ./nixos/sound.nix
-      ./nixos/nvidia.nix
       ./nixos/bootloader.nix
       ./nixos/security.nix
       ./nixos/sshd.nix
-      ./nixos/torrent.nix
       ./nixos/networking.nix
-      ./nixos/jellyfin.nix
-      ./nixos/cuda.nix
-      ./nixos/cats.nix
-      ./nixos/silly.nix
-      ./nixos/caddy.nix
     ];
   };
   jammy = mkMachine {
