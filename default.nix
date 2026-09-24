@@ -76,7 +76,7 @@ in
       ./nixos/bootloader.nix
       ./nixos/security.nix
       ./nixos/sshd.nix
-      ./nixos/networking.nix
+      ./nixos/wired.nix
       ./nixos/minecraft.nix
     ];
   };
