@@ -77,6 +77,7 @@ in
       ./nixos/security.nix
       ./nixos/sshd.nix
       ./nixos/networking.nix
+      ./nixos/minecraft.nix
     ];
   };
   jammy = mkMachine {
