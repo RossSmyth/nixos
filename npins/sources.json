@@ -93,6 +93,19 @@
       "url": "https://github.com/nix-community/nix-index-database/archive/a74e173407559083a412ea89a1cc58ea389c3b65.tar.gz",
       "hash": "sha256-xVstyCdg0DpzjyrEacm72VJAIP9DMhfWJdPDzhWxHuo="
     },
+    "nix-minecraft": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Infinidoge",
+        "repo": "nix-minecraft"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "2e6a1d1ceb4da6b6ffb3980bc7993b3d057cd4db",
+      "url": "https://github.com/Infinidoge/nix-minecraft/archive/2e6a1d1ceb4da6b6ffb3980bc7993b3d057cd4db.tar.gz",
+      "hash": "sha256-luzO2Bo/RxUHqTPxBttSB1QVzM9Y5s+Iwpip6SjWdWo="
+    },
     "nixos-hardware": {
       "type": "Git",
       "repository": {
