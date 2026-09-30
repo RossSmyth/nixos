@@ -35,17 +35,6 @@ in
       ./nixos/networking.nix
     ];
   };
-  riscy = mkMachine {
-    target = "riscv64-linux";
-    fromSource = false;
-    hostname = "riscy";
-    nixModules = [
-      ./nixos/run0.nix
-      ./nixos/bootloader.nix
-      ./nixos/security.nix
-      ./nixos/sshd.nix
-    ];
-  };
   aurora = mkMachine {
     hostname = "aurora";
     hmModules = [
