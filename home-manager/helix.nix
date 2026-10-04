@@ -4,11 +4,25 @@
   inputs,
   ...
 }:
+let
+  helix-src = pkgs.stdenvNoCC.mkDerivation {
+    name = "helix-patched";
+    src = inputs.helix;
+    nativeBuildInputs = [ pkgs.dasel ];
+    buildPhase = ''
+      cat languages.toml | dasel -i toml --root 'grammar = grammar.filter($this.name != "perl")' > languages.toml.new
+      mv languages.toml.new languages.toml
+
+      mkdir -p "$out"
+      cp -r . "$out"
+    '';
+  };
+in
 {
   programs.helix = {
     enable = true;
     defaultEditor = true;
-    package = pkgs.callPackage "${inputs.helix}" { gitRev = inputs.helix.revision; };
+    package = pkgs.callPackage helix-src { gitRev = inputs.helix.revision; };
     settings = {
       theme = "bogsher";
 
