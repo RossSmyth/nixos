@@ -22,9 +22,9 @@
       },
       "branch": "unstable",
       "submodules": false,
-      "revision": "c59305bab2065cfecc4944690d9eedbb56f3a9fa",
-      "url": "https://github.com/flox/nixpkgs/archive/c59305bab2065cfecc4944690d9eedbb56f3a9fa.tar.gz",
-      "hash": "sha256-69xHQhAeMAD2wDXO7T2pcOZIF9Sga2W+JkmY2a11Ops="
+      "revision": "6510408d147d8c5e6d76043e899e9251756f6a75",
+      "url": "https://github.com/flox/nixpkgs/archive/6510408d147d8c5e6d76043e899e9251756f6a75.tar.gz",
+      "hash": "sha256-XK4KceonkwD8LuMAt/vNrz982mXJM5jeHAxMwsUXXAQ="
     },
     "flake-compat": {
       "type": "Git",
@@ -62,9 +62,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "acd21c5a3420a9d5fd0ed06299b10828267ef9ba",
-      "url": "https://github.com/nix-community/home-manager/archive/acd21c5a3420a9d5fd0ed06299b10828267ef9ba.tar.gz",
-      "hash": "sha256-ZN+riaeFuE+DZ5zfqJiXlM12jLwZzeIXiNkU1YeHMXI="
+      "revision": "c58f54c733a7894d84fa2fdff26cc12088c4b78c",
+      "url": "https://github.com/nix-community/home-manager/archive/c58f54c733a7894d84fa2fdff26cc12088c4b78c.tar.gz",
+      "hash": "sha256-0bK0A59rVUn1SRZzo4cNi4VSqAe7vR1gL2/MZl53Frw="
     },
     "niri": {
       "type": "Git",
@@ -89,9 +89,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "161d7c91accd93034bb3c295224d9d895a778573",
-      "url": "https://github.com/nix-community/nix-index-database/archive/161d7c91accd93034bb3c295224d9d895a778573.tar.gz",
-      "hash": "sha256-Gbf/U9ptJhQh0qnDnJ/+a8MAcq1HXunbArUTHR2wNYk="
+      "revision": "e740bc4e9d8918d7819a51486d5099930c65c72e",
+      "url": "https://github.com/nix-community/nix-index-database/archive/e740bc4e9d8918d7819a51486d5099930c65c72e.tar.gz",
+      "hash": "sha256-oTM7QFgRQ+vxBpMBMc7hEYpqBtpXAzXu2xuB/tru84U="
     },
     "nix-minecraft": {
       "type": "Git",
@@ -102,9 +102,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "15f02916e989d84c2f98decea633088172cba435",
-      "url": "https://github.com/Infinidoge/nix-minecraft/archive/15f02916e989d84c2f98decea633088172cba435.tar.gz",
-      "hash": "sha256-3XyjQy3s0BYua+/27AzAP2MpMtOekEGnQ7HND5onivY="
+      "revision": "2b3de3195966ba80499063064dca608c805cb34a",
+      "url": "https://github.com/Infinidoge/nix-minecraft/archive/2b3de3195966ba80499063064dca608c805cb34a.tar.gz",
+      "hash": "sha256-rsNrfGjPl6gZ9xLA4JuxErUuzXG3i0eVEPt7R+g2/es="
     },
     "nixos-hardware": {
       "type": "Git",
@@ -115,9 +115,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "0953bb1a609df63013176e3463393f8df993d3ef",
-      "url": "https://github.com/nixos/nixos-hardware/archive/0953bb1a609df63013176e3463393f8df993d3ef.tar.gz",
-      "hash": "sha256-fDMYyzY1lI5b8RuCMrvoaIgTeRwNnTG4dNk1ucROlQE="
+      "revision": "4bc63156b109ee7b4103e3ec30565c8c92bde435",
+      "url": "https://github.com/nixos/nixos-hardware/archive/4bc63156b109ee7b4103e3ec30565c8c92bde435.tar.gz",
+      "hash": "sha256-c3oMt0QoE+4yiRk6u1m2L9ogjaUw0uTGn9yk808KkgE="
     },
     "nixos-wsl": {
       "type": "Git",
@@ -136,8 +136,8 @@
       "type": "Channel",
       "name": "nixos-unstable",
       "artifact": "nixexprs.tar.zst",
-      "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1083223.c59305bab206/nixexprs.tar.zst",
-      "hash": "sha256-VBA0QerzzmL+4wxgtwiCdiLwLpJg2/9xOxhgO3BRJQA="
+      "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1089111.6510408d147d/nixexprs.tar.zst",
+      "hash": "sha256-V0WmebqwEeAVZMqxfv7Dq7hpKkPPM19W50xQf3D1Kf4="
     }
   },
   "version": 8
