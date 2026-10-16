@@ -51,6 +51,5 @@
     git
     nom
     npins
-    colmena
   ];
 }
