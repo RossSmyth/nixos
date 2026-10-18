@@ -24,13 +24,14 @@
 
   nix = {
     package = pkgs.lixPackageSets.git.lix;
+    nixPath = [ "nixpkgs=/etc/nixos/nixpkgs" ];
     settings = {
       trusted-users = [ user ];
       experimental-features = [
         "nix-command"
         "flakes"
       ];
-      nix-path = [ "nixpkgs=/etc/nixos/nixpkgs" ];
+      nix-path = config.nix.nixPath;
       accept-flake-config = true;
       auto-optimise-store = true;
       keep-derivations = true;
