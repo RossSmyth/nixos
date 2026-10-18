@@ -27,8 +27,8 @@ in
   services.adguardhome = {
     enable = true;
     mutableSettings = false;
-    host = "127.0.0.1";
     settings = {
+      http.address = "127.0.0.1:3000";
       filters = [
         {
           name = "Hagezi DNS PRO";
@@ -104,6 +104,6 @@ in
     	@public not remote_ip private_ranges
      	abort @public
 
-      reverse_proxy :${toString cfg.port}
+      reverse_proxy ${toString cfg.settings.http.address}
   '';
 }
