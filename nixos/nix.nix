@@ -23,7 +23,7 @@
   };
 
   nix = {
-    package = pkgs.lixPackageSets.git.lix;
+    package = pkgs.lixPackageSets.lix_2_96.lix;
     nixPath = [ "nixpkgs=/etc/nixos/nixpkgs" ];
     settings = {
       trusted-users = [ user ];
