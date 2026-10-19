@@ -51,5 +51,6 @@
     git
     nom
     npins
+    dix
   ];
 }
