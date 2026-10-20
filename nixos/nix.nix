@@ -18,6 +18,9 @@
         comma = prev.comma.override {
           nix = config.nix.package;
         };
+        nix-prefetch-docker = prev.nix-prefetch-docker.override {
+          nix = config.nix.package;
+        };
       })
     ];
   };
