@@ -23,7 +23,8 @@ in
       ./nixos/wired.nix
       ./nixos/niri.nix
       ./nixos/steam.nix
-      ./nixos/g920.nix
+      # Broken for now
+      # ./nixos/g920.nix
     ];
   };
   work = mkMachine {
