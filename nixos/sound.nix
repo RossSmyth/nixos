@@ -38,7 +38,7 @@
   '';
 
   # To select bluetooth codecs
-  environment.defaultPackages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     wiremix
   ];
 }

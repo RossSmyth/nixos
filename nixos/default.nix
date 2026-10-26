@@ -1,4 +1,4 @@
-{ hostname, ... }: {
+{ hostname, lib, ... }: {
   imports = [
     ./nix.nix
     ./shell.nix
@@ -9,6 +9,9 @@
     ./oomd.nix
     ./keyboard.nix
   ];
+
+  # Remove random dumb default crap
+  environment.defaultPackages = lib.mkForce [ ];
 
   i18n.defaultLocale = "en_US.UTF-8";
   time.timeZone = "America/Detroit";
