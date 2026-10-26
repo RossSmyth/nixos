@@ -18,9 +18,6 @@
   # Hold space to access the boot menu
   boot.loader.timeout = 0;
 
-  # Use systemd in initrd
-  boot.initrd.systemd.enable = true;
-
   # No perl messing with my /etc
   system.etc.overlay = {
     enable = true;
