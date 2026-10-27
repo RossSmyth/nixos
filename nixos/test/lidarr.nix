@@ -167,7 +167,7 @@ in
         ProtectKernelModules = true;
         ProtectHostname = true;
         ProtectKernelTunables = true;
-        ProtectControlGroup = true;
+        ProtectControlGroups = true;
         RemoveIPC = true;
         RestrictRealtime = true;
         RestrictNamespaces = true;
