@@ -7,6 +7,8 @@
 
     handle_path /premium* {
       root * /var/www/dynasty
+
+      encode
       file_server
     }
 

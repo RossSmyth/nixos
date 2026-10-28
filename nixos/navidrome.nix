@@ -74,6 +74,7 @@ in
   };
 
   services.caddy.virtualHosts."music.rsmyth.net".extraConfig = ''
+    encode
     reverse_proxy unix//${config.systemd.services.navidrome.serviceConfig.RootDirectory}/server.socket
   '';
 }

@@ -75,6 +75,7 @@ in
 
   # Expose to the world
   services.caddy.virtualHosts."photos.rsmyth.net".extraConfig = ''
+    encode
     reverse_proxy localhost:${toString cfg.port}
   '';
 }

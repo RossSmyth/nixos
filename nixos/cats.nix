@@ -11,6 +11,7 @@
 
   services.caddy.virtualHosts."cats.rsmyth.net".extraConfig = ''
     root /var/www/cats
+    encode
     file_server
   '';
 }

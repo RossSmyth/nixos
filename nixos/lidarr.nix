@@ -47,6 +47,7 @@ in
     	@public not remote_ip private_ranges
      	abort @public
 
+      encode
       reverse_proxy :${toString cfg.settings.server.port}
   '';
 
