@@ -20,10 +20,12 @@
   # Launcher
   programs.rofi = {
     enable = true;
-    terminal = lib.getExe config.programs.ghostty.package;
-    modes = [
-      "drun"
-    ];
+    settings = {
+      terminal = lib.getExe config.programs.ghostty.package;
+      modes = [
+        "drun"
+      ];
+    };
   };
 
   # Lock screen
