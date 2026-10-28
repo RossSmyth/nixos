@@ -53,20 +53,6 @@
       "url": "https://github.com/nix-community/home-manager/archive/c216bf5a1f173b0481bd5c8c489ebe5595ecc68c.tar.gz",
       "hash": "sha256-/0tELNnhdSnP+bHSdWiEe6KpfSwi6WrTnT9cm/jNkjA="
     },
-    "niri": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "sodiboo",
-        "repo": "niri-flake"
-      },
-      "branch": "main",
-      "submodules": false,
-      "revision": "6bb99ff875919f03ea6054026619d999061e1170",
-      "url": "https://github.com/sodiboo/niri-flake/archive/6bb99ff875919f03ea6054026619d999061e1170.tar.gz",
-      "hash": "sha256-SJMCfh5EpYODlHiexbN8C5JAatFuvb0CERLbxL8P8vM=",
-      "frozen": true
-    },
     "nix-index-database": {
       "type": "Git",
       "repository": {
