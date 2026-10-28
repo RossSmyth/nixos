@@ -14,6 +14,7 @@
       pkgs.jaq
       pkgs.hexyl
       pkgs._7zz
+      pkgs.file
     ]
     ++ lib.optionals (!pkgs.stdenv.hostPlatform.isRiscV) [
       pkgs.nix-output-monitor
