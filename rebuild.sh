@@ -28,5 +28,5 @@ esac
 popd || exit
 
 if $run_diff; then
-  dix /run/booted-system /run/current-system || true
+  dix diff /run/booted-system /run/current-system || true
 fi
