@@ -17,7 +17,6 @@
       imports = [
         ./security.nix
         ./run0.nix
-        ./coreutils.nix
       ];
 
       services.caddy = {

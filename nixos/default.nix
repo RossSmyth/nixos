@@ -36,7 +36,6 @@ in
     ./security.nix
     ./networking.nix
     ./users.nix
-    ./coreutils.nix
     ./oomd.nix
     ./keyboard.nix
   ];
