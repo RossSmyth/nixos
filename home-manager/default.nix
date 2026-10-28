@@ -5,6 +5,20 @@ extraModules:
   pkgs,
   ...
 }:
+let
+  # Pulls a Nixpkgs PR and attempts to apply it.
+  nixpkgs-pr-puller = pkgs.writers.writeBashBin "pr-patch" {
+    makeWrapperArgs = [
+      "--prefix"
+      "PATH"
+      ":"
+      (lib.makeBinPath [
+        pkgs.curl
+        pkgs.patch
+      ])
+    ];
+  } ./scripts/pr.sh;
+in
 {
   imports = [
     ./helix.nix
@@ -33,6 +47,10 @@ extraModules:
     enable = true;
     tray = "never";
   };
+
+  home.packages = [
+    nixpkgs-pr-puller
+  ];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "24.05";
