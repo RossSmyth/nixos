@@ -13,19 +13,6 @@
       "url": "https://github.com/ryantm/agenix/archive/5e5b88a0c8e56f291a108c2fe9934054d9745b2e.tar.gz",
       "hash": "sha256-8tKjSQajD3mUND1GaAuaWTcuyUpgcGsh5V+l4ibzC7U="
     },
-    "cuda-nixpkgs": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "flox",
-        "repo": "nixpkgs"
-      },
-      "branch": "unstable",
-      "submodules": false,
-      "revision": "3ec636362e1816bc2f0888fa0fa2c69f1bc9e504",
-      "url": "https://github.com/flox/nixpkgs/archive/3ec636362e1816bc2f0888fa0fa2c69f1bc9e504.tar.gz",
-      "hash": "sha256-rZLrzrC6i+jnTAlvPZHogKDulY7WWDEv9hJeHieO7Zw="
-    },
     "flake-compat": {
       "type": "Git",
       "repository": {
