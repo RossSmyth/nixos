@@ -32,6 +32,8 @@ let
       ])
     ];
   } ./scripts/scrape-hydra.sh;
+
+  isolated = pkgs.writers.writeBashBin "isolated" { } ./scripts/scrape-hydra.sh;
 in
 {
   home = {
@@ -46,6 +48,7 @@ in
       pkgs.file
       nixpkgs-pr-puller
       hydra-log-scraper
+      isolated
     ]
     ++ lib.optionals (!pkgs.stdenv.hostPlatform.isRiscV) [
       pkgs.nix-output-monitor
