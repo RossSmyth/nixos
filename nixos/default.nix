@@ -2,6 +2,7 @@
   hostname,
   lib,
   pkgs,
+  user,
   ...
 }:
 let
@@ -61,6 +62,20 @@ in
 
   # So I can have disks mounted when plugged in
   services.udisks2.enable = true;
+
+  # Hostkeys for identifying machines
+  # Keys for agenix
+  # Migration: cp key from etc to /var/lib/ssh before activation
+  services.openssh = {
+    generateHostKeys = true;
+    hostKeys = [
+      {
+        type = "ed25519";
+        comment = "${user}@${hostname}";
+        path = "/var/lib/ssh/ssh_host_ed25519_key";
+      }
+    ];
+  };
 
   system.stateVersion = "24.05";
 
