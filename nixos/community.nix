@@ -68,7 +68,7 @@ let
     format.generate "machines.toml" (lib.filterAttrsRecursive (_: v: v != null) buildMachines);
 
   use-comm = pkgs.writers.writeBashBin "comm-build" ''
-    nom build --builders-use-substitutes -j0 --builders "@${builders}" "$@"
+    nom build --eval-store auto --builders-use-substitutes -j0 --builders "@${builders}" "$@"
   '';
 
 in
