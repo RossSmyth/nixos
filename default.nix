@@ -14,6 +14,8 @@ in
       ./home-manager/ffmpeg.nix
     ];
     nixModules = [
+      ./nixos/agenix.nix
+      ./nixos/community.nix
       ./nixos/fonts.nix
       ./nixos/run0.nix
       ./nixos/sound.nix
@@ -46,6 +48,8 @@ in
       ./home-manager/mpv.nix
     ];
     nixModules = [
+      ./nixos/agenix.nix
+      ./nixos/community.nix
       ./nixos/fonts.nix
       ./nixos/run0.nix
       ./nixos/sound.nix

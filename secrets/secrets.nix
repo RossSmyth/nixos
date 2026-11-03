@@ -26,4 +26,8 @@ in
     jammy
     aurora
   ];
+  "community.age".publicKeys = [
+    desktop
+    aurora
+  ];
 }
