@@ -8,7 +8,7 @@ let
   buildMachines.machines = {
     comm = {
       enable = true;
-      jobs = 24;
+      jobs = 6;
       uri = "ssh-ng://rsmyth@build-box.nix-community.org";
       ssh-key = config.age.secrets.community.path;
       supported-features = [
