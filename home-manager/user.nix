@@ -33,7 +33,7 @@ let
     ];
   } ./scripts/scrape-hydra.sh;
 
-  isolated = pkgs.writers.writeBashBin "isolated" { } ./scripts/scrape-hydra.sh;
+  isolated = pkgs.writers.writeBashBin "isolated" { } ./scripts/isolated.sh;
 in
 {
   home = {
