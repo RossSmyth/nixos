@@ -1,17 +1,11 @@
-{ config, ... }: {
-  imports = [
-    ./agenix.nix
-  ];
-
-  # IdentityFile
-  age.secrets.community = {
-    file = ../secrets/community.age;
-    mode = "400";
-    group = config.nix.daemonGroup;
-    owner = config.nix.daemonUser;
-  };
-
-  lix.buildMachines.machines = {
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+let
+  buildMachines.machines = {
     comm = {
       enable = true;
       jobs = 24;
@@ -66,4 +60,32 @@
       ssh-public-host-key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKMHhlcn7fUpUuiOFeIhDqBzBNFsbNqq+NpzuGX3e6zv";
     };
   };
+
+  builders =
+    let
+      format = pkgs.formats.toml { };
+    in
+    format.generate "machines.toml" (lib.filterAttrsRecursive (_: v: v != null) buildMachines);
+
+  use-comm = pkgs.writers.writeBashBin "comm-build" ''
+    nom build --builders-use-substitutes -j0 --builders "@${builders}" "$@"
+  '';
+
+in
+{
+  imports = [
+    ./agenix.nix
+  ];
+
+  # IdentityFile
+  age.secrets.community = {
+    file = ../secrets/community.age;
+    mode = "400";
+    group = config.nix.daemonGroup;
+    owner = config.nix.daemonUser;
+  };
+
+  environment.systemPackages = [
+    use-comm
+  ];
 }

@@ -29,14 +29,6 @@
     package = pkgs.lixPackageSets.lix_2_96.lix;
     nixPath = [ "nixpkgs=/etc/nixos/nixpkgs" ];
     settings = {
-      builders =
-        let
-          format = pkgs.formats.toml { };
-          configFile = format.generate "machines.toml" (
-            lib.filterAttrsRecursive (_: v: v != null) config.lix.buildMachines
-          );
-        in
-        lib.mkForce "@${configFile}";
       trusted-users = [ user ];
       experimental-features = [
         "nix-command"
