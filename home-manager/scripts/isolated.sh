@@ -22,7 +22,7 @@ shift
 
 wayland=()
 if [[ $WAYLAND && $WAYLAND_DISPLAY ]]; then
-  wayland=("-p" "Environment=WAYLAND_DISPLAY=$WAYLAND_DISPLAY" "-p" "BindPaths=$XDG_RUNTIME_DIR/$WAYLAND_DISPLAY")
+  wayland=("-p" "Environment=WAYLAND_DISPLAY=$WAYLAND_DISPLAY" "-p" "BindPaths=$XDG_RUNTIME_DIR/$WAYLAND_DISPLAY" "-p" "BindReadOnlyPaths=/run/opengl-driver")
   USE_HOME=1
 fi
 
