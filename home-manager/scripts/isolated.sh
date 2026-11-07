@@ -1,5 +1,22 @@
 #!/usr/bin/env -S bash -Eeuo pipefail
 
+if [ $# -eq 0 ]; then
+    echo "Error: No program provided."
+    echo "To use:"
+    echo "> isolated result/bin/thing --some-flag"
+    echo ""
+    echo "Only works for things in the Nix store."
+    echo "The Nix store is mounted in the namespace, as it is not considered private."
+    echo ""
+    echo "Environment variables:"
+    echo ""
+    echo "\$WAYLAND := If set, passes the Wayland socket through."
+    echo "\$USE_HOME := If set, mounts the \$HOME dir read-only and sets \$HOME"
+    echo "\$NO_NETWORK := Defaults to 1, if explicitly set to 0 will disable the network namespace"
+    echo "\$NO_DEVICES := Defaults to 1, if explicitly set to 0 will mount /dev/ into the namespace"
+    exit 1
+fi
+
 bin="$(realpath "$1")"
 shift
 
@@ -10,8 +27,8 @@ if [[ $WAYLAND && $WAYLAND_DISPLAY ]]; then
 fi
 
 home=( "-p" "ProtectHome=1" )
-if [[ $USE_HOME ]]; then
-  home=( "-p" "ProtectHome=read-only" "-p" "BindReadOnlyPaths=$(pwd)" )
+if [[ $USE_HOME && $HOME ]]; then
+  home=( "-p" "ProtectHome=read-only" "-p" "BindReadOnlyPaths=$(pwd)" "-p" "Environment=HOME=$HOME")
 fi
 
 # Runs something within an empty namespace so that program don't add their junk to my home dir >:(
@@ -28,8 +45,8 @@ exec systemd-run --pipe -v --wait --collect --user \
   -p LockPersonality=1 \
   -p NoNewPrivileges=1 \
   -p PrivateMounts=1 \
-  -p PrivateNetwork="${NETWORK:-1}" \
-  -p PrivateDevices="${DEVICES:-1}" \
+  -p PrivateNetwork="${NO_NETWORK:-1}" \
+  -p PrivateDevices="${NO_DEVICES:-1}" \
   -p PrivateIPC=1 \
   -p PrivatePIDs=1 \
   -p PrivateTmp=1 \
