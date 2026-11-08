@@ -10,11 +10,11 @@ if [ $# -eq 0 ]; then
     echo ""
     echo "Environment variables:"
     echo ""
-    echo "\$WAYLAND := If set, passes the Wayland socket through."
+    echo "\$WAYLAND := If set, passes the Wayland socket through. This also implies \$USE_HOME for some reason, and mounts gl drivers"
     echo "\$USE_HOME := If set, mounts the \$HOME dir read-only and sets \$HOME"
-    echo "\$NO_NETWORK := Defaults to 1, if explicitly set to 0 will disable the network namespace"
-    echo "\$NO_DEVICES := Defaults to 1, if explicitly set to 0 will mount /dev/ into the namespace"
-    exit 1
+    echo "\$NETWORK := Defaults to 0, if set will disable the network namespace, and add resolv.conf & TLS certs to the sandbox"
+    echo "\$DEVICES := Defaults to 0, if set will mount /dev/ into the namespace"
+    exit 2
 fi
 
 bin="$(realpath "$1")"
@@ -36,12 +36,18 @@ if [[ $NETWORK ]]; then
   network=( "-p" "PrivateNetwork=0" "-p" "BindReadOnlyPaths=/etc/resolv.conf" "-p" "BindReadOnlyPaths=$(realpath "/etc/resolv.conf" || echo "/etc/resolv.conf")" "-p" "BindReadOnlyPaths=/etc/ssl")
 fi
 
+devices=( "-p" "PrivateDevices=1" )
+if [[ $DEVICES ]]; then
+  devices=( "-p" "PrivateDevices=0" )
+fi
+
 # Runs something within an empty namespace so that program don't add their junk to my home dir >:(
 # Not perfect at all. But sort of works.
 exec systemd-run --pipe -v --wait --collect --user \
   "${wayland[@]}" \
   "${home[@]}" \
   "${network[@]}" \
+  "${devices[@]}" \
   -p RuntimeDirectory=isolated \
   -p RootDirectory="$XDG_RUNTIME_DIR/isolated" \
   -p BindPaths=/nix/store \
@@ -51,7 +57,6 @@ exec systemd-run --pipe -v --wait --collect --user \
   -p LockPersonality=1 \
   -p NoNewPrivileges=1 \
   -p PrivateMounts=1 \
-  -p PrivateDevices="${NO_DEVICES:-1}" \
   -p PrivateIPC=1 \
   -p PrivatePIDs=1 \
   -p PrivateTmp=1 \
