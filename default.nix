@@ -76,6 +76,9 @@ in
   };
   jammy = mkMachine {
     hostname = "jammy";
+    hmModules = [
+      ./home-manager/beets.nix
+    ];
     nixModules = [
       ./nixos/agenix.nix
       ./nixos/fonts.nix
