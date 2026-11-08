@@ -34,6 +34,11 @@
     info.enable = false;
     nixos.enable = false;
   };
+  system.tools = {
+    nixos-generate-config.enable = false;
+    nixos-option.enable = false;
+    nixos-build-vms.enable = false;
+  };
 
   # So I can have disks mounted when plugged in
   services.udisks2.enable = true;
