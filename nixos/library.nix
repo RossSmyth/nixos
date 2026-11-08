@@ -1,7 +1,7 @@
 {
   # This needs to go somewhere else
   systemd.tmpfiles.settings."10-lib"."/media/lib".d = {
-    mode = "2755";
+    mode = "2775";
     user = "librarian";
     group = "librarian";
   };

@@ -15,6 +15,7 @@
       "networkmanager"
       "docker"
       "dialout"
+      "librarian"
     ];
   };
 }

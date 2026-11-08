@@ -21,6 +21,8 @@
         "replaygain"
         "fetchart"
         "musicbrainz"
+        "missing"
+        "info"
       ];
 
       fetchart = {
