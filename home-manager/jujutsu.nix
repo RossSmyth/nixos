@@ -55,8 +55,7 @@
       };
       fix.tools.nixfmt = {
         command = [
-          "comma"
-          "nixfmt"
+          "${lib.getExe pkgs.nixfmt}"
           "-"
         ];
         patterns = [ "glob:'**/*.nix'" ];

@@ -46,6 +46,7 @@ in
       pkgs.hexyl
       pkgs._7zz
       pkgs.file
+      pkgs.nixfmt
       nixpkgs-pr-puller
       hydra-log-scraper
       isolated
