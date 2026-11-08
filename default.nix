@@ -90,7 +90,7 @@ in
       ./nixos/cats.nix
       ./nixos/silly.nix
       ./nixos/immich.nix
-      ./nixos/lidarr.nix
+      ./nixos/library.nix
       ./nixos/navidrome.nix
       ./nixos/adguard.nix
       ./nixos/wired.nix

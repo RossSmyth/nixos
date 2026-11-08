@@ -14,8 +14,8 @@ in
 
   # Expose to the world
   # Need to be in the same group for UDS perms
-  users.users.navidrome.extraGroups = lib.mkIf config.services.lidarr.enable [
-    config.services.lidarr.group
+  users.users.navidrome.extraGroups = [
+    config.users.users.librarian.group
   ];
 
   services.navidrome = {
