@@ -31,11 +31,17 @@ if [[ $USE_HOME && $HOME ]]; then
   home=( "-p" "ProtectHome=read-only" "-p" "BindReadOnlyPaths=$(pwd)" "-p" "Environment=HOME=$HOME")
 fi
 
+network=( "-p" "PrivateNetwork=1" )
+if [[ $NETWORK ]]; then
+  network=( "-p" "PrivateNetwork=0" "-p" "BindReadOnlyPaths=/etc/resolv.conf" "-p" "BindReadOnlyPaths=$(realpath "/etc/resolv.conf" || echo "/etc/resolv.conf")" "-p" "BindReadOnlyPaths=/etc/ssl")
+fi
+
 # Runs something within an empty namespace so that program don't add their junk to my home dir >:(
 # Not perfect at all. But sort of works.
 exec systemd-run --pipe -v --wait --collect --user \
   "${wayland[@]}" \
   "${home[@]}" \
+  "${network[@]}" \
   -p RuntimeDirectory=isolated \
   -p RootDirectory="$XDG_RUNTIME_DIR/isolated" \
   -p BindPaths=/nix/store \
@@ -45,7 +51,6 @@ exec systemd-run --pipe -v --wait --collect --user \
   -p LockPersonality=1 \
   -p NoNewPrivileges=1 \
   -p PrivateMounts=1 \
-  -p PrivateNetwork="${NO_NETWORK:-1}" \
   -p PrivateDevices="${NO_DEVICES:-1}" \
   -p PrivateIPC=1 \
   -p PrivatePIDs=1 \
