@@ -6,16 +6,18 @@
   ...
 }:
 {
+  programs.mergiraf = {
+    enable = true;
+    enableJujutsuIntegration = true;
+    enableGitIntegration = true;
+  };
+
   programs.jujutsu = {
     enable = true;
     settings = {
-      revset-aliases = {
-        "merge_base(x, y)" = "fork_point(x | y)";
-      };
-      user = {
-        name = "Ross Smyth";
-        # Email is a per-repo thing.
-      };
+      revset-aliases."merge_base(x, y)" = "fork_point(x | y)";
+      # Email is a per-repo thing.
+      user.name = "Ross Smyth";
       ui = {
         default-command = [
           "log"
@@ -26,9 +28,7 @@
             (lib.getExe config.programs.less.package)
             "-FRX"
           ];
-          env = {
-            LESSCHARSET = "utf-8";
-          };
+          env.LESSCHARSET = "utf-8";
         };
       };
       diff.tool = "difft";
@@ -39,19 +39,6 @@
           "$left"
           "$right"
         ];
-      };
-      merge-tools.mergiraf = {
-        program = lib.getExe config.programs.mergiraf.package;
-        merge-args = [
-          "merge"
-          "$base"
-          "$left"
-          "$right"
-          "-o"
-          "$output"
-          "--fast"
-        ];
-        merge-conflict-exit-code = [ 1 ];
       };
       fix.tools.nixfmt = {
         command = [
