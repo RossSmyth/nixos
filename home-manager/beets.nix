@@ -23,6 +23,7 @@
         "musicbrainz"
         "missing"
         "info"
+        "lyrics"
       ];
 
       fetchart = {
@@ -55,6 +56,15 @@
           spotify = true;
           bandcamp = true;
         };
+      };
+
+      lyrics = {
+        sources = [
+          "lrclib"
+          "lrcmux"
+          "genius"
+        ];
+        synced = true;
       };
     };
   };
